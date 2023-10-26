@@ -11,11 +11,11 @@ public class HomePage {
     }
 
     @FindBy(xpath = "//*[@class='header_link ms-2']")
-    WebElement loginButonu;
+    public WebElement loginButonu;
 
     @FindBy (xpath = "//*[@id='username']")
-    WebElement loginUsernameBox;
+    public WebElement loginUsernameBox;
 
     @FindBy (xpath = "//*[@class='fw-semibold text-white bg-primary navbar-toggler collapsed']")
-    WebElement menu;
+    public WebElement menu;
 }
