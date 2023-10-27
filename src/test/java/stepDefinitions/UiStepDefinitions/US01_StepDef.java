@@ -18,7 +18,7 @@ public class US01_StepDef {
     RegisterPage registerPage=new RegisterPage();
     Faker faker=new Faker();
 
-    @Given("kullanici {string} e gider")
+    @Given("kullanici {string} e gider_SK")
     public void kullaniciEGider(String url) {
         Driver.getDriver().get(url);
 
@@ -27,224 +27,293 @@ public class US01_StepDef {
     public void verilenKullaniciWebSitesineGider() {
         Driver.getDriver().get(ConfigReader.getProperty("schoolsUrl"));
     }*/
-    @And("kullanici Register butonuna tiklar")
+    @And("kullanici Register butonuna tiklar_SK")
     public void kullaniciRegisterButonunaTiklar() {
         registerPage=new RegisterPage();
         ReusableMethods.click(registerPage.registerButton_SK);
     }
-    @And("kullanici name alanina isim girer")
+    @And("kullanici name alanina isim girer_SK")
     public void kullaniciNameAlaninaIsimGirer() {
+        ReusableMethods.bekle(1);
         registerPage.nameKutusu_SK.sendKeys(faker.name().firstName());
     }
-    @And("kullanici surname alanina soyisim girer")
+    @And("kullanici surname alanina soyisim girer_SK")
     public void kullaniciSurnameAlaninaSoyisimGirer() {
+        ReusableMethods.bekle(1);
         registerPage.surnameKutusu_SK.sendKeys(faker.name().lastName());
     }
-    @And("kullanici Birth Place alanina dogum yeri girer")
+    @And("kullanici Birth Place alanina dogum yeri girer_SK")
     public void kullaniciBirthPlaceAlaninaDogumYeriGirer() {
+        ReusableMethods.bekle(1);
         registerPage.birthPlaceKutusu_SK.sendKeys(faker.country().name());
     }
-    @And("kullanici Phone Number alanina telefonnumarasi girer")
+    @And("kullanici Phone Number alanina telefonnumarasi girer_SK")
     public void kullaniciPhoneNumberAlaninaTelefonnumarasiGirer() {
+        ReusableMethods.bekle(1);
         registerPage.phoneNumberKutusu_SK.sendKeys(generateFakePhoneNumber());
     }
-    @And("kullanici Gender alanindan cinsiyet secer")
+    //FAKE phone number method
+    public static String generateFakePhoneNumber() {
+        Random random = new Random();
+
+        int birinciBolum = 100 + random.nextInt(900); // 100 ile 999 arasında rastgele bir sayı
+        int ikinciBolum = 100 + random.nextInt(999); // 100 ile 999 arasında rastgele bir sayı
+        int ucuncuBolum = 1000 + random.nextInt(9999); // 1000 ile 9999 arasında rastgele bir sayı
+
+        DecimalFormat decimalFormat = new DecimalFormat("000");
+        String birinciBolumFormati = decimalFormat.format(birinciBolum);
+        String ikinciBolumFormati = decimalFormat.format(ikinciBolum);
+        DecimalFormat decimalFormatUcuncuBolum = new DecimalFormat("0000");
+        String ucuncuBolumFormati= decimalFormatUcuncuBolum.format(ucuncuBolum);
+
+        return birinciBolumFormati + "-" + ikinciBolumFormati + "-" + ucuncuBolumFormati;
+    }
+    @And("kullanici Gender alanindan cinsiyet secer_SK")
     public void kullaniciGenderAlanindanCinsiyetSecer() {
+        ReusableMethods.bekle(1);
         ReusableMethods.click(registerPage.genderRadioButtun_SK);
     }
-    @And("kullanici Birth Date alanina dogum gunu girer")
+    @And("kullanici Birth Date alanina dogum gunu girer_SK")
     public void kullaniciBirthDateAlaninaDogumGunuGirer() {
+        ReusableMethods.bekle(1);
         registerPage.birthDayKutusu_SK.sendKeys(generateRandomDate());
     }
-    @And("kullanici SSN alanina ssn girer")
+    //Fake random birthday
+
+    public static String generateRandomDate() {
+        Random random = new Random();
+
+        int day = 1 + random.nextInt(31); // 1 ile 31 arasında rastgele bir gun
+        int month = 1 + random.nextInt(12); // 1 ile 12 arasında rastgele bir ay
+        int year = 1990 + random.nextInt(33); // 1990 ile 2022 arasında rastgele bir yil(yil araligini degistirebiliriz)
+
+        return day + "." + month + "." + year;
+    }
+    @And("kullanici SSN alanina ssn girer_SK")
     public void kullaniciSSNAlaninaSsnGirer() {
+        ReusableMethods.bekle(1);
         registerPage.ssnKutusu_SK.sendKeys(generateFakeSSN());
     }
 
-    @And("kullanici User Name alanina username girer")
+    //fake SSN number method
+    public static String generateFakeSSN() {
+        Random random = new Random();
+
+        int ilkBolum = 100 + random.nextInt(900); // 100 ile 999 arasında rastgele bir sayı
+        int ikinciBolum = 10 + random.nextInt(90); // 10 ile 99 arasında rastgele bir sayı
+        int ucuncuBolum = 1000 + random.nextInt(9000); // 1000 ile 9999 arasında rastgele bir sayı
+
+        DecimalFormat decimalFormatIlkBolum = new DecimalFormat("000");
+        String ilkBolumFormati = decimalFormatIlkBolum.format(ilkBolum);
+
+        DecimalFormat decimalFormat = new DecimalFormat("00");
+        String ikinciBolumFormati = decimalFormat.format(ikinciBolum);
+
+        DecimalFormat ucuncuBolumFormat = new DecimalFormat("0000");
+        String ucuncuBolumFormati = ucuncuBolumFormat.format(ucuncuBolum);
+
+        return ilkBolumFormati + "-" + ikinciBolumFormati + "-" + ucuncuBolumFormati;
+    }
+    @And("kullanici User Name alanina username girer_SK")
     public void kullaniciUserNameAlaninaUsernameGirer() {
+        ReusableMethods.bekle(1);
         registerPage.userNameKutusu_SK.sendKeys(faker.name().username());
     }
-    @And("kullanici Password alanina password girer")
+    @And("kullanici Password alanina password girer_SK")
     public void kullaniciPasswordAlaninaPasswordGirer() {
+        ReusableMethods.bekle(1);
         registerPage.passwordKutusu_SK.sendKeys("MErlin01");
     }
-    @And("kullanici Register dugmesine tiklar")
+    @And("kullanici Register dugmesine tiklar_SK")
     public void kullaniciRegisterDugmesineTiklar() {
+        ReusableMethods.bekle(1);
         ReusableMethods.click(registerPage.registerMaviButton_SK);
         ReusableMethods.bekle(2);
     }
-    @And("Kayit islemi basariyla tamamlanir")
+    @And("Kayit islemi basariyla tamamlanir_SK")
     public void kayitIslemiBasariylaTamamlanir() {
         ReusableMethods.visibleWait(registerPage.guestUserRegisterYazisi_SK, 5);
         assertTrue(registerPage.guestUserRegisterYazisi_SK.getText().contains("Guest User registered."));
     }
-    @And("Kullanici sayfayi kapatir")
+    @And("Kullanici sayfayi kapatir_SK")
     public void kullaniciSayfayiKapatir() {
     }
-    @And("Name kutusu bos olunca kayit isleminin tamamlanmadigini dogrular")  //TC02
+    @And("Name kutusu bos olunca kayit isleminin tamamlanmadigini dogrular_SK")  //TC02
     public void nameKutusuBosOluncaKayitIslemininTamamlanmadiginiDogrular() {
         ReusableMethods.bekle(2);
         ReusableMethods.scroll(registerPage.nameKutusu_SK);
         ReusableMethods.bekle(2);
         assertTrue(registerPage.nameRequried_SK.isDisplayed());
     }
-    @And("Surname kutusu bos olunca kayit isleminin tamamlanmadigini dogrular")  //TC03
+    @And("Surname kutusu bos olunca kayit isleminin tamamlanmadigini dogrular_SK")  //TC03
     public void surnameKutusuBosOluncaKayitIslemininTamamlanmadiginiDogrular() {
         ReusableMethods.bekle(2);
         ReusableMethods.scroll(registerPage.surnameKutusu_SK);
         ReusableMethods.bekle(2);
         assertTrue(registerPage.surnameRequried_SK.isDisplayed());
     }
-    @And("kullanici Birth Place alanini bos birakir")  //TC04
+    @And("kullanici Birth Place alanini bos birakir_SK")  //TC04
     public void kullaniciBirthPlaceAlaniniBosBirakir() {
 
         //bos birakilir
     }
-    @And("Birth Place kutusu bos olunca kayit isleminin tamamlanmadigini dogrular")
+    @And("Birth Place kutusu bos olunca kayit isleminin tamamlanmadigini dogrular_SK")
     public void birthPlaceKutusuBosOluncaKayitIslemininTamamlanmadiginiDogrular() {
         ReusableMethods.bekle(2);
         ReusableMethods.scroll(registerPage.birthPlaceKutusu_SK);
         ReusableMethods.bekle(2);
         assertTrue(registerPage.birthplaceRequried_SK.isDisplayed());
     }
-    @And("kullanici Phone Number alanini bos birak")     //TC05
+    @And("kullanici Phone Number alanini bos birak_SK")     //TC05
     public void kullaniciPhoneNumberAlaniniBosBirak() {
         //bos birakilir
     }
-    @And("phone Number kutusu bos olunca kayit isleminin tamamlanmadigini dogrular")
+    @And("phone Number kutusu bos olunca kayit isleminin tamamlanmadigini dogrular_SK")
     public void phoneNumberKutusuBosOluncaKayitIslemininTamamlanmadiginiDogrular() {
         ReusableMethods.bekle(2);
         ReusableMethods.scroll(registerPage.phoneNumberKutusu_SK);
         assertTrue(registerPage.phoneRequried_SK.isDisplayed());
     }
-    @And("kullanici Phone Number alanina patterne uygun olmayan bir numara girer")  //TC06
+    @And("kullanici Phone Number alanina patterne uygun olmayan bir numara girer_SK")  //TC06
     public void kullaniciPhoneNumberAlaninaPatterneUygunOlmayanBirNumaraGirer() {
 
         registerPage.phoneNumberKutusu_SK.sendKeys("123-432-12347");
         ReusableMethods.bekle(2);
 
     }
-    @And("Phone Number alanina patterne uygun olmayan bir numara girildigi icin kayit isleminin tamamlanmadigini dogrular")
+    @And("Phone Number alanina patterne uygun olmayan bir numara girildigi icin kayit isleminin tamamlanmadigini dogrular_SK")
     public void phoneNumberAlaninaPatterneUygunOlmayanBirNumaraGirildigiIcinKayitIslemininTamamlanmadiginiDogrular() {
         assertTrue(registerPage.phoneNumberUyari_SK.getText().contains("Please enter valid phone number"));
     }
-    @And("kullanici SSN alanina patterne uygun olmayan bir numara girer")  //TC07
+    @And("kullanici SSN alanina patterne uygun olmayan bir numara girer_SK")  //TC07
     public void kullaniciSSNAlaninaPatterneUygunOlmayanBirNumaraGirer() {
         registerPage.ssnKutusu_SK.sendKeys("123-432-1234");
         ReusableMethods.bekle(2);
     }
-    @And("SSN alanina patterne uygun olmayan bir numara girildigi icin kayit isleminin tamamlanmadigini dogrular")
+    @And("SSN alanina patterne uygun olmayan bir numara girildigi icin kayit isleminin tamamlanmadigini dogrular_SK")
     public void ssnAlaninaPatterneUygunOlmayanBirNumaraGirildigiIcinKayitIslemininTamamlanmadiginiDogrular() {
         assertTrue(registerPage.ssnHataYazisi_SK.isDisplayed());
     }
-    @And("kullanici SSN alanini bos birakir")  //TC08
+    @And("kullanici SSN alanini bos birakir_SK")  //TC08
     public void kullaniciSSNAlaniniBosBirakir() {
         //bu alan bos birakilir
     }
-    @And("ssn kutusu bos olunca kayit isleminin tamamlanmadigini dogrular")
+    @And("ssn kutusu bos olunca kayit isleminin tamamlanmadigini dogrular_SK")
     public void ssnKutusuBosOluncaKayitIslemininTamamlanmadiginiDogrular() {
         ReusableMethods.bekle(2);
         ReusableMethods.scroll(registerPage.ssnKutusu_SK);
         assertTrue(registerPage.ssnRequried_SK.isDisplayed());
     }
-    @And("kullanici Birth Date alanini bos birakir")
+    @And("kullanici Birth Date alanini bos birakir_SK")
     public void kullaniciBirthDateAlaniniBosBirakir() {  //TC09
         //alan bos birakilir
     }
-    @And("Birth Date alanini bos birakinca kayit olunamadigini dogrular")
+    @And("Birth Date alanini bos birakinca kayit olunamadigini dogrular_SK")
     public void birthDateAlaniniBosBirakincaKayitOlunamadiginiDogrular() {
         ReusableMethods.bekle(2);
         ReusableMethods.scroll(registerPage.birthDayKutusu_SK);
         assertTrue(registerPage.birthdayRequried_SK.isDisplayed());
     }
-    @And("kullanici User Name alanini bos birakir")     //TC19
+    @And("kullanici User Name alanini bos birakir_SK")     //TC19
     public void kullaniciUserNameAlaniniBosBirakir() {
         //bos birakilir
     }
-    @And("User Name alani bos birakilarak kayit olunamadigini dogrular")
+    @And("User Name alani bos birakilarak kayit olunamadigini dogrular_SK")
     public void userNameAlaniBosBirakilarakKayitOlunamadiginiDogrular() {
         ReusableMethods.bekle(2);
         ReusableMethods.scroll(registerPage.userNameKutusu_SK);
         assertTrue(registerPage.usernameRequried_SK.isDisplayed());
     }
-    @And("kullanici Password alanini bos birakir")    //TC11
+    @And("kullanici Password alanini bos birakir_SK")    //TC11
     public void kullaniciPasswordAlaniniBosBirakir() {
         //bos birakir
     }
-    @And("Password alani bos birakilarak kayit olunamadigini dogrular")
+    @And("Password alani bos birakilarak kayit olunamadigini dogrular_SK")
     public void passwordAlaniBosBirakilarakKayitOlunamadiginiDogrular() {
         ReusableMethods.bekle(2);
         ReusableMethods.scroll(registerPage.passwordKutusu_SK);
         assertTrue(registerPage.passwordRequried_SK.isDisplayed());
     }
-    @And("kullanici Password alanina yedi karakterli bir  {string} girer")  //TC12
+    @And("kullanici Password alanina yedi karakterli bir  {string} girer_SK")  //TC12
     public void kullaniciPasswordAlaninaYediKarakterliBirGirer(String sifre) {
          sifre = rasgeleSifreOlustur(7);
         registerPage.passwordKutusu_SK.sendKeys(sifre);
     }
-    @And("Sekiz karakterden daha az karakterli bir sifre ile kayit olunamadigini dogrular")
+    // Belirli bir karakter sayısına sahip rasgele bir şifre oluşturan bir yardımcı method
+    public String rasgeleSifreOlustur(int karakterSayisi) {
+        String karakterler = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        Random random = new Random();
+        StringBuilder sifre = new StringBuilder();
+
+        for (int i = 0; i < karakterSayisi; i++) {
+            int rastgeleIndex = random.nextInt(karakterler.length());
+            char rastgeleKarakter = karakterler.charAt(rastgeleIndex);
+            sifre.append(rastgeleKarakter);
+        }
+        return sifre.toString();
+    }
+    @And("Sekiz karakterden daha az karakterli bir sifre ile kayit olunamadigini dogrular_SK")
     public void sekizKarakterdenDahaAzKarakterliBirSifreIleKayitOlunamadiginiDogrular() {
         ReusableMethods.bekle(2);
         //assertTrue(registerPage.passwordRequried_SK.isDisplayed());
         assertTrue(registerPage.passwordRequried_SK.getText().contains("At least 8 characters"));
     }
-    @And("kullanici Password alanina sadece rakamlardan olusan bir sifre girer")  //TC13
+    @And("kullanici Password alanina sadece rakamlardan olusan bir sifre girer_SK")  //TC13
     public void kullaniciPasswordAlaninaSadeceRakamlardanOlusanBirSifreGirer() {
         ReusableMethods.bekle(2);
         registerPage.passwordKutusu_SK.sendKeys("123456789");
     }
-    @And("Kayit isleminin tamamlanmadigini dogrular")
+    @And("Kayit isleminin tamamlanmadigini dogrular_SK")
     public void kayitIslemininTamamlanmadiginiDogrular() {
         assertTrue(registerPage.passwordRequried_SK.getText().contains("One lowercase character"));
     }
-    @And("kullanici Password alanina sadece kucuk harflerden olusan bir sifre girer")  //TC14
+    @And("kullanici Password alanina sadece kucuk harflerden olusan bir sifre girer_SK")  //TC14
     public void kullaniciPasswordAlaninaSadeceKucukHarflerdenOlusanBirSifreGirer() {
         ReusableMethods.bekle(2);
         registerPage.passwordKutusu_SK.sendKeys("ascdgstejkl");
     }
-    @And("kullanici sadece kucuk harflerden olusan bir sifre ile kayit olamaz")
+    @And("kullanici sadece kucuk harflerden olusan bir sifre ile kayit olamaz_SK")
     public void kullaniciSadeceKucukHarflerdenOlusanBirSifreIleKayitOlamaz() {
         assertTrue(registerPage.passwordRequried_SK.getText().contains("One uppercase character"));
     }
 
-    @And("kullanici Password alanina sadece buyuk harflerden olusan bir sifre girer")  //TC15
+    @And("kullanici Password alanina sadece buyuk harflerden olusan bir sifre girer_SK")  //TC15
     public void kullaniciPasswordAlaninaSadeceBuyukHarflerdenOlusanBirSifreGirer() {
         ReusableMethods.bekle(2);
         registerPage.passwordKutusu_SK.sendKeys("ASCDBEJDKFL");
     }
-    @And("kullanici sadece buyuk harflerden olusan bir sifre ile kayit olamaz")
+    @And("kullanici sadece buyuk harflerden olusan bir sifre ile kayit olamaz_SK")
     public void kullaniciSadeceBuyukHarflerdenOlusanBirSifreIleKayitOlamaz() {
         assertTrue(registerPage.passwordRequried_SK.getText().contains("One lowercase character"));
     }
-    @And("kullanici Password alanina sadece buyuk ve kucuk harflerden olusan bir sifre girer") //TC16
+    @And("kullanici Password alanina sadece buyuk ve kucuk harflerden olusan bir sifre girer_SK") //TC16
     public void kullaniciPasswordAlaninaSadeceBuyukVeKucukHarflerdenOlusanBirSifreGirer() {
         ReusableMethods.bekle(2);
         registerPage.passwordKutusu_SK.sendKeys("ASCDBEJDKFLacsbdnjdjd");
 
     }
-    @And("kullanici sadece buyuk ve kucuk harflerden olusan bir sifre ile kayit olamaz")
+    @And("kullanici sadece buyuk ve kucuk harflerden olusan bir sifre ile kayit olamaz_SK")
     public void kullaniciSadeceBuyukVeKucukHarflerdenOlusanBirSifreIleKayitOlamaz() {
         assertTrue(registerPage.passwordRequried_SK.getText().contains("One number"));
     }
-    @And("kullanici Password alanina sadece rakam ve buyuk harflerden olusan bir sifre girer")  //TC17
+    @And("kullanici Password alanina sadece rakam ve buyuk harflerden olusan bir sifre girer_SK")  //TC17
     public void kullaniciPasswordAlaninaSadeceRakamVeBuyukHarflerdenOlusanBirSifreGirer() {
         ReusableMethods.bekle(2);
         registerPage.passwordKutusu_SK.sendKeys("ASCDBEJDKFL123456");
 
     }
-    @And("kullanici sadece rakam ve buyuk harflerden olusan bir sifre ile kayit olamaz")
+    @And("kullanici sadece rakam ve buyuk harflerden olusan bir sifre ile kayit olamaz_SK")
     public void kullaniciSadeceRakamVeBuyukHarflerdenOlusanBirSifreIleKayitOlamaz() {
         ReusableMethods.bekle(2);
         assertTrue(registerPage.passwordRequried_SK.getText().contains("One lowercase character"));
 
     }
-    @And("kullanici SSN alanina kayitli bir ssn girer")  //TC18
+    @And("kullanici SSN alanina kayitli bir ssn girer_SK")  //TC18
     public void kullaniciSSNAlaninaKayitliBirSsnGirer() {
         registerPage.ssnKutusu_SK.sendKeys("321-32-9876");
 
     }
-    @And("Daha once kayitli bir SSN ile kayit olunamadigini dogrular")
+    @And("Daha once kayitli bir SSN ile kayit olunamadigini dogrular_SK")
     public void dahaOnceKayitliBirSSNIleKayitOlunamadiginiDogrular() {
         assertTrue(registerPage.ssnAlreadyRegisterYazisi_SK.isDisplayed());
     }
@@ -263,64 +332,13 @@ public class US01_StepDef {
 
 
 
-    // Belirli bir karakter sayısına sahip rasgele bir şifre oluşturan bir yardımcı method
-    public String rasgeleSifreOlustur(int karakterSayisi) {
-        String karakterler = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        Random random = new Random();
-        StringBuilder sifre = new StringBuilder();
-
-        for (int i = 0; i < karakterSayisi; i++) {
-            int rastgeleIndex = random.nextInt(karakterler.length());
-            char rastgeleKarakter = karakterler.charAt(rastgeleIndex);
-            sifre.append(rastgeleKarakter);
-        }
-        return sifre.toString();
-    }
 
 
-    //FAKE phone number method
-    public static String generateFakePhoneNumber() {
-        Random random = new Random();
 
-        int areaCode = 100 + random.nextInt(900); // 100 ile 999 arasında rastgele bir sayı
-        int firstPart = 100 + random.nextInt(900); // 100 ile 999 arasında rastgele bir sayı
-        int secondPart = 1000 + random.nextInt(9000); // 1000 ile 9999 arasında rastgele bir sayı
 
-        DecimalFormat decimalFormat = new DecimalFormat("000");
-        String formattedAreaCode = decimalFormat.format(areaCode);
-        String formattedFirstPart = decimalFormat.format(firstPart);
 
-        return formattedAreaCode + "-" + formattedFirstPart + "-" + secondPart;
-    }
 
-    //fake SSN number method
-    public static String generateFakeSSN() {
-        Random random = new Random();
 
-        int firstPart = 100 + random.nextInt(900); // 100 ile 999 arasında rastgele bir sayı
-        int secondPart = 10 + random.nextInt(90); // 10 ile 99 arasında rastgele bir sayı
-        int thirdPart = 1000 + random.nextInt(9000); // 1000 ile 9999 arasında rastgele bir sayı
-
-        DecimalFormat decimalFormat = new DecimalFormat("00");
-        String formattedFirstPart = decimalFormat.format(firstPart);
-        String formattedSecondPart = decimalFormat.format(secondPart);
-        DecimalFormat fourthPartFormat = new DecimalFormat("0000");
-        String formattedThirdPart = fourthPartFormat.format(thirdPart);
-
-        return formattedFirstPart + "-" + formattedSecondPart + "-" + formattedThirdPart;
-    }
-
-    //Fake random birthday
-
-    public static String generateRandomDate() {
-        Random random = new Random();
-
-        int day = 1 + random.nextInt(31); // 1 ile 31 arasında rastgele bir gün
-        int month = 1 + random.nextInt(12); // 1 ile 12 arasında rastgele bir ay
-        int year = 1900 + random.nextInt(123); // 1900 ile 2022 arasında rastgele bir yıl
-
-        return day + "." + month + "." + year;
-    }
 
 
 
