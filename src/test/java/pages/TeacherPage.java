@@ -30,12 +30,12 @@ public WebElement isAdvisorTeacherSA;
 public WebElement genderFemaleSA;
 @FindBy (xpath = "(//button)[7]")
 public WebElement submitSA;
-@FindBy ( xpath = "/html/body/div/div/main/div/div[2]/div/div/div[1]/div[2]")
+@FindBy (xpath = "//*[@class='Toastify__toast-container Toastify__toast-container--top-center']")
 public WebElement onaySA;
-
-
-
-
+@FindBy (xpath = "(//input)[11]")
+public WebElement ssnSA;
+@FindBy (xpath = "(//input)[13]")
+public WebElement passwordSA;
 
 
 

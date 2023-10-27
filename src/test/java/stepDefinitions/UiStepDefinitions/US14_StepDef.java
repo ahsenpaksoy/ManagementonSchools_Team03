@@ -30,7 +30,7 @@ public class US14_StepDef {
 
     @And("kullanici user name ve password ile login olurSA")
     public void kullaniciUserNameVePasswordIleLoginOlurSA() {
-        homePage.loginUsernameBox.sendKeys(ConfigReader.getProperty("AdminSifre"), Keys.TAB, ConfigReader.getProperty("AdminPassword") , Keys.TAB, Keys.ENTER);
+        homePage.loginUsernameBox.sendKeys(ConfigReader.getProperty("ViceDeanSifre"), Keys.TAB, ConfigReader.getProperty("ViceDeanPassword") , Keys.TAB, Keys.ENTER);
     }
     @And("kullanici Login oldugunu dogrularSA")
     public void kullaniciLoginOldugunuDogrularSA() {
