@@ -22,7 +22,19 @@ public class LessonPage {
 
 
     //Saadet 20-100
+    public @FindBy(xpath = "(//*[@class='nav-link'])[9]")
+    WebElement LessonManagementButonuSo;
 
+    public @FindBy(xpath = "//*[@id='controlled-tab-example-tab-lessonsList']")
+    WebElement LessonButonuSo;
+    public @FindBy(xpath = "//*[@id='lessonName']")
+    WebElement LessonNameKutusuSo;
+    public @FindBy(xpath = "//*[@type='checkbox']")
+    WebElement CompulsoryKutusuSo;
+    public @FindBy(xpath = "//*[@id='creditScore']")
+    WebElement CreditScoreKutusuSo;
+    public @FindBy(xpath = "(//button[@type='button'])[9]")
+    WebElement SubmitButonuSo;
 
 
 
