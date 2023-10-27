@@ -148,8 +148,15 @@ public class DeanPage {
 
 
 
-
-
+// Kenan 151-300
+ @FindBy (id="name")
+    public WebElement deanNameKI;
+@FindBy(xpath = "(//*[@name='gender'])[2]")
+    public WebElement genderSecimKI;
+@FindBy(xpath = "//*[@class='fw-semibold btn btn-primary btn-lg']")
+    public WebElement submitButonKI;
+@FindBy (xpath = "//*[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success Toastify__toast--close-on-click']")
+    public WebElement viceDeanSavedKI;
 
 
 
