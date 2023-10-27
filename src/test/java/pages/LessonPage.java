@@ -115,29 +115,31 @@ public class LessonPage {
 
 
     //Yasemin 101-200
+    @FindBy(xpath = "(//*[@class='nav-link'])[8]")
+    public WebElement lessonManagementY;
     @FindBy(xpath = "//*[@id='controlled-tab-example-tab-lessonProgram']")
     public WebElement lessonProgramY;
     @FindBy(xpath = "//*[@class=' css-19bb58m']")
     public WebElement selectLessonY;
     @FindBy(xpath = "//*[@id='educationTermId']")
     public WebElement educationTermY;
-    @FindBy(xpath = "[id='day']")
+    @FindBy(xpath = "//*[@id='day']")
     public WebElement chooseDayY;
-    @FindBy(xpath = "[id='startTime']")
+    @FindBy(xpath = "//*[@id='startTime']")
     public WebElement startTimeY;
-    @FindBy(xpath = "[id='stopTime']")
+    @FindBy(xpath = "//*[@id='stopTime']")
     public WebElement stopTimeY;
-    @FindBy(xpath = "(//*[@class='fw-semibold btn btn-primary btn-lg'])[1]")
+    @FindBy(xpath = "(//*[@class='fw-semibold btn btn-primary btn-lg'])[3]")
     public WebElement buttonSubmitY;
     @FindBy(xpath = "//*[@id='teacherId']")
     public WebElement teacherY;
-    @FindBy(css = "(//div)[134]")
+    @FindBy(css = "div[class='Toastify__toast-container Toastify__toast-container--top-center']")
     public WebElement createdLessonProgY;
     @FindBy(xpath = "//*[@class='Toastify__toast-body']")
     public WebElement alertEduTermY;
     @FindBy(xpath = "(//div)[136]")
     public WebElement lessonNotEmptyY;
-    @FindBy(xpath = "//*[@id='87']")
+    @FindBy(xpath = "//*[@class='Toastify__toast-container Toastify__toast-container--top-center']")
     public WebElement alertDayY;
     @FindBy(xpath = "//*[@class='Toastify__toast-body']")
     public WebElement errorTimeY;
