@@ -131,6 +131,9 @@ public class LessonPage {
     public WebElement stopTimeY;
     @FindBy(xpath = "(//*[@class='fw-semibold btn btn-primary btn-lg'])[3]")
     public WebElement buttonSubmitY;
+
+    /*@FindBy(xpath = "(//div)[95]")
+    public WebElement submitButonY;*/
     @FindBy(xpath = "//*[@id='teacherId']")
     public WebElement teacherY;
     @FindBy(css = "div[class='Toastify__toast-container Toastify__toast-container--top-center']")
@@ -143,8 +146,24 @@ public class LessonPage {
     public WebElement alertDayY;
     @FindBy(xpath = "//*[@class='Toastify__toast-body']")
     public WebElement errorTimeY;
-
-
+    @FindBy(xpath = " //*[@class=' css-9jq23d']")
+    public WebElement topologyDisplayY;
+    @FindBy(xpath = "//*[@class='table-responsive']")
+    public WebElement lessonDisplayY;
+    @FindBy(xpath = "(//div)[182]")
+    public WebElement lastLineY;
+    @FindBy(xpath = "//*[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success Toastify__toast--close-on-click']")
+    public WebElement addedTeacherY;
+    @FindBy(xpath = "(//*[@class='col'])[15]")
+    public WebElement chooseTeacherY;
+    @FindBy(xpath = "//*[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--error Toastify__toast--close-on-click']")
+    public WebElement timeUyariY;
+    @FindBy(xpath = "(//*[@class='form-check-input'])[48]")
+    public WebElement chooseButtonY;
+    @FindBy(xpath = "(//*[@class='form-check-input'])[150]")
+    public WebElement lastChooseLessonButtonY;
+    @FindBy(xpath = "//*[@class=' mb-3 mt-4 col']")
+    public WebElement submitButtonSonY;
 
 
 
