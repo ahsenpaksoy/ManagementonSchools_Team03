@@ -6,6 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
 import javax.swing.plaf.PanelUI;
+import java.util.List;
 
 public class LessonPage {
     public LessonPage() {
@@ -22,7 +23,7 @@ public class LessonPage {
 
 
     //Saadet 20-100
-    public @FindBy(xpath = "(//*[@class='nav-link'])[9]")
+    public @FindBy(xpath = "(//*[@class='nav-link'])[8]")
     WebElement LessonManagementButonuSo;
 
     public @FindBy(xpath = "//*[@id='controlled-tab-example-tab-lessonsList']")
@@ -35,6 +36,27 @@ public class LessonPage {
     WebElement CreditScoreKutusuSo;
     public @FindBy(xpath = "(//button[@type='button'])[9]")
     WebElement SubmitButonuSo;
+    public @FindBy(xpath = "(//*[@aria-hidden='true'])[8]")
+    WebElement dersListesiIlerlemeButonuSo;
+    @FindBy(xpath = "//th[text()=‘Lesson Name’]")
+    public List<WebElement> tumLessonNames;
+
+    @FindBy(xpath = "(//tbody[@class='table-group-divider'])[2]/tr/td[2]")
+    public List<WebElement> tumCompulsoriealanlari;
+
+    @FindBy(xpath = "(//tbody[@class='table-group-divider'])[2]/tr/td[3]")
+    public List<WebElement> tumCreditScorealanlari;
+    @FindBy(xpath = "(//table)[2]")
+    public WebElement lessonList;
+    @FindBy(xpath = "(//*[@class='fa-solid fa-trash'])[10]")
+    public WebElement lessonDelete;
+
+     @FindBy(xpath = " (//tbody[@class='table-group-divider'])[2]//tr[last()]")
+    public WebElement eklenenSonDers;
+
+
+
+
 
 
 
