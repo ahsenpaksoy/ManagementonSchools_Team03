@@ -23,7 +23,7 @@ public class US01_StepDef {
         Driver.getDriver().get(url);
 
     }
-    /*@Given("kullanici web sitesine gider")
+    /*@Given("kullanici web sitesine gider")    //ilk yazdigimda bu sekilde yazmistim.
     public void verilenKullaniciWebSitesineGider() {
         Driver.getDriver().get(ConfigReader.getProperty("schoolsUrl"));
     }*/
@@ -155,7 +155,7 @@ public class US01_StepDef {
     @And("kullanici Birth Place alanini bos birakir_SK")  //TC04
     public void kullaniciBirthPlaceAlaniniBosBirakir() {
 
-        //bos birakilir
+       registerPage.birthPlaceKutusu_SK.sendKeys("");
     }
     @And("Birth Place kutusu bos olunca kayit isleminin tamamlanmadigini dogrular_SK")
     public void birthPlaceKutusuBosOluncaKayitIslemininTamamlanmadiginiDogrular() {
@@ -166,7 +166,7 @@ public class US01_StepDef {
     }
     @And("kullanici Phone Number alanini bos birak_SK")     //TC05
     public void kullaniciPhoneNumberAlaniniBosBirak() {
-        //bos birakilir
+        registerPage.phoneNumberKutusu_SK.sendKeys("");
     }
     @And("phone Number kutusu bos olunca kayit isleminin tamamlanmadigini dogrular_SK")
     public void phoneNumberKutusuBosOluncaKayitIslemininTamamlanmadiginiDogrular() {
@@ -196,7 +196,7 @@ public class US01_StepDef {
     }
     @And("kullanici SSN alanini bos birakir_SK")  //TC08
     public void kullaniciSSNAlaniniBosBirakir() {
-        //bu alan bos birakilir
+        registerPage.ssnKutusu_SK.sendKeys("");
     }
     @And("ssn kutusu bos olunca kayit isleminin tamamlanmadigini dogrular_SK")
     public void ssnKutusuBosOluncaKayitIslemininTamamlanmadiginiDogrular() {
@@ -206,7 +206,7 @@ public class US01_StepDef {
     }
     @And("kullanici Birth Date alanini bos birakir_SK")
     public void kullaniciBirthDateAlaniniBosBirakir() {  //TC09
-        //alan bos birakilir
+        registerPage.birthDayKutusu_SK.sendKeys("");
     }
     @And("Birth Date alanini bos birakinca kayit olunamadigini dogrular_SK")
     public void birthDateAlaniniBosBirakincaKayitOlunamadiginiDogrular() {
@@ -216,7 +216,7 @@ public class US01_StepDef {
     }
     @And("kullanici User Name alanini bos birakir_SK")     //TC19
     public void kullaniciUserNameAlaniniBosBirakir() {
-        //bos birakilir
+        registerPage.userNameKutusu_SK.sendKeys("");
     }
     @And("User Name alani bos birakilarak kayit olunamadigini dogrular_SK")
     public void userNameAlaniBosBirakilarakKayitOlunamadiginiDogrular() {
@@ -226,7 +226,7 @@ public class US01_StepDef {
     }
     @And("kullanici Password alanini bos birakir_SK")    //TC11
     public void kullaniciPasswordAlaniniBosBirakir() {
-        //bos birakir
+        registerPage.passwordKutusu_SK.sendKeys("");
     }
     @And("Password alani bos birakilarak kayit olunamadigini dogrular_SK")
     public void passwordAlaniBosBirakilarakKayitOlunamadiginiDogrular() {
@@ -310,7 +310,7 @@ public class US01_StepDef {
     }
     @And("kullanici SSN alanina kayitli bir ssn girer_SK")  //TC18
     public void kullaniciSSNAlaninaKayitliBirSsnGirer() {
-        registerPage.ssnKutusu_SK.sendKeys("321-32-9876");
+        registerPage.ssnKutusu_SK.sendKeys("230-475-1234");
 
     }
     @And("Daha once kayitli bir SSN ile kayit olunamadigini dogrular_SK")

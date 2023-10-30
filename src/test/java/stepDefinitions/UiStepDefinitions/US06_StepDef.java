@@ -27,8 +27,6 @@ public class US06_StepDef {
     Date dateKI = faker.date().birthday(18, 50);
     SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
     String dateOfBirthKI = format.format(dateKI);
-
-    String email = faker.internet().emailAddress();
     String userNameKI = nameKI + surnameKI;
     String passwordKI = faker.internet().password(8, 10, true, false, true);
 
@@ -46,31 +44,28 @@ public class US06_StepDef {
     @And("Kullanici username ve password girerKI")
     public void kullaniciUsernameVePasswordGirerKI() {
         homePage.loginUsernameBox.sendKeys(ConfigReader.getProperty("deanKenan"),
-                Keys.TAB, ConfigReader.getProperty("deanKenanPas"), Keys.TAB, Keys.ENTER);
+                Keys.TAB, ConfigReader.getProperty("kenanPas"), Keys.TAB, Keys.ENTER);
     }
-
     @And("Kullanici Login oldugunu dogrularKI")
     public void kullaniciLoginOldugunuDogrularKI() {
         Assert.assertTrue(homePage.menu.isDisplayed());
     }
-
     @Then("Sayfa basliginin {string} oldugu dogrulanirKI")
     public void sayfaBasligininOlduguDogrulanirKI(String vdm) {
-        Assert.assertTrue(Driver.getDriver().getTitle().contains(vdm));
+        Assert.assertTrue(deanPage.viceDeanBasligiKI.isDisplayed());
 
     }
-
     @Given("Name, Surname, Birth Place, Date Of Birth, Phone Number, SSN, UserName, Password butonuna veri girKI")
     public void nameSurnameBirthPlaceDateOfBirthPhoneNumberDateOfBirthSSNUserNamePasswordButonunaVeriGirKI() {
-        deanPage.deanNameKI.sendKeys(nameKI,Keys.TAB,
-                surnameKI,Keys.TAB,
+        deanPage.deanNameKI.sendKeys(nameKI, Keys.TAB,
+                surnameKI, Keys.TAB,
                 birthPlaceKI, Keys.TAB,
                 Keys.TAB,
-                dateOfBirthKI,Keys.TAB,Keys.TAB,
-                phoneNummerKI,Keys.TAB,
-                ssnKI,Keys.TAB,
-                userNameKI,Keys.TAB,
-                passwordKI,Keys.TAB,
+                dateOfBirthKI, Keys.TAB, Keys.TAB,
+                phoneNummerKI, Keys.TAB,
+                ssnKI, Keys.TAB,
+                userNameKI, Keys.TAB,
+                passwordKI, Keys.TAB,
                 Keys.ENTER
         );
     }
@@ -89,129 +84,122 @@ public class US06_StepDef {
 
     @Then("Vice Dean islemi basariyla tamamlanirKI")
     public void kayitIslemiBasariylaTamamlanirKI() {
-        Assert.assertTrue(deanPage.viceDeanSavedKI.isDisplayed());
+        Assert.assertTrue(deanPage.viceDeanSavedYaziKI.isDisplayed());
     }
 
 
     @Given("Surname, Birth Place, Date Of Birth, Phone Number, SSN, UserName, Password butonuna veri girKI")
     public void surnameBirthPlaceDateOfBirthPhoneNumberSSNUserNamePasswordButonunaVeriGirKI() {
         deanPage.deanNameKI.sendKeys(Keys.TAB,
-                surnameKI,Keys.TAB,
+                surnameKI, Keys.TAB,
                 birthPlaceKI, Keys.TAB,
                 Keys.TAB,
-                dateOfBirthKI,Keys.TAB,Keys.TAB,
-                phoneNummerKI,Keys.TAB,
-                ssnKI,Keys.TAB,
-                userNameKI,Keys.TAB,
-                passwordKI,Keys.TAB,
+                dateOfBirthKI, Keys.TAB, Keys.TAB,
+                phoneNummerKI, Keys.TAB,
+                ssnKI, Keys.TAB,
+                userNameKI, Keys.TAB,
+                passwordKI, Keys.TAB,
                 Keys.ENTER);
 
     }
-
-    @And("Vice Dean islemi yapilamazKI")
-    public void viceDeanIslemiYapilamazKI() {
-
-    }
-
     @Given("Name, Birth Place, Date Of Birth, Phone Number, SSN, UserName, Password butonuna veri girKI")
     public void nameBirthPlaceDateOfBirthPhoneNumberSSNUserNamePasswordButonunaVeriGirKI() {
-        deanPage.deanNameKI.sendKeys(nameKI,Keys.TAB,
+        deanPage.deanNameKI.sendKeys(nameKI, Keys.TAB,
                 Keys.TAB,
                 birthPlaceKI, Keys.TAB,
                 Keys.TAB,
-                dateOfBirthKI,Keys.TAB,Keys.TAB,
-                phoneNummerKI,Keys.TAB,
-                ssnKI,Keys.TAB,
-                userNameKI,Keys.TAB,
-                passwordKI,Keys.TAB,
+                dateOfBirthKI, Keys.TAB, Keys.TAB,
+                phoneNummerKI, Keys.TAB,
+                ssnKI, Keys.TAB,
+                userNameKI, Keys.TAB,
+                passwordKI, Keys.TAB,
                 Keys.ENTER);
     }
-
     @Given("Name, Surname, Date Of Birth, Phone Number, SSN, UserName, Password butonuna veri girKI")
     public void nameSurnameDateOfBirthPhoneNumberSSNUserNamePasswordButonunaVeriGirKI() {
-        deanPage.deanNameKI.sendKeys(nameKI,Keys.TAB,
-                surnameKI,Keys.TAB,
+        deanPage.deanNameKI.sendKeys(nameKI, Keys.TAB,
+                surnameKI, Keys.TAB,
                 Keys.TAB,
                 Keys.TAB,
-                dateOfBirthKI,Keys.TAB,Keys.TAB,
-                phoneNummerKI,Keys.TAB,
-                ssnKI,Keys.TAB,
-                userNameKI,Keys.TAB,
-                passwordKI,Keys.TAB,
+                dateOfBirthKI, Keys.TAB, Keys.TAB,
+                phoneNummerKI, Keys.TAB,
+                ssnKI, Keys.TAB,
+                userNameKI, Keys.TAB,
+                passwordKI, Keys.TAB,
                 Keys.ENTER
         );
     }
 
     @Given("Name, Surname, Birth Place, Phone Number, SSN, UserName, Password butonuna veri girKI")
     public void nameSurnameBirthPlacePhoneNumberSSNUserNamePasswordButonunaVeriGirKI() {
-        deanPage.deanNameKI.sendKeys(nameKI,Keys.TAB,
-                surnameKI,Keys.TAB,
+        deanPage.deanNameKI.sendKeys(nameKI, Keys.TAB,
+                surnameKI, Keys.TAB,
                 birthPlaceKI, Keys.TAB,
                 Keys.TAB,
-                Keys.TAB,Keys.TAB,
-                phoneNummerKI,Keys.TAB,
-                ssnKI,Keys.TAB,
-                userNameKI,Keys.TAB,
-                passwordKI,Keys.TAB,
+                Keys.TAB, Keys.TAB,
+                phoneNummerKI, Keys.TAB,
+                ssnKI, Keys.TAB,
+                userNameKI, Keys.TAB,
+                passwordKI, Keys.TAB,
                 Keys.ENTER
         );
     }
 
     @Given("Name, Surname, Birth Place, Date Of Birth, SSN, UserName, Password butonuna veri girKI")
     public void nameSurnameBirthPlaceDateOfBirthSSNUserNamePasswordButonunaVeriGirKI() {
-        deanPage.deanNameKI.sendKeys(nameKI,Keys.TAB,
-                surnameKI,Keys.TAB,
+        deanPage.deanNameKI.sendKeys(nameKI, Keys.TAB,
+                surnameKI, Keys.TAB,
                 birthPlaceKI, Keys.TAB,
                 Keys.TAB,
-                dateOfBirthKI,Keys.TAB,Keys.TAB,
-                  Keys.TAB,
-                ssnKI,Keys.TAB,
-                userNameKI,Keys.TAB,
-                passwordKI,Keys.TAB,
+                dateOfBirthKI, Keys.TAB, Keys.TAB,
+                Keys.TAB,
+                ssnKI, Keys.TAB,
+                userNameKI, Keys.TAB,
+                passwordKI, Keys.TAB,
                 Keys.ENTER
         );
     }
 
     @Given("Name, Surname, Birth Place, Date Of Birth, Phone Number, UserName, Password butonuna veri girKI")
     public void nameSurnameBirthPlaceDateOfBirthPhoneNumberUserNamePasswordButonunaVeriGirKI() {
-        deanPage.deanNameKI.sendKeys(nameKI,Keys.TAB,
-                surnameKI,Keys.TAB,
+        deanPage.deanNameKI.sendKeys(nameKI, Keys.TAB,
+                surnameKI, Keys.TAB,
                 birthPlaceKI, Keys.TAB,
                 Keys.TAB,
-                dateOfBirthKI,Keys.TAB,Keys.TAB,
-                phoneNummerKI,Keys.TAB,
+                dateOfBirthKI, Keys.TAB, Keys.TAB,
+                phoneNummerKI, Keys.TAB,
                 Keys.TAB,
-                userNameKI,Keys.TAB,
-                passwordKI,Keys.TAB,
+                userNameKI, Keys.TAB,
+                passwordKI, Keys.TAB,
                 Keys.ENTER
         );
     }
 
     @Given("Name, Surname, Birth Place, Date Of Birth, Phone Number, SSN, Password butonuna veri girKI")
     public void nameSurnameBirthPlaceDateOfBirthPhoneNumberSSNPasswordButonunaVeriGirKI() {
-        deanPage.deanNameKI.sendKeys(nameKI,Keys.TAB,
-                surnameKI,Keys.TAB,
+        deanPage.deanNameKI.sendKeys(nameKI, Keys.TAB,
+                surnameKI, Keys.TAB,
                 birthPlaceKI, Keys.TAB,
                 Keys.TAB,
-                dateOfBirthKI,Keys.TAB,Keys.TAB,
-                phoneNummerKI,Keys.TAB,
-                ssnKI,Keys.TAB,
+                dateOfBirthKI, Keys.TAB, Keys.TAB,
+                phoneNummerKI, Keys.TAB,
+                ssnKI, Keys.TAB,
                 Keys.TAB,
-                passwordKI,Keys.TAB,
+                passwordKI, Keys.TAB,
                 Keys.ENTER
         );
     }
 
     @Given("Name, Surname, Birth Place, Date Of Birth, Phone Number, SSN, UserName butonuna veri girKI")
     public void nameSurnameBirthPlaceDateOfBirthPhoneNumberSSNUserNameButonunaVeriGirKI() {
-        deanPage.deanNameKI.sendKeys(nameKI,Keys.TAB,
-                surnameKI,Keys.TAB,
+        deanPage.deanNameKI.sendKeys(nameKI, Keys.TAB,
+                surnameKI, Keys.TAB,
                 birthPlaceKI, Keys.TAB,
                 Keys.TAB,
-                dateOfBirthKI,Keys.TAB,Keys.TAB,
-                phoneNummerKI,Keys.TAB,
-                ssnKI,Keys.TAB,
-                userNameKI,Keys.TAB,
+                dateOfBirthKI, Keys.TAB, Keys.TAB,
+                phoneNummerKI, Keys.TAB,
+                ssnKI, Keys.TAB,
+                userNameKI, Keys.TAB,
                 Keys.TAB,
                 Keys.ENTER
         );
@@ -219,21 +207,20 @@ public class US06_StepDef {
 
     @Then("Gender cinsiyet seçimi bos birakilirKI")
     public void genderCinsiyetSeçimiBosBirakilirKI() {
-
-
     }
-    /*
-     deanPage.deanNameKI.sendKeys(nameKI,Keys.TAB,
-                surnameKI,Keys.TAB,
-                birthPlaceKI, Keys.TAB,
-                Keys.TAB,
-                dateOfBirthKI,Keys.TAB,Keys.TAB,
-                phoneNummerKI,Keys.TAB,
-                ssnKI,Keys.TAB,
-                userNameKI,Keys.TAB,
-                passwordKI,Keys.TAB,
-                Keys.ENTER
-        );
-     */
+
+    @And("{string} yazisi gorunerek kayit islemi yapilamaz")
+    public void yazisiGorunerekKayitIslemiYapilamaz(String required) {
+        Assert.assertTrue(ReusableMethods.invalidSA(required));
+    }
+    @And("{int} saniye beklerKI")
+    public void saniyeBeklerKI(int arg0) {
+        ReusableMethods.bekle(2);
+    }
+
+    @And("Sayfa kapanirKI")
+    public void sayfaKapanirKI() {
+        Driver.closeDriver();
+    }
 
 }
