@@ -2,6 +2,7 @@ package stepDefinitions.UiStepDefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import org.openqa.selenium.Keys;
 import pages.HomePage;
 import pages.LessonPage;
@@ -22,10 +23,14 @@ public class US08_StepDef {
         ReusableMethods.bekle(saniye);
     }
 
-    @Given("Login ile giris yapilirso")
+    @Given("Login butonuna tiklarso")
     public void loginIleGirisYapilir() {
         homePage.loginButonu.click();
-        homePage.loginUsernameBox.sendKeys("AdminBatch171", Keys.TAB, "Batch171+", Keys.TAB, Keys.ENTER);
+
+    }
+    @Then("Vice Dean olarak giris yaparso")
+    public void viceDeanOlarakGirisYaparso() {
+        homePage.loginUsernameBox.sendKeys("Karaca", Keys.TAB, "CevizAgaci12+", Keys.TAB, Keys.ENTER);
     }
 
     @And("Menü alanina tiklarso")
@@ -71,4 +76,7 @@ public class US08_StepDef {
     public void sayfayiKapatirso() {
         Driver.closeDriver();
     }
+
+
+
 }
