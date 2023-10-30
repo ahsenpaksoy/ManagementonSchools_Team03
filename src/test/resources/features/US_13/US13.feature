@@ -6,7 +6,7 @@ Feature: US13
     And   kullanici Login oldugunu dogrularSA
     But   Menu butonuta tiklarSA
     And   Teacher Management sayfasina giderSA
-  @us13
+  @us13@gorebilme
   Scenario:TC01 Vice Dean öğretmen oluşturabilmelidir.
     Given  Choose Lessons kismindan ders "Java" secilirSA
     Then   Name ,Surname ,Birth Place ,E-mail ,Phone Number ,Date of Birth ,SSN ,User Name,Password girilirSA
@@ -66,7 +66,7 @@ Feature: US13
     Then   Name ,Surname ,Birth Place ,E-mail ,Phone Number ,Date of Birth ,SSN ,User Name,Password girilirSA
     And    is Advisor Teacher secenegi secilirSA
     And    Submit butonuna tiklanirSA
-   # And    "Required" yazisi gorulerek Teacher olusmadigi dogrulanirSA
+    And    Teacher olusmadigi dogrulanirSA
     And    sayfayi kapatirSA
   @us13
   Scenario:TC08 "Date of Birth"  kismi bos birakilarak öğretmen oluşturulamamalidir
@@ -112,6 +112,7 @@ Feature: US13
     And    is Advisor Teacher secenegi secilirSA
     Then   Cinsiyet secilirSA
     And    Submit butonuna tiklanirSA
+    And    SSN 3. ve 5. rakamdan sonra '-' içermedigi dogrulanirSA
     And    "Minimum 11 character (XXX-XX-XXXX)" yazisi gorulerek Teacher olusmadigi dogrulanirSA
     And    sayfayi kapatirSA
   @us13
@@ -137,7 +138,7 @@ Feature: US13
   @us13
   Scenario:TC15 Password 7 karakterden oldugunda teacher olusturulamamalidir
     Given  Choose Lessons kismindan ders "Java" secilirSA
-    Then   SSN bos birakilir, Name,Surname,Birth Place,E-mail,Phone Number,Date of Birth,User Name,Password girilirSA
+    Then   Password bos birakilir, Name,Surname,Birth Place,E-mail,Phone Number,Date of Birth,SSN,User Name girilirSA
     And    7 karakterden olusan bir password girilir
     And    is Advisor Teacher secenegi secilirSA
     Then   Cinsiyet secilirSA
@@ -147,7 +148,7 @@ Feature: US13
   @us13
   Scenario:TC16 Password büyük harf icermediginde teacher olusturulamamalidir
     Given  Choose Lessons kismindan ders "Java" secilirSA
-    Then   SSN bos birakilir, Name,Surname,Birth Place,E-mail,Phone Number,Date of Birth,User Name,Password girilirSA
+    Then   Password bos birakilir, Name,Surname,Birth Place,E-mail,Phone Number,Date of Birth,SSN,User Name girilirSA
     And    "Buyuk harf" icermeyen bir password girilir
     And    is Advisor Teacher secenegi secilirSA
     Then   Cinsiyet secilirSA
@@ -157,7 +158,7 @@ Feature: US13
   @us13
   Scenario:TC17 Password kucuk harf icermediginde teacher olusturulamamalidir
     Given  Choose Lessons kismindan ders "Java" secilirSA
-    Then   SSN bos birakilir, Name,Surname,Birth Place,E-mail,Phone Number,Date of Birth,User Name,Password girilirSA
+    Then   Password bos birakilir, Name,Surname,Birth Place,E-mail,Phone Number,Date of Birth,SSN,User Name girilirSA
     And    "Kucuk harf" icermeyen bir password girilir
     And    is Advisor Teacher secenegi secilirSA
     Then   Cinsiyet secilirSA
@@ -167,7 +168,7 @@ Feature: US13
   @us13
   Scenario:TC18 Password karakter icermediginde teacher olusturulamamalidir
     Given  Choose Lessons kismindan ders "Java" secilirSA
-    Then   SSN bos birakilir, Name,Surname,Birth Place,E-mail,Phone Number,Date of Birth,User Name,Password girilirSA
+    Then   Password bos birakilir, Name,Surname,Birth Place,E-mail,Phone Number,Date of Birth,SSN,User Name girilirSA
     And    "Rakam" icermeyen bir password girilir
     And    is Advisor Teacher secenegi secilirSA
     Then   Cinsiyet secilirSA
