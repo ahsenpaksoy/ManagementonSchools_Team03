@@ -20,12 +20,12 @@ public class US11_StepDefs {
 
     @And("kullanici sayfayi kaydirir")
     public void kullaniciSayfayiKaydirir() {
-        ReusableMethods.scroll(viceDean.lessonProgramListTable);
+        ReusableMethods.scroll(viceDeanPage.lessonProgramListTable);
         //  actions.sendKeys(Keys.PAGE_DOWN,Keys.PAGE_DOWN,Keys.PAGE_DOWN,Keys.PAGE_DOWN).perform();
     }
 
     @And("kullanici Lesson görebilmelidir.")
-    public void kullaniciLessonDayGörebilmelidir() {
+    public void kullaniciLessonDayGorebilmelidir() {
         System.out.println(viceDean.dersIsmiGorunur.getText());
         assertTrue(viceDean.dersIsmiGorunur.isDisplayed());
     }
