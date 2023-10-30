@@ -15,7 +15,7 @@ import org.junit.runner.RunWith;
   */
         features = "src/test/resources/features", //features package'ının yolu (content root)
         glue = "stepDefinitions", //stepDefinitions package ismi
-        tags = "@a3", //Hangi scenarioları bu tag'ı belirtirsek o scenariolar çalışır
+        tags = "", //Hangi scenarioları bu tag'ı belirtirsek o scenariolar çalışır
         dryRun = false, //true seçersek scenariolari kontrol eder browser'ı çalıştırmaz
         monochrome = true//-->true kullanırsak konsoldaki çıktıları tek renk(siyah) olarak verir
 )

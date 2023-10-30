@@ -167,14 +167,16 @@ public class DeanPage {
 
 
 // Kenan 151-300
+    @FindBy(xpath = "(//*[@class='fw-bold p-3 card-header'])[3]")
+    public WebElement viceDeanBasligiKI;
  @FindBy (id="name")
     public WebElement deanNameKI;
 @FindBy(xpath = "(//*[@name='gender'])[2]")
     public WebElement genderSecimKI;
 @FindBy(xpath = "//*[@class='fw-semibold btn btn-primary btn-lg']")
     public WebElement submitButonKI;
-@FindBy (xpath = "//*[@class='Toastify__toast Toastify__toast-theme--colored Toastify__toast--success Toastify__toast--close-on-click']")
-    public WebElement viceDeanSavedKI;
+    @FindBy(xpath = "//*[@class='Toastify__toast-body']")
+    public WebElement viceDeanSavedYaziKI; //Dean deyken
 
 
 
