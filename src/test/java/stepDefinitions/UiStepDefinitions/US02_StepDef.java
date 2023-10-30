@@ -72,7 +72,7 @@ public class US02_StepDef {
 
     }
     //WebTabledaki datalari getiriyor(Resauble method)
-    public static void printDataSK(int satir, int sutun) {   //   //tbody//tr[1]//td[1]
+    public static void printDataSK(int satir, int sutun) {
         WebElement satirSutun = Driver.getDriver().findElement(By.xpath("//tbody//tr[" + satir + "]//td[" + sutun + "]"));
         System.out.println(satirSutun.getText());
     }
@@ -115,6 +115,6 @@ public class US02_StepDef {
         ReusableMethods.bekle(2);
         ReusableMethods.click(guestUser.deleteButton_SK);
         ReusableMethods.bekle(2);
-        assertTrue(guestUser.deletesuccesfullYazisi_SK.isDisplayed());
+        assertTrue(guestUser.deletesuccesfullYazisi_SK.getText().contains("Guest User deleted Successful"));
     }
 }
