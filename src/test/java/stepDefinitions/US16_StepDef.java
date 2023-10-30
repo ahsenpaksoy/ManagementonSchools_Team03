@@ -25,7 +25,7 @@ public class US16_StepDef {
     }
 
     @And("Name,Email,Date,Subject,Message bölümlerinin göründügünü dogrular.")
-    public void nameEmailDateSubjectMessageBölümlerininGöründügünüDogrular() {
+    public void nameEmailDateSubjectMessageBolumlerininGorundugunuDogrular() {
 
         List<WebElement> studentMessageBilgileri = studentManagementPage.studentMessageBilgileri;
         for (WebElement w:studentMessageBilgileri) {
@@ -35,7 +35,7 @@ public class US16_StepDef {
     }
 
     @And("Silme butonunun göründügünü dogrular")
-    public void silmeButonununGöründügünüDogrular() {
+    public void silmeButonununGorundugunuDogrular() {
         try {
 
             WebElement silmeButonu = Driver.getDriver().findElement(By.id("silmeButonu"));
@@ -87,12 +87,12 @@ public class US16_StepDef {
     }
 
     @And("Kullanici Name altinda gönderici isimlerini gordugunu dogrular.")
-    public void kullaniciNameAltindaGöndericiIsimleriniGordugunuDogrular() {
+    public void kullaniciNameAltindaGondericiIsimleriniGordugunuDogrular() {
         
     }
 
     @And("Kullanici Email altinda gönderici Email adreslerini gordugunu dogrular.")
-    public void kullaniciEmailAltindaGöndericiEmailAdresleriniGordugunuDogrular() {
+    public void kullaniciEmailAltindaGondericiEmailAdresleriniGordugunuDogrular() {
         
     }
 

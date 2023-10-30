@@ -31,19 +31,19 @@ public class US11_StepDefs {
     }
 
     @And("kullanici Day görebilmelidir.")
-    public void kullaniciDayGörebilmelidir() {
+    public void kullaniciDayGorebilmelidir() {
         System.out.println(viceDean.dayGorunur.getText());
         assertTrue(viceDean.dayGorunur.isDisplayed());
     }
 
     @And("kullanici Start Time görebilmelidir.")
-    public void kullaniciStartTimeGörebilmelidir() {
+    public void kullaniciStartTimeGorebilmelidir() {
         System.out.println(viceDean.startTimeGorunur.getText());
         assertTrue(viceDean.startTimeGorunur.isDisplayed());
     }
 
     @And("kullanici Stop Time görebilmelidir.")
-    public void kullaniciStopTimeGörebilmelidir() {
+    public void kullaniciStopTimeGorebilmelidir() {
         System.out.println(viceDean.stopTimeGorunur.getText());
         assertTrue(viceDean.stopTimeGorunur.isDisplayed());
     }
@@ -55,17 +55,17 @@ public class US11_StepDefs {
     }
 
     @When("Kullanici Login Butonuna tıklar")
-    public void kullaniciLoginButonunaTıklar() {
+    public void kullaniciLoginButonunaTiklar() {
 
     }
 
     @Then("kullanici User Name boxa tıklar")
-    public void kullaniciUserNameBoxaTıklar() {
+    public void kullaniciUserNameBoxaTiklar() {
 
     }
 
     @And("kullanici Password boxa tıklar")
-    public void kullaniciPasswordBoxaTıklar() {
+    public void kullaniciPasswordBoxaTiklar() {
 
     }
 
@@ -75,12 +75,12 @@ public class US11_StepDefs {
     }
 
     @And("kullanıcı Login butonuna tıklar")
-    public void kullanıcıLoginButonunaTıklar() {
+    public void kullaniciLoginButonunaTıklar() {
 
     }
 
     @And("kullanıcı Lesson Program sekmesini bulur")
-    public void kullanıcıLessonProgramSekmesiniBulur() {
+    public void kullaniciLessonProgramSekmesiniBulur() {
 
     }
 
