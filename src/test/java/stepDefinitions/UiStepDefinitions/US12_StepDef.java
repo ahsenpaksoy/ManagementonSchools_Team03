@@ -36,7 +36,7 @@ public class US12_StepDef {
         ReusableMethods.scroll(lessonPage.submitButtonSonY);
         ReusableMethods.bekle(5);
         //ReusableMethods.visibleWait(By.xpath("(//*[@class='form-check-input'])[48]"), 4);
-       // ReusableMethods.scroll(ReusableMethods.visibleWait(By.xpath("//*[@id='teacherId']"), 4));
+        // ReusableMethods.scroll(ReusableMethods.visibleWait(By.xpath("//*[@id='teacherId']"), 4));
         //lessonPage.chooseButtonY.click();
         lessonPage.lastChooseLessonButtonY.click();
         ReusableMethods.bekle(2);
@@ -50,7 +50,7 @@ public class US12_StepDef {
        ReusableMethods.bekle(2);
        js.executeScript("arguments[0].click();" , lessonPage.teacherY);
        ReusableMethods.bekle(2);
-       // lessonPage.teacherY.click();
+
     }
 
     @Then("Choose Teacher drop down menuden bir teacher secer YD")

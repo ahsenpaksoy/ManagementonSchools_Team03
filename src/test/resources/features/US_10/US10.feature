@@ -96,7 +96,7 @@ Feature: US10 Vice Dean ders programi olusturabilmeli
     Then Choose Day menusune tiklar YD
     Then Acilan menuden gun secer YD
     Then Gun secebildigini dogrular YD
-    And kullanici sayfayi kapatir YD
+    #And kullanici sayfayi kapatir YD
 
 
 

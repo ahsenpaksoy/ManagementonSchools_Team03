@@ -55,5 +55,5 @@ Feature: US12 Vice Dean ogretmene ders atayabilmeli
     Then Ders icin ogretmen secilebilirligini dogrular YD
     Then Submit butonuna tiklar YD
     Then Ayni ogretmene ayni gun ve saatte baska bir ders atanamadigini dogrular YD
-    And  kullanici sayfayi kapatir YD
+    #And  kullanici sayfayi kapatir YD
 
