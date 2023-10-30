@@ -3,7 +3,7 @@ Feature: US01 Aday öğrenciler sisteme kayıt olabilmelidir.
 Background:
   Given kullanici "https://managementonschools.com/" e gider_SK
   And kullanici Register butonuna tiklar_SK
-@a
+
 Scenario: TC01 Web sitesine yeni bir kullanıcı kaydi yapma
   Then kullanici name alanina isim girer_SK
   And kullanici surname alanina soyisim girer_SK
