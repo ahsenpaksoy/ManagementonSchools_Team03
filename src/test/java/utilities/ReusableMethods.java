@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -207,5 +208,101 @@ public class ReusableMethods {
 
     }
 
+    public static boolean invalidSA(String invalidMessage){
+        List<WebElement> we= Driver.getDriver().findElements(By.xpath("//*[@class='invalid-feedback']"));
+        List<String> ivSt= new ArrayList<>();
+        for (WebElement element : we) {
+
+            ivSt.add(element.getText());
+        }
+        return ivSt.contains(invalidMessage);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public static void jsClear(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].value = '';", element);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
+

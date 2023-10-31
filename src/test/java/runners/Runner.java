@@ -1,30 +1,31 @@
 package runners;
 
-
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
 
-@RunWith(Cucumber.class)
-@CucumberOptions(
-
-        plugin = {
-                "pretty",
-                "html:target/default-cucumber-reports.html",
-                "json:target/json-reports/cucumber.json",
-                "junit:target/xml-report/cucumber.xml",
-                "rerun:target/failed_scenarios.txt",
-                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
-        },
-
-        monochrome = true,  //raporlarin console da okunakli sekilde cikmasi icin
-        features = "./src/test/resources/features/",  //features folder path
-        glue = {"stepdefinitions","hooks" },   //step-definitions path
-        tags = "@Smoke2" ,// Scenario steps controller
-        dryRun = false       // when true -> stepdefinitions
-
+@RunWith(Cucumber.class)//Cucumber ile junit'in entegre olmasını sağlayan scenario çalıştırıcı notasyonu
+@CucumberOptions(plugin = {"pretty",//pretty->konsolda scenariolar ile ilgili ayrıntılı bilgi verir
+        "html:target/default-cucumber-reports.html",
+        "json:target/json-reports/cucumber.json",
+        "junit:target/xml-report/cucumber.xml",
+        "rerun:TestOutput/failed_scenario.txt"},
+        /*
+ rerun plugin'i sayesinde fail olan scenariolarımızı yolunu belirttiğimiz .txt dosya için tutacaktır
+  */
+        features = "src/test/resources/features", //features package'ının yolu (content root)
+        glue = "stepDefinitions", //stepDefinitions package ismi
+        tags = "", //Hangi scenarioları bu tag'ı belirtirsek o scenariolar çalışır
+        dryRun = false, //true seçersek scenariolari kontrol eder browser'ı çalıştırmaz
+        monochrome = true//-->true kullanırsak konsoldaki çıktıları tek renk(siyah) olarak verir
 )
-public class Runner {
 
+public class Runner {
+    /*
+        @CucumberOptions() bu notasyon sayesinde hangi scenariolari çalıştıracağımızı ve hangi raporları
+    alacağımızı belirtiriz
+        dryRun parametresi eğer true seçilirse scenariolari çalıştırmadan feature file daki steplerin
+    stepDefinition class'ındaki methodlar ile uyuşuğ uyuşmadığını kontrol eder ve browser'ı çalıştırmaz
+     */
 
 }
