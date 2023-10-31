@@ -234,20 +234,6 @@ public class LessonPage {
     @FindBy(xpath = "//*[@id='controlled-tab-example-tabpane-lessonProgram']/div[2]/div[2]/div/div/table/thead/tr")
     public List<WebElement> lessonProgramListHeader;
 
-
-
-
-    @FindBy(xpath = "(//table)[3]//tr[2]//td[1]")
-    public WebElement dersIsmiGorunur;
-    @FindBy(xpath = "(//table)[3]//tr[2]//td[2]")
-    public WebElement dayGorunur;
-    @FindBy(xpath = "(//table)[3]//tr[2]//td[3]")
-    public WebElement startTimeGorunur;
-    @FindBy(xpath = "(//table)[3]//tr[2]//td[4]")
-    public WebElement stopTimeGorunur;
-    @FindBy(xpath = "(//table//*[@class='form-check-input'])[2]")
-    public WebElement chooseLessonClickBox;
-
 /*
     @And("kullanici sayfayi kaydirir")
     public void kullaniciSayfayiKaydirir() {
@@ -279,6 +265,19 @@ public class LessonPage {
         assertTrue(viceDean.stopTimeGorunur.isDisplayed());
 
  */
+
+
+
+    @FindBy(xpath = "(//table)[3]//tr[2]//td[1]")
+    public WebElement dersIsmiGorunur;
+    @FindBy(xpath = "(//table)[3]//tr[2]//td[2]")
+    public WebElement dayGorunur;
+    @FindBy(xpath = "(//table)[3]//tr[2]//td[3]")
+    public WebElement startTimeGorunur;
+    @FindBy(xpath = "(//table)[3]//tr[2]//td[4]")
+    public WebElement stopTimeGorunur;
+    @FindBy(xpath = "(//table//*[@class='form-check-input'])[2]")
+    public WebElement chooseLessonClickBox;
 
 
     }
