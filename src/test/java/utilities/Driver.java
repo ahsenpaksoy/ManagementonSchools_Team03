@@ -14,19 +14,21 @@ public class Driver {
         SINGLETON PATTERN (Tekli kullanım) için gizli const.'ı private yaptık
          */
     }
-    static WebDriver driver;
-    public static WebDriver getDriver(){
-        /*
-            Driver'i her çağırdığımızda yeni bir pencere açmamasi için bir if bloğu ile bu işi çözdük.
-        if(driver == null) ile eğer driver'a değer atanmamış ise driver'a değerleri ata, tekrar driver
-        çağrıldığında driver da değer olduğu için direk driver'i return et. Dolayısıyla driver'ı ikinci kez
-        çağırdığımızda açık gördüğü browser da yani aynı sayfada belirtilen web sitene gider.
-         */
+
+    /*
+           Driver'i her çağırdığımızda yeni bir pencere açmamasi için bir if bloğu ile bu işi çözdük.
+       if(driver == null) ile eğer driver'a değer atanmamış ise driver'a değerleri ata, tekrar driver
+       çağrıldığında driver da değer olduğu için direk driver'i return et. Dolayısıyla driver'ı ikinci kez
+       çağırdığımızda açık gördüğü browser da yani aynı sayfada belirtilen web sitene gider.
+        */
         /*
             Testlerimizi farklı driver'larda çalıştırmak için her seferinde getDriver() methodu içindeki
         driver ayarlarını değiştirmek yerine aşağıdaki gibi switch case ile .properties dosyasında browser
         olarak belirttiğimiz key'in değeri ne ise browser o driver ile çalışacaktır
          */
+    static WebDriver driver;
+    public static WebDriver getDriver(){
+
         if (driver==null){
             switch (ConfigReader.getProperty("browser")){
                 case "chrome":
@@ -74,4 +76,6 @@ public class Driver {
             driver = null;
         }
     }
+
+
 }
