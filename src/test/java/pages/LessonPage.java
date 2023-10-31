@@ -12,6 +12,8 @@ import java.util.List;
 import static org.junit.Assert.assertTrue;
 
 public class LessonPage {
+    public static ReusableMethods studentContact;
+
     public LessonPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
@@ -213,8 +215,6 @@ public class LessonPage {
 
     @FindBy(id = "controlled-tab-example-tab-lessonsList")
     public WebElement lessonsButton;
-
-
     @FindBy(id="controlled-tab-example-tab-lessonProgram")
     public WebElement lessonProgramButton;
     @FindBy(xpath = "//*[@class=' css-19bb58m']")
@@ -229,45 +229,8 @@ public class LessonPage {
     public WebElement stop;
     @FindBy(xpath = "//button[@class='fw-semibold btn btn-primary btn-lg']")
     public WebElement vdProgramButton;
-
-
     @FindBy(xpath = "//*[@id='controlled-tab-example-tabpane-lessonProgram']/div[2]/div[2]/div/div/table/thead/tr")
     public List<WebElement> lessonProgramListHeader;
-
-/*
-    @And("kullanici sayfayi kaydirir")
-    public void kullaniciSayfayiKaydirir() {
-        ReusableMethods.scroll(viceDean.lessonProgramListTable);
-        //  actions.sendKeys(Keys.PAGE_DOWN,Keys.PAGE_DOWN,Keys.PAGE_DOWN,Keys.PAGE_DOWN).perform();
-    }
-
-    @And("kullanici Lesson görebilmelidir.")
-    public void kullaniciLessonDayGörebilmelidir() {
-        System.out.println(viceDean.dersIsmiGorunur.getText());
-        assertTrue(viceDean.dersIsmiGorunur.isDisplayed());
-    }
-
-    @And("kullanici Day görebilmelidir.")
-    public void kullaniciDayGörebilmelidir() {
-        System.out.println(viceDean.dayGorunur.getText());
-        assertTrue(viceDean.dayGorunur.isDisplayed());
-    }
-
-    @And("kullanici Start Time görebilmelidir.")
-    public void kullaniciStartTimeGörebilmelidir() {
-        System.out.println(viceDean.startTimeGorunur.getText());
-        assertTrue(viceDean.startTimeGorunur.isDisplayed());
-    }
-
-    @And("kullanici Stop Time görebilmelidir.")
-    public void kullaniciStopTimeGörebilmelidir() {
-        System.out.println(viceDean.stopTimeGorunur.getText());
-        assertTrue(viceDean.stopTimeGorunur.isDisplayed());
-
- */
-
-
-
     @FindBy(xpath = "(//table)[3]//tr[2]//td[1]")
     public WebElement dersIsmiGorunur;
     @FindBy(xpath = "(//table)[3]//tr[2]//td[2]")
@@ -276,8 +239,6 @@ public class LessonPage {
     public WebElement startTimeGorunur;
     @FindBy(xpath = "(//table)[3]//tr[2]//td[4]")
     public WebElement stopTimeGorunur;
-    @FindBy(xpath = "(//table//*[@class='form-check-input'])[2]")
-    public WebElement chooseLessonClickBox;
 
 
     }

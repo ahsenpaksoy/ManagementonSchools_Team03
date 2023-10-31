@@ -1,25 +1,24 @@
-@us11
-Feature: US11_The Vice Dean should be able to view and update the lesson program
+Feature:
 
-  Background:
-    Given User navigates to the homepage
-    When Clicks on the Login button
-    And Enters their username
-    And Enters their password
-    And Clicks on the Login
-    And Clicks on the Lesson program tab
+  Scenario: TC01 Kullanici Lesson, Day, Start Time, Stop Time görur
+    Given  kullanici managementonschools.com sayfasina gider
+    When Kullanici Login Butonuna tıklar
+    Then kullanici User Name boxa tıklar
+    And kullanici Password boxa tıklar
+    And kullanici 3 saniye bekler
+    And kullanıcı Login butonuna tıklar
+    And kullanici 3 saniye bekler
+    And kullanıcı Lesson Program sekmesini bulur
+    And kullanici 3 saniye bekler
+    And kullanici sayfayi kaydirir
+    And kullanici Lesson görebilmelidir.
+    And kullanici Day görebilmelidir.
+    And kullanici Start Time görebilmelidir.
+    And kullanici Stop Time görebilmelidir.
 
-  Scenario: TC01_The created entity should be able to display Lesson, Day, Start Time, and Stop Time.
-    Then Sees the Lesson column under the Lesson Program List heading
-    Then Sees the Day column
-    Then Sees the Start time column
-    Then Sees the Stop time button
-    And Sign out
-
-  Scenario:TC02_They should be able to update from the Lesson Program List.
+  Scenario:TC02 Kullanici Lesson Program List'ten güncelleme yapar
+    And Kullanici Updade yapabilmelidir
 
 
-
-
-  Scenario: TC03_Deletion should be possible from the Lesson Program List.
-
+  Scenario:TC03 Kullanici Lesson Program listesinden olusturulan dersi siler
+    And Kullanici Lesson Program listesinden olusturulan dersi silebilmelidir
