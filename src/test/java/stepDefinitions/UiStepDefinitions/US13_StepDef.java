@@ -2,26 +2,21 @@ package stepDefinitions.UiStepDefinitions;
 
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.But;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
-import pages.HomePage;
 import pages.TeacherPage;
-import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
-
-import javax.print.attribute.standard.RequestingUserName;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
+
 
 public class US13_StepDef {
     TeacherPage teacherPage = new TeacherPage();
+    Actions actions= new Actions(Driver.getDriver());
     Faker faker = new Faker();
     public String name = faker.name().firstName();
     public String surname = faker.name().lastName();
@@ -30,7 +25,7 @@ public class US13_StepDef {
     String birthPlace = faker.address().city();
     String email = faker.internet().emailAddress();
     String userName = name + surname;
-    String password = faker.internet().password(8, 13, true, false, true);
+    String password = (faker.internet().password(7, 13, true, false, true))+"1a";
     Date dof = faker.date().birthday(25, 80);
 
     SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
@@ -39,6 +34,7 @@ public class US13_StepDef {
 
     @Given("Choose Lessons kismindan ders {string} secilirSA")
     public void chooseLessonsKismindanDersSecilirSA(String ders) {
+
         teacherPage.chooseLessonsSA.sendKeys(ders, Keys.ENTER);
     }
 
@@ -71,20 +67,18 @@ public class US13_StepDef {
     @And("Submit butonuna tiklanirSA")
     public void submitButonunaTiklanirSA() {
         teacherPage.submitSA.click();
+        ReusableMethods.bekle(2);
     }
 
     @And("Teacher olustugu dogrulanirSA")
     public void teacherOlustuguDogrulanirSA() {
-        System.out.println(teacherPage.onaySA.getText());
-        Assert.assertTrue(teacherPage.onaySA.isDisplayed());
-        ReusableMethods.bekle(3);
+        Assert.assertTrue(teacherPage.onaySA.getText().contains("Teacher saved successfully"));
     }
 
     @And("sayfayi kapatirSA")
     public void sayfayiKapatirSA() {
-        ReusableMethods.bekle(1);
+        ReusableMethods.bekle(2);
         Driver.closeDriver();
-        ReusableMethods.bekle(1);
     }
 
     @Then("Name bos birakilir ,Surname ,Birth Place ,E-mail ,Phone Number ,Date of Birth ,SSN ,User Name,Password girilirSA")
@@ -171,12 +165,11 @@ public class US13_StepDef {
                 surname, Keys.TAB,
                 birthPlace, Keys.TAB,
                 email, Keys.TAB,
-                phoneNumber, Keys.TAB,
-                Keys.TAB, Keys.TAB, Keys.TAB,
-                Keys.TAB, Keys.TAB,
-                ssn, Keys.TAB,
+                phoneNumber);
+        teacherPage.ssnSA.sendKeys(ssn,Keys.TAB,
                 userName, Keys.TAB,
                 password);
+
     }
 
     @Then("SSN bos birakilir, Name,Surname,Birth Place,E-mail,Phone Number,Date of Birth,User Name,Password girilirSA")
@@ -260,7 +253,7 @@ public class US13_StepDef {
                 teacherPage.passwordSA.sendKeys(faker.internet().password(8,13,false,false,true));
                 break;
             case "Kucuk harf":
-                teacherPage.passwordSA.sendKeys(faker.internet().password(8,13,true,false,true).toLowerCase());
+                teacherPage.passwordSA.sendKeys(faker.internet().password(8,13,true,false,true).toUpperCase());
                 break;
             case "Rakam":
                 teacherPage.passwordSA.sendKeys(faker.internet().password(8,13,true,false,false));
@@ -270,7 +263,12 @@ public class US13_StepDef {
 
     @And("Teacher olusmadigi dogrulanirSA")
     public void teacherOlusmadigiDogrulanirSA() {
-        Assert.assertTrue(teacherPage.onaySA.isDisplayed());
+        Assert.assertTrue(teacherPage.onaySA.getText().contains("valid"));
+    }
+
+    @And("SSN 3. ve 5. rakamdan sonra '-' içermedigi dogrulanirSA")
+    public void ssnVeRakamdanSonraIçermedigiDogrulanirSA() {
+        Assert.assertFalse(teacherPage.ssnSA.getAttribute("value").contains("-"));
     }
 }
 

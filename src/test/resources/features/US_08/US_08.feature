@@ -3,7 +3,8 @@ Feature: US08 Vice Dean ders oluşturabilmelidir.(Lessons - Add Lesson)
   Background: Kullanici ManagementSchools sayfasina giderso
     Given kullanici ManagementSchools sayfasina giderso
     And kullanici 2 saniye beklerso
-    Given Login ile giris yapilirso
+    Given Login butonuna tiklarso
+    And Vice Dean olarak giris yaparso
     And kullanici 2 saniye beklerso
     And Menü alanina tiklarso
     And kullanici 2 saniye beklerso

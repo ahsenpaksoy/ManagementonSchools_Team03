@@ -50,11 +50,11 @@ public class US03_StepDef {
     }
     @And("Your Name alanini bos birakir_SK")  //tc02
     public void yourNameAlaniniBosBirakir_SK() {
-        //bod birakilir
+        page.yournameKutusu_SK.sendKeys("");
     }
     @And("YourName kutusu bos oldugu icin mesajin gonderilemedigini dogrular_SK")
     public void yournameKutusuBosOlduguIcinMesajinGonderilemediginiDogrular_SK() {
-        assertTrue(page.yournameKutusu_SK.isDisplayed());
+        assertTrue(page.yournameKutusuRequired_SK.isDisplayed());
         ReusableMethods.bekle(2);
     }
     @And("Your Email alanina icinde @ ve . karakterleri olmayan bir email adresi girer_SK") //tc03
@@ -69,7 +69,7 @@ public class US03_StepDef {
 
     @And("Subject alanini bos birakir_SK")
     public void subjectAlaniniBosBirakir_SK() {  //tc04
-        //bu alan bos
+        page.subjectKutusu_SK.sendKeys("");
 
     }
     @And("Subject kutusu bos oldugu icin mesajin gonderilemedigini dogrular_SK")
@@ -80,7 +80,7 @@ public class US03_StepDef {
     }
     @And("Message alanini bos birakir_SK")
     public void messageAlaniniBosBirakir_SK() {    //tc05
-        //bu alan bos
+        page.messageKutusu_SK.sendKeys("");
     }
     @And("Message alani bos oldugu icin mesajin gonderilemedigini dogrular_SK")
     public void messageAlaniBosOlduguIcinMesajinGonderilemediginiDogrular_SK() {
