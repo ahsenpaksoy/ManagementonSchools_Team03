@@ -121,7 +121,26 @@ public WebElement meetSavedVerify1Ep;
 public WebElement meetSavedVerifyEp;
 @FindBy(xpath = "//*[@class='Toastify__toast-body']")
 public WebElement errorTimeEp;
-
+@FindBy(xpath = "//*[@class='Toastify__toast-body']")
+public WebElement alertChooseStudentsEp;
+@FindBy(xpath = "//*[text()='Required']")
+public WebElement descriptionRequiredVerifyEp;
+@FindBy(xpath = "(//h5)[2]")
+public WebElement meetListVerifyEp;
+@FindBy(xpath = "(//td//span)[1]")
+public WebElement stundentsBilgisiVerifyEp;
+@FindBy(xpath = "(//td//span)[2]")
+public WebElement dateBilgisiVerifyEp;
+@FindBy(xpath = "(//td//span)[3]")
+public WebElement startTimeBilgisiVerifyEp;
+@FindBy(xpath = "(//td//span)[4]")
+public WebElement stopTimeBilgisiVerifyEp;
+@FindBy(xpath = "(//td//span)[5]")
+public WebElement descriptionBilgisiVerifyEp;
+@FindBy(xpath = "(//td//span)[6]")
+public WebElement editButtonVerifyEp;
+@FindBy(xpath = "(//td//span)[7]")
+public WebElement deleteButtonVerifyEp;
 
 
 
