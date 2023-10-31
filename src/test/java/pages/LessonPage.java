@@ -17,11 +17,6 @@ public class LessonPage {
 
 
 
-
-
-
-
-
     //Saadet 20-100
     public @FindBy(xpath = "(//*[@class='nav-link'])[8]")
     WebElement LessonManagementButonuSo;
@@ -36,7 +31,7 @@ public class LessonPage {
     WebElement CreditScoreKutusuSo;
     public @FindBy(xpath = "(//button[@type='button'])[9]")
     WebElement SubmitButonuSo;
-    public @FindBy(xpath = "(//*[@aria-hidden='true'])[8]")
+    public @FindBy(xpath = "//div[@id='controlled-tab-example-tabpane-lessonsList']//span[text()='»']")
     WebElement dersListesiIlerlemeButonuSo;
     @FindBy(xpath = "//th[text()=‘Lesson Name’]")
     public List<WebElement> tumLessonNames;
@@ -53,6 +48,27 @@ public class LessonPage {
 
      @FindBy(xpath = " (//tbody[@class='table-group-divider'])[2]//tr[last()]")
     public WebElement eklenenSonDers;
+
+    @FindBy(xpath = "//*[@id='lessonName']")
+    public WebElement lessonName;
+
+    @FindBy(xpath = "//div[@id='controlled-tab-example-tabpane-lessonsList']//div[@class='mt-5 ms-3 me-3 text-center border border-3 shadow-sm bg-body rounded card border-warning']//table//tbody//tr//td")
+    public List<WebElement> dersListesi;
+
+    @FindBy(xpath = "//*[text()='Lesson Deleted']")
+    public WebElement lessonDeleted;
+    @FindBy(xpath = "//*[text()='Lesson Created']")
+    public WebElement alert;
+
+    @FindBy(xpath = "(//*[text()='›'])[2]")
+    public WebElement birSonrakiSayfaButonu;
+
+    @FindBy(xpath = "(//button[@class='btn btn-danger'])[last()]")
+    public WebElement sonDersiSilmeButonu;
+
+
+
+
 
 
 
