@@ -21,3 +21,4 @@ Feature: US02 Admin Guest User List Bilgilerini Gorebilmeli_Silebilmeli
       Given Admin Guest_User List'i gorur_SK
       Then Admin Guest_User Delete butonunu gorur_SK
       And Admin uyari mesajini gorerek silme isleminin tamamlandigini gorur_SK
+      And Kullanici sayfayi kapatir_SK
