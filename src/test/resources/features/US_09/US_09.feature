@@ -17,7 +17,12 @@ Feature: Vice Dean ders listesini görebilmeli ve güncellemeler yapabilmelidir.
 
  Scenario: Vice Dean ders listesinden ders silebilmeli
    Given Acilan Sayfada Lesson alanina tiklanirSo
-   Then kullanici ders listesinde ders silebilmeliSo
+   Then kullanici ders listesinde ders eklerSo
+   And kullanici Compulsory kutusuna tiklarSo
+   And kullanici CreditScore'a bir rakam girer ve submit yaparSo
+   And kullanici olusturulan dersin cop kovasina tiklar ve silerSo
+
+
 
 
 
