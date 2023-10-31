@@ -69,10 +69,16 @@ public class US19_StepDef {
         actions.sendKeys(student);
         actions.sendKeys(Keys.ENTER).perform();
     }
+    @Given("Choose Students menusu bos birakilir_Ep")
+    public void chooseStudentsMenusuBosBirakilir_Ep() {
+        teacherPage.chooseStudentsDdmEp.click();
+        ReusableMethods.bekle(2);
+
+    }
 
     @Then("Date of Meet tarihi belirlenir_Ep")
     public void dateOfMeetTarihiBelirlenir_Ep() {
-        date ="06/11/2023";
+        date ="20/11/2023";
         teacherPage.dateOfMeetBoxEp.sendKeys(date);
     }
 
@@ -99,6 +105,10 @@ public class US19_StepDef {
         tanim="Important";
         teacherPage.descriptionBoxEp.sendKeys(tanim);
     }
+    @And("Description kutusu bos birakilir_Ep")
+    public void descriptionKutusuBosBirakilir_Ep() {
+        teacherPage.descriptionBoxEp.click();
+    }
 
     @Then("Submit butonuna tiklanir_Ep")
     public void submitButonunaTiklanir_Ep() {
@@ -123,5 +133,15 @@ public class US19_StepDef {
     }
 
 
+    @Then("Ogrenci secilmedi icin uyari yazisi alir_Ep")
+    public void ogrenciSecilmediIcinUyariYazisiAlir_Ep() {
+        ReusableMethods.visibleWait(teacherPage.alertChooseStudentsEp,2);
+        Assert.assertTrue(teacherPage.alertChooseStudentsEp.isDisplayed());
+    }
 
+
+    @Then("Description kutusu bos birakildigi icin Required yazisi gorulur_Ep")
+    public void descriptionKutusuBosBirakildigiIcinRequiredYazisiGorulur_Ep() {
+        Assert.assertTrue(teacherPage.descriptionRequiredVerifyEp.isDisplayed());
+    }
 }

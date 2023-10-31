@@ -26,6 +26,7 @@ Feature: US12 Vice Dean ogretmene ders atayabilmeli
     #Then Lesson added to Teacher yazisinin gorunur oldugunu dogrular YD
     #And  kullanici sayfayi kapatir YD
 
+
   Scenario: TC02 Vice Dean ogretmene ders atayabilmeli
     Given Lesson Program secenegine tiklar YD
     Then Choose Lessons bolumunden olusturulan derse tiklar YD

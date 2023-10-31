@@ -6,3 +6,11 @@ Feature: US20 Teacher toplantıları görebilmeli, güncelleyebilmeli ve silebil
     Then kullanici Login oldugunu dogrular_Ep
     And kullanici menu butonuna tiklar_Ep
     Then acilan pencereden meet management secilir_Ep
+  @a3
+  Scenario:TC01 Teacher toplantilari ve toplanti detaylarini gorebilmeli
+    Given kullanici sayfada meet list bolumune gider
+    Then kullanici students bilgisinin gorundugunu dogrular
+    Then kullanici date bilgisinin gorundugunu dogrular
+    And kullanici start time bilgisinin gorundugunu dogrular
+    And kullanici stop time bilgisinin gorundugunu dogrular
+    And kullanici description bilgisinin gorundugunu dogrular
