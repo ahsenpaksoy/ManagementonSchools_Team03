@@ -6,10 +6,12 @@ import io.cucumber.java.en.Then;
 public class US07_StepDef {
     @And("Menu butonuna tiklanilir.")
     public void menuButonunaTiklanilir() {
+        
     }
 
     @Then("{string} a tiklanilir.")
     public void aTiklanilir(String arg0) {
+
     }
 
     @Then("Basligin {string} icerdgi kontrol edilir.")
