@@ -21,6 +21,10 @@ Feature: Vice Dean ders listesini görebilmeli ve güncellemeler yapabilmelidir.
    And kullanici Compulsory kutusuna tiklarSo
    And kullanici CreditScore'a bir rakam girer ve submit yaparSo
    And kullanici olusturulan dersin cop kovasina tiklar ve silerSo
+   And kullanici dersin silindigini dogrularSo
+   And kullanici sayfayi kapatirSo
+
+
 
 
 
