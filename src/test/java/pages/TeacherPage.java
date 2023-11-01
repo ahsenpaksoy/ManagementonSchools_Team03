@@ -141,7 +141,26 @@ public WebElement descriptionBilgisiVerifyEp;
 public WebElement editButtonVerifyEp;
 @FindBy(xpath = "(//td//span)[7]")
 public WebElement deleteButtonVerifyEp;
-
+@FindBy(xpath = "(//td//span//button)[1]")
+public WebElement editButtonEp;
+@FindBy(xpath = "(//*[@id='date'])[2]")
+public WebElement editDateOfMeetEp;
+@FindBy(xpath = "(//div//input)[8]")
+public WebElement editStartTimeEp;
+@FindBy(xpath = "(//div//input)[9]")
+public WebElement editStopTimeEp;
+@FindBy(xpath = "(//div//input)[10]")
+public WebElement editDescriptionEp;
+@FindBy(xpath = "(//*[text()='Submit'])[2]")
+public WebElement editSubmitButtonEp;
+@FindBy(xpath = "(//*[@aria-label='Close'])[3]")
+public WebElement editCloseButtonEp;
+@FindBy(xpath = "//*[@class='Toastify__toast-body']")
+public WebElement editSubmitVerifyEp;
+@FindBy(xpath = "(//td//span//button)[2]")
+public WebElement deleteButtonEp;
+@FindBy(xpath = "(//*[@class='Toastify__toast-container Toastify__toast-container--top-center'])[1]")
+public WebElement deleteVerifyEp;
 
 
 

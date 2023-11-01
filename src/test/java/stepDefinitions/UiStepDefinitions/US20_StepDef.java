@@ -3,7 +3,9 @@ package stepDefinitions.UiStepDefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import pages.HomePage;
 import pages.TeacherPage;
@@ -56,4 +58,47 @@ public class US20_StepDef {
         assertTrue(teacherPage.descriptionBilgisiVerifyEp.isDisplayed());
         ReusableMethods.bekle(2);
     }
+    @Given("kullanici sayfada meet list bolumune gider ve edit butonuna tiklar_Ep")
+    public void kullaniciSayfadaMeetListBolumuneGiderVeEditButonunaTiklar_Ep() {
+        js.executeScript("arguments[0].click();" , teacherPage.editButtonEp);
+        ReusableMethods.bekle(2);
+    }
+
+    @Then("kullanici Date,Start Time,Stop Time ve Description bilgilerini gunceller_Ep")
+    public void kullaniciDateStartTimeStopTimeVeDescriptionBilgileriniGunceller_Ep() {
+        teacherPage.editDateOfMeetEp.sendKeys("20/11/2023");
+        teacherPage.editStartTimeEp.sendKeys("08:00PM");
+        teacherPage.editStopTimeEp.sendKeys("09:00PM");
+        teacherPage.editDescriptionEp.clear();
+        teacherPage.editDescriptionEp.sendKeys("Very Important");
+        ReusableMethods.bekle(2);
+
+    }
+
+    @And("kullanici submit butonuna tiklar_Ep")
+    public void kullaniciSubmitButonunaTiklar_Ep() {
+        teacherPage.editSubmitButtonEp.click();
+        ReusableMethods.bekle(2);
+    }
+
+    @Then("kullanici meet bilgilerinin guncellendigini dogrular_Ep")
+    public void kullaniciMeetBilgilerininGuncellendiginiDogrular_Ep() {
+        ReusableMethods.visibleWait(teacherPage.editSubmitVerifyEp,2);
+        Assert.assertTrue(teacherPage.editSubmitVerifyEp.getText().contains("Meet Updated Successfully"));
+    }
+
+    @Then("kullanici guncelleme sayfasini kapatir_Ep")
+    public void kullaniciGuncellemeSayfasiniKapatir_Ep() {
+        ReusableMethods.bekle(2);
+        teacherPage.editCloseButtonEp.click();
+    }
+
+    @And("kullanici meet list bolumunde delete butonuna tiklar silindigini dogrular_Ep")
+    public void kullaniciMeetListBolumundeDeleteButonunaTiklarSilindiginiDogrular_Ep() {
+        teacherPage.deleteButtonEp.click();
+        ReusableMethods.bekle(2);
+        assertTrue(teacherPage.deleteVerifyEp.isDisplayed());
+    }
+
+
 }

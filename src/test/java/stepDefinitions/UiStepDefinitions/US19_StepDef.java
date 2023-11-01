@@ -40,6 +40,11 @@ public class US19_StepDef {
                 ConfigReader.getProperty("password_Ep") , Keys.TAB, Keys.ENTER);
 
     }
+    @And("kullanici user name ve password ile siteye ogrenci olarak giris yapar_Ep")
+    public void kullaniciUserNameVePasswordIleSiteyeOgrenciOlarakGirisYapar_Ep() {
+        homePage.loginUsernameBox.sendKeys(ConfigReader.getProperty("userNameStudent_Ep"), Keys.TAB,
+                ConfigReader.getProperty("password_Ep") , Keys.TAB, Keys.ENTER);
+    }
 
     @Then("kullanici Login oldugunu dogrular_Ep")
     public void kullaniciLoginOldugunuDogrular_Ep() {
@@ -144,4 +149,6 @@ public class US19_StepDef {
     public void descriptionKutusuBosBirakildigiIcinRequiredYazisiGorulur_Ep() {
         Assert.assertTrue(teacherPage.descriptionRequiredVerifyEp.isDisplayed());
     }
+
+
 }
