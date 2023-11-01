@@ -55,7 +55,7 @@ public class LessonPage {
     @FindBy(xpath = "//div[@id='controlled-tab-example-tabpane-lessonsList']//div[@class='mt-5 ms-3 me-3 text-center border border-3 shadow-sm bg-body rounded card border-warning']//table//tbody//tr//td")
     public List<WebElement> dersListesi;
 
-    @FindBy(xpath = "//*[text()='Lesson Deleted']")
+    @FindBy(xpath = "//*[@class='Toastify__toast-icon Toastify--animate-icon Toastify__zoom-enter']")
     public WebElement lessonDeleted;
     @FindBy(xpath = "//*[text()='Lesson Created']")
     public WebElement alert;

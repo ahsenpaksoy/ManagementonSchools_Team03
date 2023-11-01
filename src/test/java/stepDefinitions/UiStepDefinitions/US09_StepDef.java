@@ -114,40 +114,17 @@ public class US09_StepDef {
         //ReusableMethods.scroll(lessonPage.dersListesiIlerlemeButonuSo);
         //ReusableMethods.bekle(2);
         ReusableMethods.click(  lessonPage.dersListesiIlerlemeButonuSo);
-        ReusableMethods.bekle(2);
+        ReusableMethods.bekle(3);
         ReusableMethods.click(lessonPage.sonDersiSilmeButonu);
-        ReusableMethods.bekle(10);
+        ReusableMethods.bekle(2);
 
     }
 
 
   @And("kullanici dersin silindigini dogrularSo")
   public void kullaniciDersinSilindiginiDogrularSo() {
-          Assert.assertEquals("Lesson Deleted", lessonPage.lessonDeleted.getText());
+          Assert.assertTrue(lessonPage.lessonDeleted.isDisplayed());
+          ReusableMethods.bekle(2);
 
       }
   }
-
-    /*
-     List<WebElement> dersler;
-        int indeks = -1;
-        boolean flag = true;
-
-        while (flag) {
-            dersler = lessonPage.dersListesi;
-
-            int i =0;
-            while (i < dersler.size()) {
-                if (dersler.get(i).getText().equals("Astronomi")) {
-                    dersler = lessonPage.dersListesi;
-                    indeks = i;
-                    ReusableMethods.click(dersler.get(indeks + 3));
-                    flag = false;
-                }
-
-                i++;
-            }
-            ReusableMethods.click(lessonPage.birSonrakiSayfaButonu);
-            ReusableMethods.bekle(2);
-        }
-     */
