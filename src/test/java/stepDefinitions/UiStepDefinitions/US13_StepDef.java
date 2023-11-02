@@ -34,8 +34,9 @@ public class US13_StepDef {
 
     @Given("Choose Lessons kismindan ders {string} secilirSA")
     public void chooseLessonsKismindanDersSecilirSA(String ders) {
-
-        teacherPage.chooseLessonsSA.sendKeys(ders, Keys.ENTER);
+        ReusableMethods.bekle(2);
+        teacherPage.chooseLessonsSA.sendKeys(ders ,Keys.SPACE, Keys.ENTER);
+        ReusableMethods.bekle(2);
     }
 
 
