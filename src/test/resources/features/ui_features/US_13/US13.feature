@@ -8,7 +8,7 @@ Feature: US13
     And   Teacher Management sayfasina giderSA
   @us13@gorebilme
   Scenario:TC01 Vice Dean öğretmen oluşturabilmelidir.
-    Given  Choose Lessons kismindan ders "Java" secilirSA
+    Given  Choose Lessons kismindan ders "JavaScript" secilirSA
     Then   Name ,Surname ,Birth Place ,E-mail ,Phone Number ,Date of Birth ,SSN ,User Name,Password girilirSA
     And    is Advisor Teacher secenegi secilirSA
     Then   Cinsiyet secilirSA
