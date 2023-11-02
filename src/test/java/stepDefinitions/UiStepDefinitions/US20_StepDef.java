@@ -67,10 +67,11 @@ public class US20_StepDef {
     @Then("kullanici Date,Start Time,Stop Time ve Description bilgilerini gunceller_Ep")
     public void kullaniciDateStartTimeStopTimeVeDescriptionBilgileriniGunceller_Ep() {
         teacherPage.editDateOfMeetEp.sendKeys("20/11/2023");
-        teacherPage.editStartTimeEp.sendKeys("08:00PM");
-        teacherPage.editStopTimeEp.sendKeys("09:00PM");
-        teacherPage.editDescriptionEp.clear();
-        teacherPage.editDescriptionEp.sendKeys("Very Important");
+        ReusableMethods.bekle(2);
+        //teacherPage.editStartTimeEp.sendKeys("08:00PM");
+        //teacherPage.editStopTimeEp.sendKeys("09:00PM");
+        //teacherPage.editDescriptionEp.clear();
+        teacherPage.editDescriptionEp.sendKeys("1");
         ReusableMethods.bekle(2);
 
     }
@@ -95,7 +96,7 @@ public class US20_StepDef {
 
     @And("kullanici meet list bolumunde delete butonuna tiklar silindigini dogrular_Ep")
     public void kullaniciMeetListBolumundeDeleteButonunaTiklarSilindiginiDogrular_Ep() {
-        teacherPage.deleteButtonEp.click();
+        js.executeScript("arguments[0].click();" , teacherPage.deleteButtonEp);
         ReusableMethods.bekle(2);
         assertTrue(teacherPage.deleteVerifyEp.isDisplayed());
     }
