@@ -14,7 +14,7 @@ Feature: US20 Teacher toplantıları görebilmeli, güncelleyebilmeli ve silebil
     And kullanici start time bilgisinin gorundugunu dogrular
     And kullanici stop time bilgisinin gorundugunu dogrular
     And kullanici description bilgisinin gorundugunu dogrular
-  @a3
+
   Scenario: TC02 Teacher toplantilari guncelleyebilmeli ve silebilmeli
     Given kullanici sayfada meet list bolumune gider ve edit butonuna tiklar_Ep
     Then kullanici Date,Start Time,Stop Time ve Description bilgilerini gunceller_Ep
