@@ -137,6 +137,7 @@ public class US01_StepDef {
     }
     @And("Kullanici sayfayi kapatir_SK")
     public void kullaniciSayfayiKapatir() {
+        Driver.closeDriver();
     }
     @And("Name kutusu bos olunca kayit isleminin tamamlanmadigini dogrular_SK")  //TC02
     public void nameKutusuBosOluncaKayitIslemininTamamlanmadiginiDogrular() {
