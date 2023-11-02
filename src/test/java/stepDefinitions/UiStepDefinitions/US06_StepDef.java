@@ -4,8 +4,10 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.apache.commons.math3.ode.nonstiff.AdamsBashforthFieldIntegrator;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import pages.AdminPage;
 import pages.DeanPage;
 import pages.HomePage;
 import utilities.ConfigReader;
@@ -18,17 +20,19 @@ import java.util.Date;
 public class US06_StepDef {
     HomePage homePage = new HomePage();
     DeanPage deanPage = new DeanPage();
+    AdminPage adminPage=new AdminPage();
     Faker faker = new Faker();
     public String nameKI = faker.name().firstName();
     public String surnameKI = faker.name().lastName();
     public String phoneNummerKI = faker.number().numberBetween(100, 999) + "-" + faker.number().numberBetween(100, 999) + "-" + faker.number().numberBetween(1000, 9999);
     public String ssnKI = faker.number().numberBetween(100, 999) + "-52-" + faker.number().numberBetween(1000, 9999);
     public String birthPlaceKI = faker.address().city();
-    Date dateKI = faker.date().birthday(18, 50);
-    SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-    String dateOfBirthKI = format.format(dateKI);
+
+   // Date dateKI = faker.date().birthday(18, 50);
+   // SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+    String dateOfBirthKI = "18/02/1995";
     String userNameKI = nameKI + surnameKI;
-    String passwordKI = faker.internet().password(8, 10, true, false, true);
+    String passwordKI = "Aa245214";
 
 
     @Given("Kullanıcı Managementonschools adresine giderKI")
@@ -52,7 +56,7 @@ public class US06_StepDef {
     }
     @Then("Sayfa basliginin {string} oldugu dogrulanirKI")
     public void sayfaBasligininOlduguDogrulanirKI(String vdm) {
-        Assert.assertTrue(deanPage.viceDeanBasligiKI.isDisplayed());
+        Assert.assertTrue(deanPage.viceDeanTitleKI.isDisplayed());
 
     }
     @Given("Name, Surname, Birth Place, Date Of Birth, Phone Number, SSN, UserName, Password butonuna veri girKI")
@@ -207,6 +211,8 @@ public class US06_StepDef {
 
     @Then("Gender cinsiyet seçimi bos birakilirKI")
     public void genderCinsiyetSeçimiBosBirakilirKI() {
+        Assert.assertTrue(adminPage.genderSelectedKI.isEnabled());
+
     }
 
     @And("{string} yazisi gorunerek kayit islemi yapilamaz")

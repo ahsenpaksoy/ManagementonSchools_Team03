@@ -104,7 +104,6 @@ Feature: US23
     And 2 saniye beklerKI
     Then Gender cinsiyet seçimi bos birakilirKI
     Then Submit butonuna tiklanirKI
-   # And "Required" yazisi gorunerek kayit islemi yapilamaz
     And 2 saniye beklerKI
     And Sayfa kapanirKI
 

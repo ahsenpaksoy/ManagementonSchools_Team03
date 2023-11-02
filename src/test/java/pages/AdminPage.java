@@ -108,8 +108,10 @@ public class AdminPage {
     @FindBy(xpath = "(//*[@role='button'])[12]")
     public WebElement viceDeanSelectKI;
 
-  @FindBy(xpath = "//*[@class='Toastify__toast-body']")
+    @FindBy(css = "div[class='Toastify__toast-body']")
     public WebElement viceDeanSavedKI;
+    @FindBy(xpath = "(//*[@class='form-label'])[1]")
+    public WebElement genderSelectedKI;
 
 
 
