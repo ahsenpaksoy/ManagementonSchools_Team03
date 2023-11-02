@@ -7,7 +7,6 @@ Feature: US06
     And Kullanici Login oldugunu dogrularKI
     And Sayfa basliginin "Vice Dean Management" oldugu dogrulanirKI
 
-
   Scenario: TC01 Dean, Vice Dean hesabı oluşturabilmelidir.
     Given Name, Surname, Birth Place, Date Of Birth, Phone Number, SSN, UserName, Password butonuna veri girKI
     And 2 saniye beklerKI
@@ -102,7 +101,6 @@ Feature: US06
     And 2 saniye beklerKI
     Then Gender cinsiyet seçimi bos birakilirKI
     Then Submit butonuna tiklanirKI
-  #  And "Required" yazisi gorunerek kayit islemi yapilamaz
     And 2 saniye beklerKI
     And Sayfa kapanirKI
 

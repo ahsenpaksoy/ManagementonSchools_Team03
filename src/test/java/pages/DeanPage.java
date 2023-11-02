@@ -149,17 +149,32 @@ public class DeanPage {
 
   
   // Kenan 151-300
-    @FindBy(xpath = "(//*[@class='fw-bold p-3 card-header'])[3]")
-    public WebElement viceDeanBasligiKI;
- @FindBy (id="name")
+    @FindBy (id="name")
     public WebElement deanNameKI;
-@FindBy(xpath = "(//*[@name='gender'])[2]")
+    @FindBy(xpath = "(//*[@name='gender'])[2]")
     public WebElement genderSecimKI;
-@FindBy(xpath = "//*[@class='fw-semibold btn btn-primary btn-lg']")
+    @FindBy(xpath = "//*[@class='fw-semibold btn btn-primary btn-lg']")
     public WebElement submitButonKI;
     @FindBy(xpath = "//*[@class='Toastify__toast-body']")
     public WebElement viceDeanSavedYaziKI; //Dean deyken
-
+    @FindBy(css = "h3[class='fw-bold p-3 card-header']")
+    public WebElement viceDeanTitleKI;
+    @FindBy(css = "button[aria-controls='offcanvasNavbar-expand-false']")
+    public WebElement deanMenuButonKI;
+    @FindBy(xpath = "(//*[@class='nav-link'])[7]")
+    public WebElement contactAllMessageButonKI;
+    @FindBy(xpath = "//h5")
+    public WebElement contactMessageBasligiKI;
+    @FindBy(xpath = "(//tr//th)[1]")
+    public WebElement contactNameKI;
+    @FindBy(xpath = "(//tr//th)[2]")
+    public WebElement contactEmailKI;
+    @FindBy(xpath = "(//tr//th)[3]")
+    public WebElement contactDateKI;
+    @FindBy(xpath = "(//tr//th)[4]")
+    public WebElement contactSubjectKI;
+    @FindBy(xpath = "(//tr//th)[5]")
+    public WebElement contactMessageKI;
 
 
 
