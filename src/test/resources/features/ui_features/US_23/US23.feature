@@ -1,23 +1,27 @@
-Feature: US06
+Feature: US23
 
-  Background: Managementon Schools sayfasinda Vice Dean olarak login olunur.
+  Background: Managementon Schools sayfasinda Admin olarak login olunur.
     Given Kullanıcı Managementonschools adresine giderKI
     Then Kullanici Login butonuna basarKI
-    And Kullanici username ve password girerKI
+    And Kullanici Username ve Password girerKI
     And Kullanici Login oldugunu dogrularKI
-    And Sayfa basliginin "Vice Dean Management" oldugu dogrulanirKI
+    And Sayfa Basliginin "Admin Management" oldugu dogrulanirKI
+    And Admin sayfasinda Menu butonuna tiklarKI
+    And 2 saniye beklerKI
+    Then Vice Dean secilirKI
 
-  Scenario: TC01 Dean, Vice Dean hesabı oluşturabilmelidir.
+  @us23
+  Scenario: TC01 Admin, Vice Dean hesabı oluşturabilmelidir.
     Given Name, Surname, Birth Place, Date Of Birth, Phone Number, SSN, UserName, Password butonuna veri girKI
     And 2 saniye beklerKI
     Then Gender cinsiyet seçimi yapılırKI
     * 1 saniye beklerKI
     Then Submit butonuna tiklanirKI
-    Then Vice Dean islemi basariyla tamamlanirKI
+    Then Vice Dean Saved Islemi basariyla tamamlanirKI
     And Sayfa kapanirKI
 
-
-  Scenario: TC02 Dean, Vice Dean hesabı olustururken Name bos birakilirsa kayit yapilamamali.
+ @us23
+  Scenario: TC02 Admin, Vice Dean hesabı olusturabilmeli. Name bos birakilirsa kayit yapilamamali.
     Given Surname, Birth Place, Date Of Birth, Phone Number, SSN, UserName, Password butonuna veri girKI
     And 2 saniye beklerKI
     Then Gender cinsiyet seçimi yapılırKI
@@ -25,8 +29,8 @@ Feature: US06
     And "Required" yazisi gorunerek kayit islemi yapilamaz
     And 2 saniye beklerKI
     And Sayfa kapanirKI
-
-  Scenario: TC03 Dean, Vice Dean hesabı olustururken Surname bos birakilirsa kayit yapilamamali.
+  @us23
+  Scenario: TC03 Admin, Vice Dean hesabı olusturabilmeli. Surname bos birakilirsa kayit yapilamamali.
     Given Name, Birth Place, Date Of Birth, Phone Number, SSN, UserName, Password butonuna veri girKI
     And 2 saniye beklerKI
     Then Gender cinsiyet seçimi yapılırKI
@@ -35,8 +39,8 @@ Feature: US06
     And 2 saniye beklerKI
     And Sayfa kapanirKI
 
-
-  Scenario: TC04 Dean, Vice Dean hesabı olustururken Birth Place bos birakilirsa kayit yapilamamali.
+  @us23
+  Scenario: TC04 Admin, Vice Dean hesabı olusturabilmeli. Birth Place bos birakilirsa kayit yapilamamali.
     Given Name, Surname, Date Of Birth, Phone Number, SSN, UserName, Password butonuna veri girKI
     And 2 saniye beklerKI
     Then Gender cinsiyet seçimi yapılırKI
@@ -45,8 +49,8 @@ Feature: US06
     And 2 saniye beklerKI
     And Sayfa kapanirKI
 
-
-  Scenario: TC05 Dean, Vice Dean hesabı olustururken Date Of Birth bos birakilirsa kayit yapilamamali.
+  @us23
+  Scenario: TC05 Admin, Vice Dean hesabı olusturabilmeli.Date Of Birth bos birakilirsa kayit yapilamamali.
     Given Name, Surname, Birth Place, Phone Number, SSN, UserName, Password butonuna veri girKI
     And 2 saniye beklerKI
     Then Gender cinsiyet seçimi yapılırKI
@@ -55,8 +59,8 @@ Feature: US06
     And 2 saniye beklerKI
     And Sayfa kapanirKI
 
-
-  Scenario: TC06 Dean, Vice Dean hesabı olustururken Phone Number bos birakilirsa kayit yapilamamali.
+  @us23
+  Scenario: TC06 Admin, Vice Dean hesabı olusturabilmeli. Phone Number bos birakilirsa kayit yapilamamali.
     Given Name, Surname, Birth Place, Date Of Birth, SSN, UserName, Password butonuna veri girKI
     And 2 saniye beklerKI
     Then Gender cinsiyet seçimi yapılırKI
@@ -65,8 +69,8 @@ Feature: US06
     And 2 saniye beklerKI
     And Sayfa kapanirKI
 
-
-  Scenario: TC07 Dean, Vice Dean hesabı olustururken SSN bos birakilirsa kayit yapilamamali.
+  @us23
+  Scenario: TC07 Admin, Vice Dean hesabı olusturabilmeli. SSN alani bos birakilirsa kayit yapilamamali.
     Given Name, Surname, Birth Place, Date Of Birth, Phone Number, UserName, Password butonuna veri girKI
     And 2 saniye beklerKI
     Then Gender cinsiyet seçimi yapılırKI
@@ -75,8 +79,8 @@ Feature: US06
     And 2 saniye beklerKI
     And Sayfa kapanirKI
 
-
-  Scenario: TC08 Dean, Vice Dean hesabı olustururken UserName bos birakilirsa kayit yapilamamali.
+  @us23
+  Scenario: TC08 Admin, Vice Dean hesabı olusturabilmeli. UserName alani bos birakilirsa kayit yapilamamali.
     Given Name, Surname, Birth Place, Date Of Birth, Phone Number, SSN, Password butonuna veri girKI
     And 2 saniye beklerKI
     Then Gender cinsiyet seçimi yapılırKI
@@ -85,8 +89,8 @@ Feature: US06
     And 2 saniye beklerKI
     And Sayfa kapanirKI
 
-
-  Scenario: TC09 Dean, Vice Dean hesabı olustururken Password bos birakilirsa kayit yapilamamali.
+  @us23
+  Scenario: TC09 Admin, Vice Dean hesabı olusturabilmeli. Password alani bos birakilirsa kayit yapilamamali.
     Given Name, Surname, Birth Place, Date Of Birth, Phone Number, SSN, UserName butonuna veri girKI
     And 2 saniye beklerKI
     Then Gender cinsiyet seçimi yapılırKI
@@ -95,8 +99,8 @@ Feature: US06
     And 2 saniye beklerKI
     And Sayfa kapanirKI
 
-
-  Scenario: TC10 Dean, Vice Dean hesabı olustururken Gender cinsiyet bos birakilirsa kayit yapilamamali.
+  @us23
+  Scenario: TC10 Admin, Vice Dean hesabı olusturabilmeli. Gender cinsiyet bos birakilirsa kayit yapilamamali.
     Given Name, Surname, Birth Place, Date Of Birth, Phone Number, SSN, UserName, Password butonuna veri girKI
     And 2 saniye beklerKI
     Then Gender cinsiyet seçimi bos birakilirKI

@@ -151,6 +151,20 @@ public class DeanPage {
   // Kenan 151-300
     @FindBy (id="name")
     public WebElement deanNameKI;
+    @FindBy(id = "surname")
+    public WebElement deanSurnameKI;
+    @FindBy(id="birthPlace")
+    public WebElement deanBirthPlaceKI;
+    @FindBy(id="birthDay")
+    public WebElement deanBirthDayKI;
+    @FindBy(id="phoneNumber")
+    public WebElement deanPhoneNummerKI;
+    @FindBy(id="ssn")
+    public WebElement deanSSNKI;
+    @FindBy(id="username")
+    public WebElement deanUserNameKI;
+    @FindBy(id="password")
+    public WebElement deanPassordKI;
     @FindBy(xpath = "(//*[@name='gender'])[2]")
     public WebElement genderSecimKI;
     @FindBy(xpath = "//*[@class='fw-semibold btn btn-primary btn-lg']")

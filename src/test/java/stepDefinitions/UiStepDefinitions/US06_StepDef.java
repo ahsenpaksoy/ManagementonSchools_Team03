@@ -56,22 +56,19 @@ public class US06_StepDef {
     }
     @Then("Sayfa basliginin {string} oldugu dogrulanirKI")
     public void sayfaBasligininOlduguDogrulanirKI(String vdm) {
-        Assert.assertTrue(deanPage.viceDeanTitleKI.isDisplayed());
+        Assert.assertTrue(deanPage.viceDeanTitleKI.getText().contains(vdm));
 
     }
     @Given("Name, Surname, Birth Place, Date Of Birth, Phone Number, SSN, UserName, Password butonuna veri girKI")
     public void nameSurnameBirthPlaceDateOfBirthPhoneNumberDateOfBirthSSNUserNamePasswordButonunaVeriGirKI() {
-        deanPage.deanNameKI.sendKeys(nameKI, Keys.TAB,
-                surnameKI, Keys.TAB,
-                birthPlaceKI, Keys.TAB,
-                Keys.TAB,
-                dateOfBirthKI, Keys.TAB, Keys.TAB,
-                phoneNummerKI, Keys.TAB,
-                ssnKI, Keys.TAB,
-                userNameKI, Keys.TAB,
-                passwordKI, Keys.TAB,
-                Keys.ENTER
-        );
+        deanPage.deanNameKI.sendKeys(nameKI);
+        deanPage.deanSurnameKI.sendKeys(surnameKI);
+        deanPage.deanBirthPlaceKI.sendKeys(birthPlaceKI);
+        deanPage.deanBirthDayKI.sendKeys(dateOfBirthKI);
+        deanPage.deanPhoneNummerKI.sendKeys(phoneNummerKI);
+        deanPage.deanSSNKI.sendKeys(ssnKI);
+        deanPage.deanUserNameKI.sendKeys(userNameKI);
+        deanPage.deanPassordKI.sendKeys(passwordKI);
     }
 
     @Then("Gender cinsiyet seçimi yapılırKI")
@@ -88,125 +85,102 @@ public class US06_StepDef {
 
     @Then("Vice Dean islemi basariyla tamamlanirKI")
     public void kayitIslemiBasariylaTamamlanirKI() {
-        Assert.assertTrue(deanPage.viceDeanSavedYaziKI.isDisplayed());
+        Assert.assertTrue(deanPage.viceDeanSavedYaziKI.getText().contains("Vice dean Saved"));
     }
 
 
     @Given("Surname, Birth Place, Date Of Birth, Phone Number, SSN, UserName, Password butonuna veri girKI")
     public void surnameBirthPlaceDateOfBirthPhoneNumberSSNUserNamePasswordButonunaVeriGirKI() {
-        deanPage.deanNameKI.sendKeys(Keys.TAB,
-                surnameKI, Keys.TAB,
-                birthPlaceKI, Keys.TAB,
-                Keys.TAB,
-                dateOfBirthKI, Keys.TAB, Keys.TAB,
-                phoneNummerKI, Keys.TAB,
-                ssnKI, Keys.TAB,
-                userNameKI, Keys.TAB,
-                passwordKI, Keys.TAB,
-                Keys.ENTER);
-
+      //  deanPage.deanNameKI.sendKeys(nameKI);
+        deanPage.deanSurnameKI.sendKeys(surnameKI);
+        deanPage.deanBirthPlaceKI.sendKeys(birthPlaceKI);
+        deanPage.deanBirthDayKI.sendKeys(dateOfBirthKI);
+        deanPage.deanPhoneNummerKI.sendKeys(phoneNummerKI);
+        deanPage.deanSSNKI.sendKeys(ssnKI);
+        deanPage.deanUserNameKI.sendKeys(userNameKI);
+        deanPage.deanPassordKI.sendKeys(passwordKI);
     }
     @Given("Name, Birth Place, Date Of Birth, Phone Number, SSN, UserName, Password butonuna veri girKI")
     public void nameBirthPlaceDateOfBirthPhoneNumberSSNUserNamePasswordButonunaVeriGirKI() {
-        deanPage.deanNameKI.sendKeys(nameKI, Keys.TAB,
-                Keys.TAB,
-                birthPlaceKI, Keys.TAB,
-                Keys.TAB,
-                dateOfBirthKI, Keys.TAB, Keys.TAB,
-                phoneNummerKI, Keys.TAB,
-                ssnKI, Keys.TAB,
-                userNameKI, Keys.TAB,
-                passwordKI, Keys.TAB,
-                Keys.ENTER);
+        deanPage.deanNameKI.sendKeys(nameKI);
+       // deanPage.deanSurnameKI.sendKeys(surnameKI);
+        deanPage.deanBirthPlaceKI.sendKeys(birthPlaceKI);
+        deanPage.deanBirthDayKI.sendKeys(dateOfBirthKI);
+        deanPage.deanPhoneNummerKI.sendKeys(phoneNummerKI);
+        deanPage.deanSSNKI.sendKeys(ssnKI);
+        deanPage.deanUserNameKI.sendKeys(userNameKI);
+        deanPage.deanPassordKI.sendKeys(passwordKI);
     }
     @Given("Name, Surname, Date Of Birth, Phone Number, SSN, UserName, Password butonuna veri girKI")
     public void nameSurnameDateOfBirthPhoneNumberSSNUserNamePasswordButonunaVeriGirKI() {
-        deanPage.deanNameKI.sendKeys(nameKI, Keys.TAB,
-                surnameKI, Keys.TAB,
-                Keys.TAB,
-                Keys.TAB,
-                dateOfBirthKI, Keys.TAB, Keys.TAB,
-                phoneNummerKI, Keys.TAB,
-                ssnKI, Keys.TAB,
-                userNameKI, Keys.TAB,
-                passwordKI, Keys.TAB,
-                Keys.ENTER
-        );
+        deanPage.deanNameKI.sendKeys(nameKI);
+        deanPage.deanSurnameKI.sendKeys(surnameKI);
+       // deanPage.deanBirthPlaceKI.sendKeys(birthPlaceKI);
+        deanPage.deanBirthDayKI.sendKeys(dateOfBirthKI);
+        deanPage.deanPhoneNummerKI.sendKeys(phoneNummerKI);
+        deanPage.deanSSNKI.sendKeys(ssnKI);
+        deanPage.deanUserNameKI.sendKeys(userNameKI);
+        deanPage.deanPassordKI.sendKeys(passwordKI);
     }
 
     @Given("Name, Surname, Birth Place, Phone Number, SSN, UserName, Password butonuna veri girKI")
     public void nameSurnameBirthPlacePhoneNumberSSNUserNamePasswordButonunaVeriGirKI() {
-        deanPage.deanNameKI.sendKeys(nameKI, Keys.TAB,
-                surnameKI, Keys.TAB,
-                birthPlaceKI, Keys.TAB,
-                Keys.TAB,
-                Keys.TAB, Keys.TAB,
-                phoneNummerKI, Keys.TAB,
-                ssnKI, Keys.TAB,
-                userNameKI, Keys.TAB,
-                passwordKI, Keys.TAB,
-                Keys.ENTER
-        );
+        deanPage.deanNameKI.sendKeys(nameKI);
+        deanPage.deanSurnameKI.sendKeys(surnameKI);
+        deanPage.deanBirthPlaceKI.sendKeys(birthPlaceKI);
+      //  deanPage.deanBirthDayKI.sendKeys(dateOfBirthKI);
+        deanPage.deanPhoneNummerKI.sendKeys(phoneNummerKI);
+        deanPage.deanSSNKI.sendKeys(ssnKI);
+        deanPage.deanUserNameKI.sendKeys(userNameKI);
+        deanPage.deanPassordKI.sendKeys(passwordKI);
     }
 
     @Given("Name, Surname, Birth Place, Date Of Birth, SSN, UserName, Password butonuna veri girKI")
     public void nameSurnameBirthPlaceDateOfBirthSSNUserNamePasswordButonunaVeriGirKI() {
-        deanPage.deanNameKI.sendKeys(nameKI, Keys.TAB,
-                surnameKI, Keys.TAB,
-                birthPlaceKI, Keys.TAB,
-                Keys.TAB,
-                dateOfBirthKI, Keys.TAB, Keys.TAB,
-                Keys.TAB,
-                ssnKI, Keys.TAB,
-                userNameKI, Keys.TAB,
-                passwordKI, Keys.TAB,
-                Keys.ENTER
-        );
+        deanPage.deanNameKI.sendKeys(nameKI);
+        deanPage.deanSurnameKI.sendKeys(surnameKI);
+        deanPage.deanBirthPlaceKI.sendKeys(birthPlaceKI);
+        deanPage.deanBirthDayKI.sendKeys(dateOfBirthKI);
+       // deanPage.deanPhoneNummerKI.sendKeys(phoneNummerKI);
+        deanPage.deanSSNKI.sendKeys(ssnKI);
+        deanPage.deanUserNameKI.sendKeys(userNameKI);
+        deanPage.deanPassordKI.sendKeys(passwordKI);
     }
 
     @Given("Name, Surname, Birth Place, Date Of Birth, Phone Number, UserName, Password butonuna veri girKI")
     public void nameSurnameBirthPlaceDateOfBirthPhoneNumberUserNamePasswordButonunaVeriGirKI() {
-        deanPage.deanNameKI.sendKeys(nameKI, Keys.TAB,
-                surnameKI, Keys.TAB,
-                birthPlaceKI, Keys.TAB,
-                Keys.TAB,
-                dateOfBirthKI, Keys.TAB, Keys.TAB,
-                phoneNummerKI, Keys.TAB,
-                Keys.TAB,
-                userNameKI, Keys.TAB,
-                passwordKI, Keys.TAB,
-                Keys.ENTER
-        );
+        deanPage.deanNameKI.sendKeys(nameKI);
+        deanPage.deanSurnameKI.sendKeys(surnameKI);
+        deanPage.deanBirthPlaceKI.sendKeys(birthPlaceKI);
+        deanPage.deanBirthDayKI.sendKeys(dateOfBirthKI);
+        deanPage.deanPhoneNummerKI.sendKeys(phoneNummerKI);
+        //deanPage.deanSSNKI.sendKeys(ssnKI);
+        deanPage.deanUserNameKI.sendKeys(userNameKI);
+        deanPage.deanPassordKI.sendKeys(passwordKI);
     }
 
     @Given("Name, Surname, Birth Place, Date Of Birth, Phone Number, SSN, Password butonuna veri girKI")
     public void nameSurnameBirthPlaceDateOfBirthPhoneNumberSSNPasswordButonunaVeriGirKI() {
-        deanPage.deanNameKI.sendKeys(nameKI, Keys.TAB,
-                surnameKI, Keys.TAB,
-                birthPlaceKI, Keys.TAB,
-                Keys.TAB,
-                dateOfBirthKI, Keys.TAB, Keys.TAB,
-                phoneNummerKI, Keys.TAB,
-                ssnKI, Keys.TAB,
-                Keys.TAB,
-                passwordKI, Keys.TAB,
-                Keys.ENTER
-        );
+        deanPage.deanNameKI.sendKeys(nameKI);
+        deanPage.deanSurnameKI.sendKeys(surnameKI);
+        deanPage.deanBirthPlaceKI.sendKeys(birthPlaceKI);
+        deanPage.deanBirthDayKI.sendKeys(dateOfBirthKI);
+        deanPage.deanPhoneNummerKI.sendKeys(phoneNummerKI);
+        deanPage.deanSSNKI.sendKeys(ssnKI);
+        //deanPage.deanUserNameKI.sendKeys(userNameKI);
+        deanPage.deanPassordKI.sendKeys(passwordKI);
     }
 
     @Given("Name, Surname, Birth Place, Date Of Birth, Phone Number, SSN, UserName butonuna veri girKI")
     public void nameSurnameBirthPlaceDateOfBirthPhoneNumberSSNUserNameButonunaVeriGirKI() {
-        deanPage.deanNameKI.sendKeys(nameKI, Keys.TAB,
-                surnameKI, Keys.TAB,
-                birthPlaceKI, Keys.TAB,
-                Keys.TAB,
-                dateOfBirthKI, Keys.TAB, Keys.TAB,
-                phoneNummerKI, Keys.TAB,
-                ssnKI, Keys.TAB,
-                userNameKI, Keys.TAB,
-                Keys.TAB,
-                Keys.ENTER
-        );
+        deanPage.deanNameKI.sendKeys(nameKI);
+        deanPage.deanSurnameKI.sendKeys(surnameKI);
+        deanPage.deanBirthPlaceKI.sendKeys(birthPlaceKI);
+        deanPage.deanBirthDayKI.sendKeys(dateOfBirthKI);
+        deanPage.deanPhoneNummerKI.sendKeys(phoneNummerKI);
+        deanPage.deanSSNKI.sendKeys(ssnKI);
+        deanPage.deanUserNameKI.sendKeys(userNameKI);
+        //deanPage.deanPassordKI.sendKeys(passwordKI);
     }
 
     @Then("Gender cinsiyet seçimi bos birakilirKI")
