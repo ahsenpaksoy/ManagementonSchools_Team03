@@ -12,10 +12,27 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class US04_StepDef {
     HomePage homePage =new HomePage();
     DeanPage deanPage =new DeanPage();
     Faker faker=new Faker();
+
+    String nameEsi = faker.name().firstName();
+    String surnameEsi = faker.name().lastName();
+    String phoneNummerEsi = faker.number().numberBetween(100, 999) + "-" + faker.number().numberBetween(100, 999) + "-" + faker.number().numberBetween(1000, 9999);
+    String ssnEsi = faker.number().numberBetween(100, 899) + "-"+faker.number().numberBetween(10, 99)+"-" + faker.number().numberBetween(1000, 9999);
+    String birthPlaceEsi = faker.address().city();
+    Date dateEsi = faker.date().birthday(25, 60);
+    SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+    String dateOfBirthEsi = format.format(dateEsi);
+    String userNameEsi = nameEsi + surnameEsi;
+
+    String passwordEsi=faker.internet().password()+"Aa2";
+
+
     @Given("Kullanici Login butonuna basar Esi")
     public void kullaniciLoginButonunaBasar() {
       homePage.loginButonu.click();
@@ -49,19 +66,19 @@ public class US04_StepDef {
 
     @Given("Admin add Dean bolumundeki name kismina bir veri girer Esi")
     public void adminAddDeanBolumundekiNameKisminaBirVeriGirer() {
-        deanPage.deanNameEsi.sendKeys(faker.name().firstName(),Keys.ENTER);
+        deanPage.deanNameEsi.sendKeys(nameEsi);
         ReusableMethods.bekle(1);
     }
 
     @Then("Admin add Dean bolumundeki surname kismina bir verir girer Esi")
     public void adminAddDeanBolumundekiSurnameKisminaBirVerirGirer() {
-        deanPage.deanSurnameEsi.sendKeys(faker.name().lastName(),Keys.ENTER);
+        deanPage.deanSurnameEsi.sendKeys(surnameEsi);
         ReusableMethods.bekle(1);
     }
 
     @Then("Admin add Dean bolumundeki birth place kismina bir verir girer Esi")
     public void adminAddDeanBolumundekiBirthPlaceKisminaBirVerirGirer() {
-        deanPage.deanBirthPlaceEsi.sendKeys(faker.address().city());
+        deanPage.deanBirthPlaceEsi.sendKeys(birthPlaceEsi);
         ReusableMethods.bekle(1);
     }
 
@@ -73,31 +90,31 @@ public class US04_StepDef {
 
     @Then("Admin add Dean bolumundeki Date of Birth kismina bir verir girer Esi")
     public void adminAddDeanBolumundekiDateOfBirthKisminaBirVerirGirer() {
-        deanPage.deanBirthdayEsi.sendKeys(ConfigReader.getProperty("deanBirthDayEsi"));
+        deanPage.deanBirthdayEsi.sendKeys(dateOfBirthEsi);
         ReusableMethods.bekle(1);
     }
 
     @Then("Admin add Dean bolumundeki phone kismina bir verir girer Esi")
     public void adminAddDeanBolumundekiPhoneKisminaBirVerirGirer() {
-        deanPage.deanPhoneNumberEsi.sendKeys(ConfigReader.getProperty("deanPhoneEsi"),Keys.ENTER);
+        deanPage.deanPhoneNumberEsi.sendKeys(phoneNummerEsi);
         ReusableMethods.bekle(1);
     }
 
     @Then("Admin add Dean bolumundeki Ssn kismina bir verir girer Esi")
     public void adminAddDeanBolumundekiSsnKisminaBirVerirGirer() {
-        deanPage.deanSsnNumberEsi.sendKeys(ConfigReader.getProperty("deanSsnEsi"));
+        deanPage.deanSsnNumberEsi.sendKeys(ssnEsi);
         ReusableMethods.bekle(1);
     }
 
     @Then("Admin add Dean bolumundeki username kismina bir verir girer Esi")
     public void adminAddDeanBolumundekiUsernameKisminaBirVerirGirer() {
-        deanPage.deanUserNameEsi.sendKeys(faker.funnyName().name(),Keys.ENTER);
+        deanPage.deanUserNameEsi.sendKeys(userNameEsi);
         ReusableMethods.bekle(1);
     }
 
     @Then("Admin add Dean bolumundeki password kismina bir verir girer Esi")
     public void adminAddDeanBolumundekiPasswordKisminaBirVerirGirer() {
-        deanPage.deanPasswordEsi.sendKeys(ConfigReader.getProperty("passwordEsi"));
+        deanPage.deanPasswordEsi.sendKeys(passwordEsi);
         ReusableMethods.bekle(1);
     }
 

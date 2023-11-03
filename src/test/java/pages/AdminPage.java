@@ -6,8 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
 public class AdminPage {
-    public AdminPage() {
-        PageFactory.initElements(Driver.getDriver(), this);
+    public AdminPage() {PageFactory.initElements(Driver.getDriver(), this);
     }
 
 
@@ -107,62 +106,80 @@ public class AdminPage {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //Kenan 101-200
+    @FindBy(xpath = "(//*[@class='fw-bold p-3 card-header'])[1]")
+    public WebElement adminBasligi;
+
+    @FindBy(xpath = "//*[@aria-controls='offcanvasNavbar-expand-false']")
+    public WebElement adminMenuButonKI;
+
+    @FindBy(xpath = "(//*[@role='button'])[12]")
+    public WebElement viceDeanSelectKI;
+
+    @FindBy(css = "div[class='Toastify__toast-body']")
+    public WebElement viceDeanSavedKI;
+    @FindBy(xpath = "(//*[@class='form-label'])[1]")
+    public WebElement genderSelectedKI;
+
+
+
+
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Kenan 101-200
 
 
 
