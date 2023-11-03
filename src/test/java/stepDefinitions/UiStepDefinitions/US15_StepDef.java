@@ -13,6 +13,7 @@ import utilities.ReusableMethods;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 
 import static junit.framework.TestCase.assertTrue;
 
@@ -286,14 +287,102 @@ public class US15_StepDef {
     }
     @And("Password alani bos birakilarak ogrencinin olusturulamadigini dogrular_DB")
     public void passwordAlaniBosBirakilarakOgrencininOlusturulamadiginiDogrular_DB() {
-        viceDeanPage.requiredPassword_DB.isDisplayed();//tc13
+        viceDeanPage.requiredPassword_DB.isDisplayed();//tc14
     }
 
-    @And("kullanici Password alanina {int} karakterli sifre girer_DB")
-    public void kullaniciPasswordAlaninaKarakterliSifreGirer_DB(int arg0) {
+    @And("kullanici Password alanina yedi karakterli bir  {string} girer_DB")
+    public void kullaniciPasswordAlaninaYediKarakterliBirGirer_DB(String sifre) {
+        sifre = rasgeleSifreOlustur(7);
+        viceDeanPage.passwordBox_DB.sendKeys(sifre);
     }
+    // Belirli bir karakter sayısına sahip rasgele bir şifre oluşturan bir yardımcı method
+    public String rasgeleSifreOlustur(int karakterSayisi) {
+        String karakterler = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        Random random = new Random();
+        StringBuilder sifre = new StringBuilder();
 
+        for (int i = 0; i < karakterSayisi; i++) {
+            int rastgeleIndex = random.nextInt(karakterler.length());
+            char rastgeleKarakter = karakterler.charAt(rastgeleIndex);
+            sifre.append(rastgeleKarakter);
+        }
+        return sifre.toString();
+    }
     @And("Sekiz karakterden daha az karakterli bir sifre ile ogrencinin olusturulamadigini dogrular_DB")
     public void sekizKarakterdenDahaAzKarakterliBirSifreIleOgrencininOlusturulamadiginiDogrular_DB() {
+        ReusableMethods.bekle(2);
+        Assert.assertTrue(viceDeanPage.requiredPassword_DB.getText().contains("At least 8 characters"));//tc15
+    }
+
+
+    @And("kullanici Password alanina sadece rakamlardan olusan password girer_DB")
+    public void kullaniciPasswordAlaninaSadeceRakamlardanOlusanPasswordGirer_DB() {
+        ReusableMethods.bekle(2);
+        viceDeanPage.passwordBox_DB.sendKeys("123456789");
+    }
+
+    @And("Ogrencinin olusturulamadigini dogrular_DB")
+    public void ogrencininOlusturulamadiginiDogrular_DB() {
+        Assert.assertTrue(viceDeanPage.requiredPassword_DB.getText().contains("One lowercase character"));//tc16
+    }
+
+    @And("kullanici Password alanina sadece kucuk harflerden olusan bir sifre girer_DB")
+    public void kullaniciPasswordAlaninaSadeceKucukHarflerdenOlusanBirSifreGirer_DB() {
+        ReusableMethods.bekle(2);
+        viceDeanPage.passwordBox_DB.sendKeys("ascdgstejkl");
+    }
+
+    @And("kullanici sadece kucuk harflerden olusan bir sifre ile ogrencinin olusturulamadigini dogrular_DB")
+    public void kullaniciSadeceKucukHarflerdenOlusanBirSifreIleOgrencininOlusturulamadiginiDogrular_DB() {
+        Assert.assertTrue(viceDeanPage.requiredPassword_DB.getText().contains("One uppercase character"));//tc17
+    }
+
+    @And("kullanici Password alanina sadece buyuk harflerden olusan bir sifre girer_DB")
+    public void kullaniciPasswordAlaninaSadeceBuyukHarflerdenOlusanBirSifreGirer_DB() {
+        ReusableMethods.bekle(2);
+        viceDeanPage.passwordBox_DB.sendKeys("ASDFGHJKL");
+    }
+
+    @And("kullanici sadece buyuk harflerden olusan bir sifre ile ogrencinin olusturulamadigini dogrular_DB")
+    public void kullaniciSadeceBuyukHarflerdenOlusanBirSifreIleOgrencininOlusturulamadiginiDogrular_DB() {
+        Assert.assertTrue(viceDeanPage.requiredPassword_DB.getText().contains("One lowercase character"));//tc18
+    }
+
+    @And("kullanici Password alanina sadece buyuk ve kucuk harflerden olusan password girer_DB")
+    public void kullaniciPasswordAlaninaSadeceBuyukVeKucukHarflerdenOlusanPasswordGirer_DB() {
+        ReusableMethods.bekle(2);
+        viceDeanPage.passwordBox_DB.sendKeys("ASCDBEJDKFLacsbdnjdjd");
+    }
+    @And("kullanici sadece buyuk ve kucuk harflerden olusan bir sifre ile ogrencinin olusturulamadigini dogrular_DB")
+    public void kullaniciSadeceBuyukVeKucukHarflerdenOlusanBirSifreIleOgrencininOlusturulamadiginiDogrular_DB() {
+        Assert.assertTrue(viceDeanPage.requiredPassword_DB.getText().contains("One number"));//tc19
+    }
+
+    @And("kullanici Password alanina sadece rakam ve buyuk harflerden olusan bir password girer_DB")
+    public void kullaniciPasswordAlaninaSadeceRakamVeBuyukHarflerdenOlusanBirPasswordGirer_DB() {
+        ReusableMethods.bekle(2);
+        viceDeanPage.passwordBox_DB.sendKeys("ASCDBEJDKFL123456");
+    }
+    @And("kullanici sadece rakam ve buyuk harflerden olusan bir sifre ile ogrencinin olusturulamadigini dogrular_DB")
+    public void kullaniciSadeceRakamVeBuyukHarflerdenOlusanBirSifreIleOgrencininOlusturulamadiginiDogrular_DB() {
+        ReusableMethods.bekle(2);
+        Assert.assertTrue(viceDeanPage.requiredPassword_DB.getText().contains("One lowercase character"));//tc20
+    }
+
+    @And("kullanici SSN alanina daha once kayitli bir SSN number girer_DB")
+    public void kullaniciSSNAlaninaDahaOnceKayitliBirSSNNumberGirer_DB() {
+        viceDeanPage.ssnBox_DB.sendKeys("230-475-1234");
+    }
+    @And("Daha once kayitli bir SSN ile ogrencinin olusturulamadigini dogrular_DB")
+    public void dahaOnceKayitliBirSSNIleOgrencininOlusturulamadiginiDogrular_DB() {
+        Assert.assertTrue(viceDeanPage.ssnAlreadyRegisterYazisi_DB.isDisplayed());
+    }
+
+    @Then("kullanici kayitli User Name ve password ile Admin olarak giris yapar_DB")
+    public void kullaniciKayitliUserNameVePasswordIleAdminOlarakGirisYapar_DB() {
+        String username = ConfigReader.getProperty("AdminUserName_DB");
+        String password = ConfigReader.getProperty("AdminPassword_DB");
+        viceDeanPage.loginUserNameBox_DB.sendKeys(username, Keys.TAB,password,Keys.TAB,Keys.ENTER);
+        ReusableMethods.bekle(2);
     }
 }
