@@ -34,19 +34,19 @@ public class StudentPage {
     public WebElement stopTimeBilgisiVerifyEp;
     @FindBy(xpath = "(//*[@id='lessonProgramId'])[1]")
     public WebElement checkBoxDersSecmeEp;
-    @FindBy(xpath = "(//*[@type='checkbox'])[29]")//--//*[@value='1447']
-    public WebElement DersBirEp;
-    @FindBy(xpath = "(//*[@type='checkbox'])[30]")
-    public WebElement DersIkiEp;
+    @FindBy(xpath = "(//*[@type='checkbox'])[3]")//--//*[@value='1447']
+    public WebElement dersBirEp;
+    @FindBy(xpath = "(//*[@type='checkbox'])[4]")
+    public WebElement dersIkiEp;
     @FindBy(xpath = "(//*[@type='button'])[5]")
     public WebElement studentSubmitEp;
     @FindBy(xpath = "//*[@class='Toastify__toast-body']")
     public WebElement mesageVerify1Ep;
     @FindBy(xpath = "//*[@class='Toastify__toast-body']")
     public WebElement messageVerify2Ep;
-    @FindBy(xpath = "(//*[@type='checkbox'])[60]")
+    @FindBy(xpath = "(//*[@type='checkbox'])[3]")
     public WebElement ayniGunAyniSaatDersBirEp;
-    @FindBy(xpath = "(//*[@type='checkbox'])[62]")
+    @FindBy(xpath = "(//*[@type='checkbox'])[60]")
     public WebElement ayniGunAyniSaatDersIkiEp;
     @FindBy(xpath = "//*[@class='Toastify__toast-container Toastify__toast-container--top-center']")
     public WebElement errorMessageDersVerifyEp;
@@ -56,15 +56,15 @@ public class StudentPage {
     public WebElement midtermExamEp;
     @FindBy(xpath = "(//tr//span)[4]")
     public WebElement finalExamEp;
-    @FindBy(xpath = "(//*[@class='card-body'])[2]")
+    @FindBy(xpath = "(//*[@class='fw-bold p-3 card-header'])[2]")
     public WebElement meetListVerifyEp;
-    @FindBy(xpath = "(//tr//td//span)[8]")
+    @FindBy(xpath = "(//tr//td//span)[29]")
     public WebElement dateBilgisiStudentVerifyEp;
-    @FindBy(xpath = "(//tr//td//span)[9]")
+    @FindBy(xpath = "(//tr//td//span)[30]")
     public WebElement startTimeBilgisiStudentVerifyEp;
-    @FindBy(xpath = "(//tr//td//span)[10]")
+    @FindBy(xpath = "(//tr//td//span)[31]")
     public WebElement stopTimeBilgisiStudentVerifyEp;
-    @FindBy(xpath = "(//tr//td//span)[11]")
+    @FindBy(xpath = "(//tr//td//span)[32]")
     public WebElement descriptionBilgisiVerify2Ep;
 
 
