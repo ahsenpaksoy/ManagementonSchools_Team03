@@ -12,17 +12,17 @@ public class US11_StepDef {
     }
 
     @And("kullanici Password boxa tıklar")
-    public void kullaniciPasswordBoxaTıklar() {
+    public void kullaniciPasswordBoxaTiklar() {
         
     }
 
     @When("Kullanici Login Butonuna tıklar")
-    public void kullaniciLoginButonunaTıklar() {
+    public void kullaniciLoginButonunaTiklar() {
         
     }
 
     @Then("kullanici User Name boxa tıklar")
-    public void kullaniciUserNameBoxaTıklar() {
+    public void kullaniciUserNameBoxaTiklar() {
         
     }
 
@@ -32,12 +32,12 @@ public class US11_StepDef {
     }
 
     @And("kullanıcı Login butonuna tıklar")
-    public void kullanıcıLoginButonunaTıklar() {
+    public void kullanciLoginButonunaTiklar() {
         
     }
 
     @And("kullanıcı Lesson Program sekmesini bulur")
-    public void kullanıcıLessonProgramSekmesiniBulur() {
+    public void kullaniciLessonProgramSekmesiniBulur() {
         
     }
 
@@ -47,22 +47,22 @@ public class US11_StepDef {
     }
 
     @And("kullanici Lesson görebilmelidir.")
-    public void kullaniciLessonGörebilmelidir() {
+    public void kullaniciLessonGorebilmelidir() {
         
     }
 
     @And("kullanici Day görebilmelidir.")
-    public void kullaniciDayGörebilmelidir() {
+    public void kullaniciDayGorebilmelidir() {
         
     }
 
     @And("kullanici Start Time görebilmelidir.")
-    public void kullaniciStartTimeGörebilmelidir() {
+    public void kullaniciStartTimeGorebilmelidir() {
         
     }
 
     @And("kullanici Stop Time görebilmelidir.")
-    public void kullaniciStopTimeGörebilmelidir() {
+    public void kullaniciStopTimeGorebilmelidir() {
         
     }
 

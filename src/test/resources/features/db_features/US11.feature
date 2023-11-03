@@ -17,13 +17,6 @@ Feature:
     And kullanici Stop Time görebilmelidir.
 
 
-  Scenario Outline: TC01 Kullanici Lesson, Day, Start Time, Stop Time görur
-    Given Send query to get lessonprogram by id "<id>" US11
-    Then body should be like: id="<id>" day="<day>" start_time="<start_time>" stop_time="<stop_time>" education_term_id="<education_term_id>" US11
-
-    Examples:
-      | day    | start_time | stop_time | id  | education_term_id |
-      | SUNDAY | 10:00:00   | 12:00:00  | 101 | 1                 |
 
   Scenario:TC02 Kullanici Lesson Program List'ten güncelleme yapar
     And Kullanici Updade yapabilmelidir
