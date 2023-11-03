@@ -265,6 +265,8 @@ public class ViceDeanPage {
     public WebElement assertGender_DB;
     @FindBy(xpath = "//div[@class='Toastify__toast-body']")
     public WebElement ssnHataYazisi_DB;
+    @FindBy(xpath = "//div[@class='Toastify__toast-body']")
+    public WebElement ssnAlreadyRegisterYazisi_DB;
 
 
 
