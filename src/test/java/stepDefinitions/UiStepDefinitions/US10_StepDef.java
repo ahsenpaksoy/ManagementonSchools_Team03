@@ -207,6 +207,11 @@ public class US10_StepDef {
         ReusableMethods.bekle(4);
     }
 
+    @Then("Required yazisini gorur YD")
+    public void requiredYazisiniGorurYD() {
+        Assert.assertTrue(lessonPage.requiredY.isDisplayed());
+    }
+
     /*@Then("ve sayfayi webelementi gorunene kadar scroll eder")
     public void veSayfayiWebelementiGoruneneKadarScrollEder() {
         ReusableMethods.scroll(ReusableMethods.visibleWait(

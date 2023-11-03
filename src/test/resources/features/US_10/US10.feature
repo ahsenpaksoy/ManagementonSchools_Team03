@@ -18,6 +18,7 @@ Feature: US10 Vice Dean ders programi olusturabilmeli
     Then Stop Time menusune tiklar ve gecerli bir saat girer YD
     Then Submit butonuna tiklar YD
     Then Lesson Program olusturuldugunu dogrular YD
+    Then Required yazisini gorur YD
     And  kullanici sayfayi kapatir YD
 
   Scenario: TC02 Dersin bitis saati dersin baslama saatinden once olmamali
