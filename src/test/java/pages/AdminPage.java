@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.List;
+
 public class AdminPage {
     public AdminPage() {PageFactory.initElements(Driver.getDriver(), this);
     }
@@ -75,10 +77,13 @@ public class AdminPage {
     public WebElement adminSavedYazisi_IO;
 
     @FindBy(xpath = "(//*[.='Please enter valid SSN number'])[5]")
-    public WebElement PleaseEnterValidSsnNumberUyariYazisi_IO;
+    public WebElement pleaseEnterValidSsnNumberUyariYazisi_IO;
 
-    @FindBy(xpath = "//*[.='At least 8 characters']")
-    public WebElement AtLeast8CharactersUyariYazisi_IO;
+    @FindBy(xpath = "(//*[@class='invalid-feedback'])[8]")
+    public WebElement atLeast8CharactersUyariYazisi_IO;
+
+    @FindBy(xpath = "(//tbody//td)[4]")
+    public List<WebElement> ssnKutulariListesi_AdminList_IO;
 
 
 
