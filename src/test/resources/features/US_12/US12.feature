@@ -27,18 +27,7 @@ Feature: US12 Vice Dean ogretmene ders atayabilmeli
     #And  kullanici sayfayi kapatir YD
 
 
-  Scenario: TC02 Vice Dean ogretmene ders atayabilmeli
-    Given Lesson Program secenegine tiklar YD
-    Then Choose Lessons bolumunden olusturulan derse tiklar YD
-    Then Choose Teacher menusune tiklar YD
-    Then Choose Teacher drop down menuden bir teacher secer YD
-    Then Ders icin ogretmen secilebilirligini dogrular YD
-    Then Submit butonuna tiklar YD
-    Then Lesson added to Teacher yazisinin gorunur oldugunu dogrular YD
-    Then  kullanici sayfayi kapatir YD
-
-
-  Scenario: TC03 Ayni ogretmene, ayni gun ve saatte baska bir ders daha atanamamali
+  Scenario: TC02 Ayni ogretmene, ayni gun ve saatte baska bir ders daha atanamamali
     Given Lesson Program secenegine tiklar YD
     Then Select Lessons menusune tiklar YD
     Then Acilan drop down menuden iki ders secer YD

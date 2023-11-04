@@ -9,7 +9,7 @@ Feature:US16 Vicedean mesajlari görebilmelidir.(E2E)
 
     Examples:
       | name         | email         | subject         | message         | date         |
-      | student_name | student_email | student_subject | student_message | student_date |
+      | studentname | studentemail | studentsubject | studentmessage | studentdate |
 
 
   Scenario: TC01 Vice Dean mesajlari görme (UI)
