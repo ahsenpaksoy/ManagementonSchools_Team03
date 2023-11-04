@@ -120,7 +120,9 @@ public class LessonPage {
     public WebElement submitButonY;*/
     @FindBy(xpath = "//*[@id='teacherId']")
     public WebElement teacherY;
-    @FindBy(css = "div[class='Toastify__toast-container Toastify__toast-container--top-center']")
+    //@FindBy(css = "div[class='Toastify__toast-container Toastify__toast-container--top-center']")
+   // public WebElement createdLessonProgY;
+    @FindBy(xpath = "//*[@class='Toastify__toast-body']")
     public WebElement createdLessonProgY;
     @FindBy(xpath = "//*[@class='Toastify__toast-body']")
     public WebElement alertEduTermY;
@@ -148,6 +150,8 @@ public class LessonPage {
     public WebElement lastChooseLessonButtonY;
     @FindBy(xpath = "//*[@class=' mb-3 mt-4 col']")
     public WebElement submitButtonSonY;
+    @FindBy(xpath = "(//*[@class='invalid-feedback'])[7]")
+    public WebElement requiredY;
 
 
 
