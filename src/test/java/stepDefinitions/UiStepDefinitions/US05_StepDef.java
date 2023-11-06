@@ -17,19 +17,22 @@ import java.util.Date;
 import static stepDefinitions.UiStepDefinitions.US04_StepDef.*;
 
 public class US05_StepDef {
-  static Faker faker=new Faker();
-  DeanPage deanPage=new DeanPage();
-    String nameEsii = faker.name().firstName();
-    String surnameEsii = faker.name().lastName();
-    String phoneNummerEsii = faker.number().numberBetween(100, 999) + "-" + faker.number().numberBetween(100, 999) + "-" + faker.number().numberBetween(1000, 9999);
-    String ssnEsii = faker.number().numberBetween(100, 899) + "-" +faker.number().numberBetween(10,99)+"-" + faker.number().numberBetween(1000, 9999);
-    String birthPlaceEsii = faker.address().city();
-    static Date dateEsii = faker.date().birthday(25, 60);
-    static SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-   static String dateOfBirthEsi = format.format(dateEsii);
-    String userNameEsii = nameEsii + surnameEsii;
+    static Faker faker=new Faker();
+    DeanPage deanPage=new DeanPage();
+    public static String nameEsii = faker.name().firstName();
+    public static String surnameEsii = faker.name().lastName();
+    public static String phoneNummerEsii = faker.number().numberBetween(100, 999) + "-" + faker.number().numberBetween(100, 999) + "-" + faker.number().numberBetween(1000, 9999);
+    public static String ssnEsii = faker.number().numberBetween(100, 899) + "-" +faker.number().numberBetween(10,99)+"-" + faker.number().numberBetween(1000, 9999);
+    public static String birthPlaceEsii = faker.address().city();
+    public static Date dateEsii = faker.date().birthday(25, 60);
+    public static SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+    public static SimpleDateFormat format3 = new SimpleDateFormat("yyyy-MM-dd");
+    public static String dateOfBirthEsi = format.format(dateEsii);
+    public static String birthdayEsii= format3.format(dateEsii);
+    public static String userNameEsii = nameEsii + surnameEsii;
 
-   String passwordEsii= faker.internet().password()+"Aa2";
+    public static String passwordEsii= faker.internet().password()+"Aa2";
+
 
 
     @Then("Dean'lerin Gender bilgilerinin goruldugunu dogrular Esi")
