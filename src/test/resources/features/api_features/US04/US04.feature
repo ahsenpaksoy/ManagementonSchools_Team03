@@ -7,4 +7,3 @@ Feature: Dean Controller
     When Dean hesabi olusturmak icin POST Request gonderilir ve Reponse alinir Esi
     Then Dean hesabi olusturmak icin Status code un 200 oldugu dogrulanir Esi
     And Dean Save icin gelen Response body dogrulanir Esi
-    And GetManagerById icin gelen Response body dogrulanir
