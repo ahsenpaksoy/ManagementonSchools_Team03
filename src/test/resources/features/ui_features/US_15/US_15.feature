@@ -8,7 +8,7 @@ Feature: US_15 Vice Dean, ogrenci olusturabilmelidir.
     Then kullanici menu kismindan Student Management i secer_DB
 
 
-
+  @TC01
     Scenario: TC_01 Vice Dean, ogrenci olusturebilmelidir.
       Given kullanici Choose Advisor Teacher kismindan "Teacher Murat" secer
       Then kullanici name alanina isim girer_DB
@@ -267,7 +267,7 @@ Feature: US_15 Vice Dean, ogrenci olusturabilmelidir.
     And Kullanici sayfayi kapatir_DB
 
   @TC15
-  Scenario: TC_16  Vice Dean, 8 karakterden az sifre ile ogrenci olusturamamalidir
+  Scenario: TC_15  Vice Dean, 8 karakterden az sifre ile ogrenci olusturamamalidir
     Given kullanici Choose Advisor Teacher kismindan "Jennet Bahar" secer
     Then kullanici name alanina isim girer_DB
     And kullanici surname alanina soyisim girer_DB
@@ -280,10 +280,125 @@ Feature: US_15 Vice Dean, ogrenci olusturabilmelidir.
     And kullanici User Name alanina username girer_DB
     And kullanici Father Name alanina baba adi girer_DB
     And kullanici Mother Name alanina anne adi girer_DB
-    And kullanici Password alanina 7 karakterli sifre girer_DB
+    And kullanici Password alanina yedi karakterli bir  "password" girer_DB
     And kullanici Submit dugmesine tiklar_DB
     And Sekiz karakterden daha az karakterli bir sifre ile ogrencinin olusturulamadigini dogrular_DB
     And Kullanici sayfayi kapatir_DB
+
+  @TC16
+  Scenario: TC_16 Vice Dean, sadece rakamlardan olusan bir sifre ile ogrenci olusturamamalidir
+    Given kullanici Choose Advisor Teacher kismindan "Jennet Bahar" secer
+    Then kullanici name alanina isim girer_DB
+    And kullanici surname alanina soyisim girer_DB
+    And kullanici Birth Place alanina dogum yeri girer_DB
+    And kullanci Email alanina email girer_DB
+    And kullanici Phone Number alanina telefonnumarasi girer_DB
+    And kullanici Gender alanindan "male" secenegini secer_DB
+    And kullanici Birth Date alanina dogum gunu girer_DB
+    And kullanici SSN alanina ssn girer_DB
+    And kullanici User Name alanina username girer_DB
+    And kullanici Father Name alanina baba adi girer_DB
+    And kullanici Mother Name alanina anne adi girer_DB
+    And kullanici Password alanina sadece rakamlardan olusan password girer_DB
+    And kullanici Submit dugmesine tiklar_DB
+    And Ogrencinin olusturulamadigini dogrular_DB
+    And Kullanici sayfayi kapatir_DB
+
+  @TC17
+  Scenario: TC_17 Vice Dean, sadece kucuk harflerden olusan bir sifre ile ogrenci olusturamamalidir
+    Given kullanici Choose Advisor Teacher kismindan "Jennet Bahar" secer
+    Then kullanici name alanina isim girer_DB
+    And kullanici surname alanina soyisim girer_DB
+    And kullanici Birth Place alanina dogum yeri girer_DB
+    And kullanci Email alanina email girer_DB
+    And kullanici Phone Number alanina telefonnumarasi girer_DB
+    And kullanici Gender alanindan "female" secenegini secer_DB
+    And kullanici Birth Date alanina dogum gunu girer_DB
+    And kullanici SSN alanina ssn girer_DB
+    And kullanici User Name alanina username girer_DB
+    And kullanici Father Name alanina baba adi girer_DB
+    And kullanici Mother Name alanina anne adi girer_DB
+    And kullanici Password alanina sadece kucuk harflerden olusan bir sifre girer_DB
+    And kullanici Submit dugmesine tiklar_DB
+    And kullanici sadece kucuk harflerden olusan bir sifre ile ogrencinin olusturulamadigini dogrular_DB
+    And Kullanici sayfayi kapatir_DB
+
+  @TC18
+  Scenario: TC_18 Vice Dean, sadece buyuk harflerden olusan bir sifre ile ogrenci olusturamamalidir
+    Given kullanici Choose Advisor Teacher kismindan "Jennet Bahar" secer
+    Then kullanici name alanina isim girer_DB
+    And kullanici surname alanina soyisim girer_DB
+    And kullanici Birth Place alanina dogum yeri girer_DB
+    And kullanci Email alanina email girer_DB
+    And kullanici Phone Number alanina telefonnumarasi girer_DB
+    And kullanici Gender alanindan "female" secenegini secer_DB
+    And kullanici Birth Date alanina dogum gunu girer_DB
+    And kullanici SSN alanina ssn girer_DB
+    And kullanici User Name alanina username girer_DB
+    And kullanici Father Name alanina baba adi girer_DB
+    And kullanici Mother Name alanina anne adi girer_DB
+    And kullanici Password alanina sadece buyuk harflerden olusan bir sifre girer_DB
+    And kullanici Submit dugmesine tiklar_DB
+    And kullanici sadece buyuk harflerden olusan bir sifre ile ogrencinin olusturulamadigini dogrular_DB
+    And Kullanici sayfayi kapatir_DB
+
+  @TC19
+  Scenario: TC_19 Vice Dean, sadece buyuk ve kucuk harflerden olusan bir sifre ile ogrenci olusturamamalidir
+    Given kullanici Choose Advisor Teacher kismindan "Jennet Bahar" secer
+    Then kullanici name alanina isim girer_DB
+    And kullanici surname alanina soyisim girer_DB
+    And kullanici Birth Place alanina dogum yeri girer_DB
+    And kullanci Email alanina email girer_DB
+    And kullanici Phone Number alanina telefonnumarasi girer_DB
+    And kullanici Gender alanindan "male" secenegini secer_DB
+    And kullanici Birth Date alanina dogum gunu girer_DB
+    And kullanici SSN alanina ssn girer_DB
+    And kullanici User Name alanina username girer_DB
+    And kullanici Father Name alanina baba adi girer_DB
+    And kullanici Mother Name alanina anne adi girer_DB
+    And kullanici Password alanina sadece buyuk ve kucuk harflerden olusan password girer_DB
+    And kullanici Submit dugmesine tiklar_DB
+    And kullanici sadece buyuk ve kucuk harflerden olusan bir sifre ile ogrencinin olusturulamadigini dogrular_DB
+    And Kullanici sayfayi kapatir_DB
+
+  @TC20
+  Scenario: TC_20 Vice Dean, sadece rakam ve buyuk harflerden olusan bir sifre ile ogrenci olusturamamalidir
+    Given kullanici Choose Advisor Teacher kismindan "Jennet Bahar" secer
+    Then kullanici name alanina isim girer_DB
+    And kullanici surname alanina soyisim girer_DB
+    And kullanici Birth Place alanina dogum yeri girer_DB
+    And kullanci Email alanina email girer_DB
+    And kullanici Phone Number alanina telefonnumarasi girer_DB
+    And kullanici Gender alanindan "female" secenegini secer_DB
+    And kullanici Birth Date alanina dogum gunu girer_DB
+    And kullanici SSN alanina ssn girer_DB
+    And kullanici User Name alanina username girer_DB
+    And kullanici Father Name alanina baba adi girer_DB
+    And kullanici Mother Name alanina anne adi girer_DB
+    And kullanici Password alanina sadece rakam ve buyuk harflerden olusan bir password girer_DB
+    And kullanici Submit dugmesine tiklar_DB
+    And kullanici sadece rakam ve buyuk harflerden olusan bir sifre ile ogrencinin olusturulamadigini dogrular_DB
+    And Kullanici sayfayi kapatir_DB
+
+  @TC21
+  Scenario: TC_21 Vice Dean, daha once kayitli bir SSN number ile ogrenci olusturamamalidir
+    Given kullanici Choose Advisor Teacher kismindan "Jennet Bahar" secer
+    Then kullanici name alanina isim girer_DB
+    And kullanici surname alanina soyisim girer_DB
+    And kullanici Birth Place alanina dogum yeri girer_DB
+    And kullanci Email alanina email girer_DB
+    And kullanici Phone Number alanina telefonnumarasi girer_DB
+    And kullanici Gender alanindan "male" secenegini secer_DB
+    And kullanici Birth Date alanina dogum gunu girer_DB
+    And kullanici SSN alanina daha once kayitli bir SSN number girer_DB
+    And kullanici User Name alanina username girer_DB
+    And kullanici Father Name alanina baba adi girer_DB
+    And kullanici Mother Name alanina anne adi girer_DB
+    And kullanici Password alanina password girer_DB
+    And kullanici Submit dugmesine tiklar_DB
+    And Daha once kayitli bir SSN ile ogrencinin olusturulamadigini dogrular_DB
+    And Kullanici sayfayi kapatir_DB
+
 
 
 

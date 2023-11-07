@@ -8,7 +8,7 @@ import static utilities.Authentication.generateToken;
 
 public class BaseUrl {
     public static RequestSpecification spec;
-    public static void setup(String username, String password) {
+   public static void setup(String username, String password) {
         spec = new RequestSpecBuilder()
                 .setBaseUri("https://managementonschools.com/app")
                 .addHeader("Authorization", generateToken(username, password))

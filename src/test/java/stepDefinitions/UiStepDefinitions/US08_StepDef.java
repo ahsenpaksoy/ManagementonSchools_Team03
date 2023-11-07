@@ -56,18 +56,21 @@ public class US08_StepDef {
     @And("Lesson Name kismina ders ismi yazilirso")
     public void lessonNameKisminaDersIsmiYazilir() {
 
-        lessonPage.LessonNameKutusuSo.sendKeys("Chemisch");
+        lessonPage.LessonNameKutusuSo.sendKeys("Theologe");
+        ReusableMethods.bekle(2);
     }
 
 
     @And("Compulsory kutucugunu isaretlerso")
     public void compulsoryKutucugunuIsaretler() {
         lessonPage.CompulsoryKutusuSo.click();
+        ReusableMethods.bekle(2);
     }
 
     @And("CreditScore alanina ders notu yazilir ve Submit butonuna tiklanirso")
     public void creditscoreAlaninaDersNotuYazilirveSubmitbutonunatiklanir() {
         lessonPage.CreditScoreKutusuSo.sendKeys("10",Keys.TAB,Keys.ENTER);
+        ReusableMethods.bekle(2);
 
     }
 

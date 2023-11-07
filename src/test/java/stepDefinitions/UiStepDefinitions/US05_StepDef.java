@@ -14,20 +14,26 @@ import utilities.ReusableMethods;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class US05_StepDef {
-    Faker faker=new Faker();
-    DeanPage deanPage=new DeanPage();
-    String nameEsi = faker.name().firstName();
-    String surnameEsi = faker.name().lastName();
-    String phoneNummerEsi = faker.number().numberBetween(100, 999) + "-" + faker.number().numberBetween(100, 999) + "-" + faker.number().numberBetween(1000, 9999);
-    String ssnEsi = faker.number().numberBetween(100, 899) + "-" +faker.number().numberBetween(10,99)+"-" + faker.number().numberBetween(1000, 9999);
-    String birthPlaceEsi = faker.address().city();
-    Date dateEsi = faker.date().birthday(25, 60);
-    SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-    String dateOfBirthEsi = format.format(dateEsi);
-    String userNameEsi = nameEsi + surnameEsi;
+import static stepDefinitions.UiStepDefinitions.US04_StepDef.*;
 
-    String passwordEsi= faker.internet().password()+"Aa2";
+public class US05_StepDef {
+    static Faker faker=new Faker();
+    DeanPage deanPage=new DeanPage();
+    public static String nameEsii = faker.name().firstName();
+    public static String surnameEsii = faker.name().lastName();
+    public static String phoneNummerEsii = faker.number().numberBetween(100, 999) + "-" + faker.number().numberBetween(100, 999) + "-" + faker.number().numberBetween(1000, 9999);
+    public static String ssnEsii = faker.number().numberBetween(100, 899) + "-" +faker.number().numberBetween(10,99)+"-" + faker.number().numberBetween(1000, 9999);
+    public static String birthPlaceEsii = faker.address().city();
+    public static Date dateEsii = faker.date().birthday(25, 60);
+    public static SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+    public static SimpleDateFormat format3 = new SimpleDateFormat("yyyy-MM-dd");
+    public static String dateOfBirthEsi = format.format(dateEsii);
+    public static String birthdayEsii= format3.format(dateEsii);
+    public static String userNameEsii = nameEsii + surnameEsii;
+
+    public static String passwordEsii= faker.internet().password()+"Aa2";
+
+
 
     @Then("Dean'lerin Gender bilgilerinin goruldugunu dogrular Esi")
     public void deanLerinGenderBilgilerininGoruldugunuDogrularEsi() {
@@ -35,8 +41,9 @@ public class US05_StepDef {
     }
 
     @Given("Admin bir Dean hesabi olusturur Esi")
-    public void adminBirDeanHesabiOlustururEsi() {
-        deanPage.deanNameEsi.sendKeys(nameEsi, Keys.TAB,
+    public static void adminBirDeanHesabiOlustururEsi() {
+        System.out.println(userNameEsi);
+        deanPageEsi.deanNameEsi.sendKeys(nameEsi, Keys.TAB,
                                       surnameEsi,Keys.TAB,
                                        birthPlaceEsi,Keys.TAB,Keys.TAB,
                 dateOfBirthEsi,Keys.TAB,
@@ -46,8 +53,8 @@ public class US05_StepDef {
                 passwordEsi,Keys.TAB
 
         );
-        deanPage.deanGenderMaleEsi.click();
-        deanPage.deanSubmitButonuEsi.click();
+        deanPageEsi.deanGenderMaleEsi.click();
+        deanPageEsi.deanSubmitButonuEsi.click();
 
     }
 

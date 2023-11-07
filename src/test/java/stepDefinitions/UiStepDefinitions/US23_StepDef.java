@@ -22,7 +22,7 @@ public class US23_StepDef {
 
     @And("Sayfa Basliginin {string} oldugu dogrulanirKI")
     public void sayfaBasligininOlduguDogrulanirKI(String arg0) {
-        Assert.assertTrue(adminPage.adminBasligi.isDisplayed());
+        Assert.assertTrue(adminPage.adminBasligi.getText().contains(arg0));
     }
 
     @And("Admin sayfasinda Menu butonuna tiklarKI")
@@ -37,7 +37,7 @@ public class US23_StepDef {
 
     @Then("Vice Dean Saved Islemi basariyla tamamlanirKI")
     public void viceDeanSavedIslemiBasariylaTamamlanirKI() {
-        Assert.assertTrue(adminPage.viceDeanSavedKI.isDisplayed());
+        Assert.assertTrue(adminPage.viceDeanSavedKI.getText().contains("Vice dean Saved"));
 
     }
 }
