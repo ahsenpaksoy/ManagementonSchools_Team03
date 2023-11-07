@@ -241,7 +241,7 @@ public class US01_StepDef {
         registerPage.passwordKutusu_SK.sendKeys(sifre);
     }
     // Belirli bir karakter sayısına sahip rasgele bir şifre oluşturan bir yardımcı method
-    public String rasgeleSifreOlustur(int karakterSayisi) {
+    public static String rasgeleSifreOlustur(int karakterSayisi) {
         String karakterler = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         Random random = new Random();
         StringBuilder sifre = new StringBuilder();
