@@ -21,6 +21,7 @@ Feature: Dean bilgileri okunabilmeli silinebilmeli guncellenebilmeli
   @updateEsi @deleteEsi
   Scenario: Kayitli Dean hesabi silme
     Given "Admin" yetkisi ile giris yapilir Esi
+    And Kayitli olan Dean hesap bilgisinin ID nosu alinir Esi
     Then Dean delete icin URL duzenlenir Esi
     When Dean delete icin Request gonderilir ve Response alinir Esi
     Then Dean delete islemi icin status code un 200 oldugu dogrulanir Esi
