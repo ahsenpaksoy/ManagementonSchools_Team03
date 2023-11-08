@@ -19,8 +19,8 @@ import static org.junit.Assert.assertEquals;
 import static stepDefinitions.UiStepDefinitions.US04_StepDef.*;
 import static stepDefinitions.UiStepDefinitions.US05_StepDef.*;
 
-public class US5_StepDefination {
-    public DeanPostPojo payload1;
+public class US05_StepDefination {
+    public static DeanPostPojo payload1;
     public Response response1;
     ResponsePojo actualData1;
 

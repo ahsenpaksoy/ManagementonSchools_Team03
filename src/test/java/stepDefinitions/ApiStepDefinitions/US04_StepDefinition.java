@@ -21,8 +21,8 @@ public class US04_StepDefinition {
     public DeanPostPojo payload;
     public  Response response;
     public ResponsePojo actualData;
-    public static int userIdEsi;
-    public static ObjectPojo object;
+
+
     public static ResponsePojo expectedData;
     ResponsePojo actualData1;
     @Given("{string} yetkisi ile giris yapilir Esi")
