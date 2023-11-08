@@ -3,7 +3,14 @@ package pojos.viceDeanManagement;
 import java.io.Serializable;
 
 public class ObjectPojo implements Serializable {
-	private int userId;
+
+
+	private String email;
+	private String subject;
+	private String message;
+	private String date;
+
+  private int userId;
 	private String username;
 	private String name;
 	private String surname;
@@ -44,6 +51,7 @@ public class ObjectPojo implements Serializable {
 		return username;
 	}
 
+
 	public void setName(String name){
 		this.name = name;
 	}
@@ -51,6 +59,38 @@ public class ObjectPojo implements Serializable {
 	public String getName(){
 		return name;
 	}
+
+
+	public void setEmail(String email){
+		this.email = email;
+	}
+
+	public String getEmail(){
+		return email;
+	}
+
+	public void setSubject(String subject){
+		this.subject = subject;
+	}
+
+	public String getSubject(){
+		return subject;
+	}
+
+	public void setMessage(String message){
+		this.message = message;
+	}
+
+	public String getMessage(){
+		return message;
+	}
+
+	public void setDate(String date){
+		this.date = date;
+	}
+
+	public String getDate(){
+		return date;
 
 	public void setSurname(String surname){
 		this.surname = surname;
@@ -98,12 +138,20 @@ public class ObjectPojo implements Serializable {
 
 	public String getGender(){
 		return gender;
+
 	}
 
 	@Override
  	public String toString(){
 		return 
 			"ObjectPojo{" + 
+
+			
+			",email = '" + email + '\'' + 
+			",subject = '" + subject + '\'' + 
+			",message = '" + message + '\'' + 
+			",date = '" + date + '\'' + 
+
 			"userId = '" + userId + '\'' + 
 			",username = '" + username + '\'' + 
 			",name = '" + name + '\'' + 

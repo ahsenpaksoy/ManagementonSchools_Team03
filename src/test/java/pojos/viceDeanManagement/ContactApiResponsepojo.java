@@ -2,27 +2,25 @@ package pojos.viceDeanManagement;
 
 import java.io.Serializable;
 
-public class ResponsePojo implements Serializable {
-	private ObjectPojo object;
+public class ContactApiResponsepojo implements Serializable {
+	private ContactApiObjectpojo object;
 	private String message;
 	private String httpStatus;
 
-
-	public ResponsePojo() {
+	public ContactApiResponsepojo() {
 	}
 
-	public ResponsePojo(ObjectPojo object, String message, String httpStatus) {
+	public ContactApiResponsepojo(ContactApiObjectpojo object, String message, String httpStatus) {
 		this.object = object;
 		this.message = message;
 		this.httpStatus = httpStatus;
 	}
 
-
-	public void setObject(ObjectPojo object){
+	public void setObject(ContactApiObjectpojo object){
 		this.object = object;
 	}
 
-	public ObjectPojo getObject(){
+	public ContactApiObjectpojo getObject(){
 		return object;
 	}
 
@@ -45,7 +43,7 @@ public class ResponsePojo implements Serializable {
 	@Override
  	public String toString(){
 		return 
-			"ResponsePojo{" + 
+			"ContactApiResponsepojo{" + 
 			"object = '" + object + '\'' + 
 			",message = '" + message + '\'' + 
 			",httpStatus = '" + httpStatus + '\'' + 
