@@ -1,4 +1,3 @@
-
 Feature: Dean Bilgisi Dogrulama
   Scenario: Kayitli Dean bilgisini dogrulama testi
     Given Database baglantisi kurulur
