@@ -1,5 +1,6 @@
 package stepDefinitions.ApiStepDefinitions;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -14,9 +15,12 @@ import static baseUrl.BaseUrl.spec;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static stepDefinitions.UiStepDefinitions.US04_StepDef.nameEsi;
 import static stepDefinitions.UiStepDefinitions.US09_StepDef.randomDers;
 
 public class US08_StepDefinition {
+    static Faker fakerLesson = new Faker();
+    public static String lessonName = fakerLesson.name().firstName();
     LessonsPojoS payLoad;
     Response responsePost;
     ResponseLessonPojoS actualData;
@@ -34,8 +38,8 @@ public class US08_StepDefinition {
 
     @And("Lesson icin PayLoad duzenlenirSo")
     public void lessonIcinPayLoadDuzenlenirSo() {
-        payLoad = new LessonsPojoS(true,10, randomDers);
-        System.out.println("gelen ders" +randomDers);
+        payLoad = new LessonsPojoS(true,10, lessonName);
+        System.out.println("gelen ders" +lessonName);
     }
 
     @When("Lesson icin POST Request gonderilir ve Response alinirSo")

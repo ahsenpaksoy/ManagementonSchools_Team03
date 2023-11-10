@@ -21,6 +21,7 @@ public class US09_StepDef {
     LessonPage lessonPage = new LessonPage();
    public static  Faker faker = new Faker();
     public static String randomDers = faker.lorem().characters(15, true, true);
+    public static String randomDers2 = faker.lorem().characters(15, true, true);
 
     @Given("kullanici ManagementSchools sayfasina giderSo")
     public void kullaniciManagementSchoolsSayfasinaGider() {

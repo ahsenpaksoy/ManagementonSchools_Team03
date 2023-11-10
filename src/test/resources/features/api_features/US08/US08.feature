@@ -1,5 +1,5 @@
 Feature: Lesson Controller
-  @ApiSo
+  @putso @deleteso
   Scenario: ViceDean kullanicisi ile Lesson olusturma testi
     Given ViceDean olarak giris yapilirSo
     And Lesson Controller icin URL duzenlenirSo
