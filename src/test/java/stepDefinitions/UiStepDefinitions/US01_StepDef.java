@@ -36,6 +36,7 @@ public class US01_StepDef {
     public void kullaniciNameAlaninaIsimGirer() {
         ReusableMethods.bekle(1);
         registerPage.nameKutusu_SK.sendKeys(faker.name().firstName());
+
     }
     @And("kullanici surname alanina soyisim girer_SK")
     public void kullaniciSurnameAlaninaSoyisimGirer() {
@@ -89,6 +90,16 @@ public class US01_StepDef {
 
         return day + "." + month + "." + year;
     }
+    public static String generateRandomBirthDay() {
+        Random random = new Random();
+
+        int day = 1 + random.nextInt(31); // 1 ile 31 arasında rastgele bir gun
+        int month = 1 + random.nextInt(12); // 1 ile 12 arasında rastgele bir ay
+        int year = 1990 + random.nextInt(33); // 1990 ile 2022 arasında rastgele bir yil(yil araligini degistirebiliriz)
+
+        return year + "." + month + "." + day;
+    }
+
     @And("kullanici SSN alanina ssn girer_SK")
     public void kullaniciSSNAlaninaSsnGirer() {
         ReusableMethods.bekle(1);
