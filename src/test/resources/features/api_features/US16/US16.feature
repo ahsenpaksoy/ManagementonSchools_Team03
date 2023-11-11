@@ -9,6 +9,6 @@ Feature: ViceDean, kullanıcıların gönderdiği mesajları görebilmelidir.
     Then Mesaj bolumlerini dogrulama: name="<name>", email="<email>", subject="<subject>", message="<message>", date="<date>"
 
     Examples:
-      | name          | email                | subject | message                | date       |
-      | StudentTeam03 | merhaba@gmail.com | Yardim  | Yardimci olur musunuz? | 2023-11-01 |
+      | name    | email             | subject | message    | date       |
+      | mustafa | mustafa@gmail.com | ders    | ders basi  | 2023-11-07 |
 

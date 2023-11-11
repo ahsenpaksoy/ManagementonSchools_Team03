@@ -4,8 +4,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pages.LessonPage;
 
 public class US16_StepDef {
+    LessonPage lessonPage = new LessonPage();
+
     @Given("Kullanici ana sayfaya gider.")
     public void kullaniciAnaSayfayaGider() {
 
@@ -27,12 +30,12 @@ public class US16_StepDef {
     }
 
     @And("Kullanici Name altinda gönderici isimlerini gordugunu dogrular.")
-    public void kullaniciNameAltindaGöndericiIsimleriniGordugunuDogrular() {
+    public void kullaniciNameAltindaGondericiIsimleriniGordugunuDogrular() {
 
     }
 
     @And("Kullanici Email altinda gönderici Email adreslerini gordugunu dogrular.")
-    public void kullaniciEmailAltindaGöndericiEmailAdresleriniGordugunuDogrular() {
+    public void kullaniciEmailAltindaGondericiEmailAdresleriniGordugunuDogrular() {
 
     }
 
@@ -59,9 +62,13 @@ public class US16_StepDef {
     @And("Kullanici silme buton  gordugunu dogrular.")
     public void kullaniciSilmeButonGordugunuDogrular() {
 
+
+
     }
 
     @And("Kullanici silme butona tiklar")
     public void kullaniciSilmeButonaTiklar() {
     }
+
+
 }

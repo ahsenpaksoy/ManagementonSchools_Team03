@@ -4,8 +4,19 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.interactions.Actions;
+import pages.LessonPage;
+import pages.ViceDeanPage;
+import utilities.Driver;
+import utilities.ReusableMethods;
+
+import static org.junit.Assert.assertTrue;
 
 public class US11_StepDef {
+    ViceDeanPage viceDeanPage = new ViceDeanPage();
+    LessonPage viceDean = new LessonPage();
+    Actions actions = new Actions(Driver.getDriver());
+
     @Given("kullanici managementonschools.com sayfasina gider")
     public void kullaniciManagementonschoolsComSayfasinaGider() {
         
@@ -43,26 +54,35 @@ public class US11_StepDef {
 
     @And("kullanici sayfayi kaydirir")
     public void kullaniciSayfayiKaydirir() {
+        ReusableMethods.scroll(viceDeanPage.lessonProgramListTable);
         
     }
 
     @And("kullanici Lesson görebilmelidir.")
     public void kullaniciLessonGorebilmelidir() {
+        System.out.println(viceDean.dersIsmiGorunur.getText());
+        assertTrue(viceDean.dersIsmiGorunur.isDisplayed());
         
     }
 
     @And("kullanici Day görebilmelidir.")
     public void kullaniciDayGorebilmelidir() {
+        System.out.println(viceDean.dayGorunur.getText());
+        assertTrue(viceDean.dayGorunur.isDisplayed());
         
     }
 
     @And("kullanici Start Time görebilmelidir.")
     public void kullaniciStartTimeGorebilmelidir() {
+        System.out.println(viceDean.startTimeGorunur.getText());
+        assertTrue(viceDean.startTimeGorunur.isDisplayed());
         
     }
 
     @And("kullanici Stop Time görebilmelidir.")
     public void kullaniciStopTimeGorebilmelidir() {
+        System.out.println(viceDean.stopTimeGorunur.getText());
+        assertTrue(viceDean.stopTimeGorunur.isDisplayed());
         
     }
 
