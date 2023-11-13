@@ -22,6 +22,7 @@ public class LessonProgramPojo implements Serializable {
         this.stopTime = stopTime;
     }
 
+
     public String getDay() {
         return day;
     }
