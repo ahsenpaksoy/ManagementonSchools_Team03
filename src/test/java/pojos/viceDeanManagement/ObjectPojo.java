@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class ObjectPojo implements Serializable {
 
-
+ 
     private String email;
     private String subject;
     private String message;
@@ -165,3 +165,4 @@ public class ObjectPojo implements Serializable {
                         "}";
     }
 }
+

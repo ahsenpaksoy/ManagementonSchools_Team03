@@ -9,11 +9,19 @@ Feature: Admin Teacher Management
 
   Scenario: Admin olarak Olusturulan Teacher hesap bilgisini alma testi.
     Given Admin olarak Kayitli Teacher bilgisinin ID nosu alinirSA
-    And   Teacher getSavedById icin URL duzenlenirSA
+    And   Admin olarak Teacher getSavedById icin URL duzenlenirSA
     And   Teacher getSavedById icin beklenen veriler duzenlenirSA
     When  Teacher getSavedById icin GET Request gonderilir ve Response alinirSA
     Then  Status kodun 200 oldugu dogrulanirSA
     Then  Teacher getSavedById icin gelen Response dogrulanir
+
+  Scenario: Olusturulan Teacher hesap bilgisini guncelleme testi.
+    Given Admin olarak Kayitli Teacher bilgisinin ID nosu alinirSA
+    And   Admin Teacher update icin URL duzenlenirSA
+    And   Teacher update icin beklenen veriler duzenlenirSA
+    When  Teacher update icin PUT Request gonderilir ve Response alinirSA
+    Then  Status kodun 200 oldugu dogrulanirSA
+    Then  Teacher uptadete icin gelen Response dogrulanir
 
   Scenario:Admin öğretmen silebilmeli.
     Given Admin olarak Teacher Delete icin URL duzenlenir

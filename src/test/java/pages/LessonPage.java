@@ -216,7 +216,7 @@ public class LessonPage {
     @FindBy(id="educationTermId")
     public WebElement donem;
     @FindBy(id="day")
-    public WebElement gun;
+    public WebElement day;
     @FindBy(id="startTime")
     public WebElement start;
     @FindBy(id="stopTime")

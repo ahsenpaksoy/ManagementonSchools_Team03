@@ -4,7 +4,7 @@ Feature: US16 Vice Dean kullanıcıların gönderdiği mesajları görebilmelidi
   @US16/TC01
   Scenario: TC01 - Vice Dean Kullanici Mesajlarini Görür
 
-    Given Kullanici ana sayfaya gider.
+    Given Kullanici ana sayfaya gider
     When Kullanici Vice Dean hesabi ile giris yapar.
     And Kullanici Menu ye  tiklar.
     Then Kullanici  acilan pencereden Contact Get All yazisina  tiklar.
@@ -18,7 +18,7 @@ Feature: US16 Vice Dean kullanıcıların gönderdiği mesajları görebilmelidi
   @US16/TC02
   Scenario: TC02 - Vice Dean Kullanici Mesajlarini Siler
 
-    Given Kullanici ana sayfaya gider.
+
     When Kullanici Vice Dean hesabi ile giris yapar.
     And Kullanici Menu ye  tiklar.
     Then Kullanici  acilan pencereden Contact Get All yazisina  tiklar.

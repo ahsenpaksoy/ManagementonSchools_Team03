@@ -4,4 +4,4 @@ Feature: Dean Bilgisi Dogrulama
     And GetManagerById icin beklenen veriler duzenlenir Esi
     When Kayitli Dean bilgisini almak icin Query gonderilir
     Then Kayitli Dean bilgisi dogrulanir
-    And Baglanti kesilir
+    And Connection kesilir
