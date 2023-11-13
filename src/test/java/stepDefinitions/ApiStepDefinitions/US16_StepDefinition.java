@@ -13,7 +13,7 @@ import static baseUrl.BaseUrl.spec;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class US16 {
+public class US16_StepDefinition {
 
     public static MessagePojo expectedData;
     Response response;
