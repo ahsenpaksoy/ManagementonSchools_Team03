@@ -45,11 +45,5 @@ public class US04_StepDef {
         assertEquals(object.getUsername(), resultSet.getString("username"));
     }
 
-    @And("Baglanti kesilir")
-    public void baglantiKesilir() throws SQLException {
-        // connection.close();
 
-        //  statement.close();
-        ReusableMethods.closeConnection();
-    }
 }
