@@ -73,7 +73,7 @@ public class US02_StepDefinition {
     public void guestUserKaydiDELETEIslemiIcinURLDuzenlenir() {
         //https://managementonschools.com/app/guestUser/delete/id
 
-        spec.pathParams("first", "guestUser", "second", "delete","third",2380);
+        spec.pathParams("first", "guestUser", "second", "delete","third", id);
 
     }
     @When("Guest User kaydi silme islemi icin DELETE Request gonderilir ve Response alinir")
