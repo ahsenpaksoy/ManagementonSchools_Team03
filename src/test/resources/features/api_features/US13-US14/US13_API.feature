@@ -25,9 +25,6 @@ Feature: Teacher Management
     Then  Teacher uptadete icin gelen Response dogrulanir
 
 
-
-
-
   Scenario:
     Given Teacher Delete icin URL duzenlenir
     When  Teacher Delete icin DELETE Request gonderilir ve Response alinir
