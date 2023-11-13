@@ -11,7 +11,6 @@ import java.util.ArrayList;
         private String startTime;
         private String stopTime;
 
-        @org.jetbrains.annotations.Contract(pure = true)
         public LessonProgramPojo() {
         }
 
