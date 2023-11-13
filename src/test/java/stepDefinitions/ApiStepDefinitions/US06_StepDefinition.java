@@ -6,7 +6,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import pojos.viceDeanManagement.ObjectPojo;
 import pojos.viceDeanManagement.ResponsePojo;
 import pojos.viceDeanManagement.ViceDeanPostPojo;
@@ -21,6 +20,8 @@ import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 public class US06_StepDefinition {
+
+
     ViceDeanPostPojo payload;
     Response response;
     ResponsePojo actualData;

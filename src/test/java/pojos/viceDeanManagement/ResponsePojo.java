@@ -8,9 +8,6 @@ public class ResponsePojo implements Serializable {
 	private String httpStatus;
 
 
-	public ResponsePojo() {
-	}
-
 	public ResponsePojo(ObjectPojo object, String message, String httpStatus) {
 		this.object = object;
 		this.message = message;
