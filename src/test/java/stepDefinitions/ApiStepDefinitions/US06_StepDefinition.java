@@ -26,8 +26,8 @@ public class US06_StepDefinition {
     Response response;
     ResponsePojo actualData;
     int userId;
-    ObjectPojo object;
-    ResponsePojo expectedData;
+    public static ObjectPojo object;
+    public static ResponsePojo expectedData;
     @Given("{string} yetkisi ile giris yapildiKI")
     public void yetkisiIleGirisYapildiKI(String authority) {
         setup(ConfigReader.getProperty("deanKenan"),ConfigReader.getProperty("kenanPas"));
@@ -81,6 +81,7 @@ public class US06_StepDefinition {
 
     @Given("Kayitli Vice Dean hesab bilgisinin ID nosu alinirKI")
     public void kayitliViceDeanHesabBilgisininIDNosuAlinirKI() {
+        setup(ConfigReader.getProperty("deanKenan"),ConfigReader.getProperty("kenanPas"));
         //https://managementonschools.com/app/vicedean/getAll
         spec.pathParams("first", "vicedean", "second", "getAll");
         response= given(spec).when().get("{first}/{second}");
@@ -93,7 +94,7 @@ public class US06_StepDefinition {
     @And("Vice Dean GetManagerById icin URL duzenlenirKI")
     public void viceDeanGetManagerByIdIcinURLDuzenlenirKI() {
         //https://managementonschools.com/app/vicedean/getViceDeanById/1
-        spec.pathParams("first","vicedean","second","getManagerById","third",userId);
+        spec.pathParams("first","vicedean","second","getViceDeanById","third",userId);
 
     }
     @And("Vice Dean GetManagerById icin beklenen veriler duzenlenirKI")
