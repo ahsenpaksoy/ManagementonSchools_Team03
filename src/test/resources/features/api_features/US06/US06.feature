@@ -6,7 +6,7 @@ Feature: Vice Dean Controller
     And Vice Dean hesabi olusturmak icin URL duzenlenirKI
     And  Vice Dean hesabi olusturmak icin payload duzenlenirKI
     When Vice Dean hesabi olusturmak icin POST Request gonderilir ve Reponse alinirKI
-    Then Status code un 200 oldugu dogrulandiKI
+    Then Status code un 200 oldugu dogrulanirKI
     And Vice Dean Save icin gelen Response body dogrulanirKI
     And Sayfayi kapatirKI
 @ApiGetKI

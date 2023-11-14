@@ -22,6 +22,7 @@ import static org.junit.Assert.assertEquals;
 public class US06_StepDef {
 
     Response response;
+    Response responseput;
 
     ResponsePojo actualData;
     int userIdKI;
@@ -190,12 +191,11 @@ public class US06_StepDef {
 }
          */
     }
-
     @And("Vice Dean hesabi guncellemek icin PUT Request gonderilir ve Reponse alinirKI")
     public void viceDeanHesabiGuncellemekIcinPUTRequestGonderilirVeReponseAlinirKI() {
-     response= given(spec).when().body(payload).put("{first}/{second}/{third}");
-       response.prettyPrint();
-       actualData=response.as(ResponsePojo.class);
+     responseput= given(spec).when().body(payload).put("{first}/{second}/{third}");
+       responseput.prettyPrint();
+       actualData=responseput.as(ResponsePojo.class);
     }
 
     @And("Guncelenen response body dogrulanirKI")
@@ -208,8 +208,6 @@ public class US06_StepDef {
         assertEquals(payload.getSurname(),actualData.getObject().getSurname());
         assertEquals(payload.getPhoneNumber(),actualData.getObject().getPhoneNumber());
         assertEquals(payload.getSsn(),actualData.getObject().getSsn());
-
-
     }
 
     @Then("Vice Dean delete icin URL duzenlenirKI")

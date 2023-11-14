@@ -103,7 +103,7 @@ public class US23_StepDef {
     public void viceDeanGetManagerByIdIcinBeklenenVerilerDuzenlendiKI() {
       objectPojo=new ObjectPojo(userIdKI,"AhmetGanja","Ahmet", "Agayev","1996-02-05",
                 "545-85-2023", "Baku","524-965-2023","MALE" );
-      responsePojo=new ResponsePojo(objectPojo,"Vice dean Saved","CREATED");
+      responsePojo=new ResponsePojo(objectPojo,"Vice dean successfully","CREATED");
 
                 /*
                 {
