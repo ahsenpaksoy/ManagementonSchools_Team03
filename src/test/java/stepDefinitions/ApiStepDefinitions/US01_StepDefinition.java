@@ -32,7 +32,7 @@ public class US01_StepDefinition  extends RegisterBaseUrl{
     @And("Guest User Save icin payload duzenlenir_SK")
     public void guestUserSaveIcinPayloadDuzenlenir_SK() {
 
-        payloadGuestUser=new Guest_UserPayloadPojo("1966-02-15","Ankara",
+        payloadGuestUser=new Guest_UserPayloadPojo("1966-12-02","Ankara",
                 "MALE","Selim","Selim01.","137-547-8765",
                 "125-37-8955","Karahan","  .011Merlin");
     }

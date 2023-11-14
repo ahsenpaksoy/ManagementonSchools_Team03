@@ -54,7 +54,7 @@ public class US02_StepDefinition {
         List<String> surnameList = json.getList("content.findAll { it.containsKey('surname') }.surname");
         Assert.assertTrue(surnameList.get(0).contains("Karahan"));
         List<String> birthDayList = json.getList("content.findAll { it.containsKey('birthDay') }.birthDay");
-        Assert.assertTrue(birthDayList.get(0).contains("1966-02-15"));
+        Assert.assertTrue(birthDayList.get(0).contains("1996-12-12"));
         List<String> birthPlaceList = json.getList("content.findAll { it.containsKey('birthPlace') }.birthPlace");
         Assert.assertTrue(birthPlaceList.get(0).contains("Ankara"));
         List<String> phoneNumberList = json.getList("content.findAll { it.containsKey('phoneNumber') }.phoneNumber");
