@@ -150,4 +150,20 @@ public class US05_StepDefination {
         assertEquals(statuscode,responseDelEsi.statusCode());
 
     }
+
+    @And("Guncellenmis olan Dean hesap bilgisinin ID nosu alinir Esi")
+    public void guncellenmisOlanDeanHesapBilgisininIDNosuAlinirEsi() {
+
+            spec.pathParams("first","dean","second","getAll");
+            response2=given(spec).when().get("{first}/{second}");
+            System.out.println(userNameEsi);
+
+            JsonPath json =response2.jsonPath();
+            List<Integer> userIdListEsi= json.getList("findAll{it.username=='"+userNameEsii+"'}.userId");
+            userIdEsi=userIdListEsi.get(0);
+            System.out.println(userIdEsi);
+
+
+
+    }
 }
