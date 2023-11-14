@@ -1,3 +1,4 @@
+@ApiUs15
 Feature: Student Controller
   Scenario: Vice Dean Student oluşturabilmelidir
     Given  Stdudent olusturmak icin URL duzenlenir_DR
