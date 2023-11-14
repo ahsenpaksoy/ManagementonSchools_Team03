@@ -30,7 +30,7 @@ public class US16_StepDefinition {
     @And("Gonderilecek mesaj bilgileri hazirlanir")
     public void gonderilecekMesajBilgileriHazirlanir() {
 
-        expectedData = new MessagePojo("mustafa@gmail.com", "Yardimci olur musunuz?", "Team03", "Yardim");
+        expectedData = new MessagePojo("mustafa@gmail.com", "ders basi?", "mustafa", "ders");
 
 
     }
