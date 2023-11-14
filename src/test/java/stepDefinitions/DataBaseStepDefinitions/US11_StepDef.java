@@ -1,5 +1,6 @@
 package stepDefinitions.DataBaseStepDefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
@@ -35,4 +36,16 @@ public class US11_StepDef {
         assertEquals(actEducationtermId,education_term_id);
     }
 
+    @And("Kullanici Updade yapabilmelidir")
+    public void kullaniciUpdadeYapabilmelidir() {
+
+    }
+
+    @Then("kullanici User Name boxa tıklar")
+    public void kullaniciUserNameBoxaTiklar() {
+    }
+
+    @And("kullanici Password boxa tıklar")
+    public void kullaniciPasswordBoxaTiklar() {
+    }
 }
