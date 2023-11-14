@@ -31,7 +31,8 @@ public class RegisterPage {
     @FindBy(xpath = "//input[@value='FEMALE']")  //5  erkek 6
     public WebElement genderRadioButtun_SK;
 
-
+    @FindBy (xpath = "//input[@value='MALE']")
+    public WebElement getGenderMaleRadioButtun_SK;
     @FindBy(xpath = "(//input)[7]")
     public WebElement birthDayKutusu_SK;
 

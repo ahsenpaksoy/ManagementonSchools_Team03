@@ -34,7 +34,7 @@ public class US01_StepDef {
     @Then("Aday ogrenci icin dogrulama yapar_SK")
     public void adayOgrenciIcinDogrulamaYapar_SK() throws SQLException {
         resultSet.next();
-        assertEquals("1966-02-15",resultSet.getString("birth_day"));
+        assertEquals("1996-12-12",resultSet.getString("birth_day"));
         assertEquals("Ankara", resultSet.getString("birth_place"));
         assertEquals(0, resultSet.getInt("gender"));
         assertEquals("Selim", resultSet.getString("name"));
