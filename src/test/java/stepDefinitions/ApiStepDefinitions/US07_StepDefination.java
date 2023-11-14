@@ -7,7 +7,7 @@ import io.restassured.response.Response;
 import static baseUrl.BaseUrl.spec;
 import static io.restassured.RestAssured.given;
 
-public class US07_StepDef {
+public class US07_StepDefination {
     @Given("Get request ile tum mesajlari al")
     public void getRequestIleTumMesajlariAl() {
         //https://managementonschools.com/app/contactMessages/getAll

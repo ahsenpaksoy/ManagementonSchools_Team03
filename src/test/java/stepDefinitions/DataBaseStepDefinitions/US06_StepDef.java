@@ -8,7 +8,7 @@ import io.cucumber.java.en.When;
 import java.sql.*;
 
 import static org.junit.Assert.assertEquals;
-import static stepDefinitions.ApiStepDefinitions.US06_StepDef.objectPojo;
+import static stepDefinitions.ApiStepDefinitions.US06_StepDefination.objectPojo;
 
 
 public class US06_StepDef {

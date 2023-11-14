@@ -19,7 +19,7 @@ import static baseUrl.BaseUrl.spec;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class US06_StepDef {
+public class US06_StepDefination {
 
     Response response;
     Response responseput;
@@ -50,8 +50,8 @@ public class US06_StepDef {
     @And("Vice Dean hesabi olusturmak icin payload duzenlenirKI")
     public void viceDeanHesabiOlusturmakIcinPayloadDuzenlenirKI() {
        payload=new PostPojo("1996-02-05","Baku",
-                "MALE","Ahmet","Aa349712","524-965-8570",
-                "545-85-9669","Agayev","AhmetBaku");
+                "MALE","Ahmet","Aa349712","524-965-8571",
+                "545-85-9670","Agayev","AhmetBak");
         /*
         {
   "birthDay": "1996-02-05",
@@ -105,7 +105,7 @@ public class US06_StepDef {
         spec.pathParams("first", "vicedean", "second", "getAll");
         response= given(spec).when().get("{first}/{second}");
         JsonPath json=response.jsonPath();
-        List<Integer> userIdList = json.getList("findAll{it.username=='AhmetBaku'}.userId");
+        List<Integer> userIdList = json.getList("findAll{it.username=='AhmetBak'}.userId");
         userIdKI=userIdList.get(0);
         System.out.println(userIdKI);
     }
@@ -118,9 +118,9 @@ public class US06_StepDef {
     }
     @And("Vice Dean GetManagerById icin beklenen veriler duzenlenirKI")
     public void viceDeanGetManagerByIdIcinBeklenenVerilerDuzenlenirKI() {
-        objectPojo=new ObjectPojo(userIdKI,"AhmetBaku","Ahmet",
-                "Agayev","1996-02-05", "545-85-9669", "Baku",
-                "524-965-8570", "MALE");
+        objectPojo=new ObjectPojo(userIdKI,"AhmetBak","Ahmet",
+                "Agayev","1996-02-05", "545-85-9670", "Baku",
+                "524-965-8571", "MALE");
         expectedData=new ResponsePojo(objectPojo,"Vice dean successfully found", "OK");
 
      /*
