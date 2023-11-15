@@ -50,8 +50,8 @@ public class US06_StepDefination {
     @And("Vice Dean hesabi olusturmak icin payload duzenlenirKI")
     public void viceDeanHesabiOlusturmakIcinPayloadDuzenlenirKI() {
        payload=new PostPojo("1996-02-05","Baku",
-                "MALE","Ahmet","Aa349712","524-965-8571",
-                "545-85-9670","Agayev","AhmetBak");
+                "MALE","Ahmet","Aa349712","524-965-8570",
+                "545-85-9670","Agayev","AhmetBakla");
         /*
         {
   "birthDay": "1996-02-05",
@@ -60,9 +60,9 @@ public class US06_StepDefination {
   "name": "Ahmet",
   "password": "Aa349712",
   "phoneNumber": "524-965-8570",
-  "ssn": "545-85-9669",
+  "ssn": "545-85-9670",
   "surname": "Agayev",
-  "username": "AhmetBaku"
+  "username": "AhmetBakla"
 }
          */
     }
@@ -105,7 +105,7 @@ public class US06_StepDefination {
         spec.pathParams("first", "vicedean", "second", "getAll");
         response= given(spec).when().get("{first}/{second}");
         JsonPath json=response.jsonPath();
-        List<Integer> userIdList = json.getList("findAll{it.username=='AhmetBak'}.userId");
+        List<Integer> userIdList = json.getList("findAll{it.username=='AhmetBakla'}.userId");
         userIdKI=userIdList.get(0);
         System.out.println(userIdKI);
     }
@@ -118,9 +118,9 @@ public class US06_StepDefination {
     }
     @And("Vice Dean GetManagerById icin beklenen veriler duzenlenirKI")
     public void viceDeanGetManagerByIdIcinBeklenenVerilerDuzenlenirKI() {
-        objectPojo=new ObjectPojo(userIdKI,"AhmetBak","Ahmet",
+        objectPojo=new ObjectPojo(userIdKI,"AhmetBakla","Ahmet",
                 "Agayev","1996-02-05", "545-85-9670", "Baku",
-                "524-965-8571", "MALE");
+                "524-965-8570", "MALE");
         expectedData=new ResponsePojo(objectPojo,"Vice dean successfully found", "OK");
 
      /*

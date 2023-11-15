@@ -8,27 +8,26 @@ import io.cucumber.java.en.When;
 import java.sql.*;
 
 import static org.junit.Assert.assertEquals;
-import static stepDefinitions.ApiStepDefinitions.US06_StepDefination.objectPojo;
+import static stepDefinitions.ApiStepDefinitions.US23_StepDef.objectPojo;
 
-
-public class US06_StepDef {
+public class US23_StepDef {
     Connection connection;
     ResultSet resultSet;
     Statement statement;
-    @Given("Database baglantisi kurulurKI")
-    public void databaseBaglantisiKurulurKI() throws SQLException {
-        connection = DriverManager.getConnection("jdbc:postgresql://managementonschools.com:5432/school_management",
+    @Given("Database baglantisi kurulduKI")
+    public void databaseBaglantisiKurulduKI() throws SQLException {
+        connection= DriverManager.getConnection("jdbc:postgresql://managementonschools.com:5432/school_management",
                 "select_user", "43w5ijfso");
     }
-
-    @When("Kayitli Vice Dean almak icni Query gonderilirKI")
-    public void kayitliViceDeanAlmakIcniQueryGonderilirKI() throws SQLException {
+    @When("Kayitli Vice Dean almak icni Query gonderildiKI")
+    public void kayitliViceDeanAlmakIcniQueryGonderildiKI() throws SQLException {
         statement=connection.createStatement();
-        resultSet=statement.executeQuery("select * from vice_dean where username='AhmetBakla'");
+        resultSet=statement.executeQuery("select * from vice_dean where username='AhmetGanja'");
+
     }
 
-    @Then("Kayitli Vice Dean bilgisi dogrulanirKI")
-    public void kayitliViceDeanBilgisiDogrulanirKI() throws SQLException {
+    @Then("Kayitli Vice Dean bilgisi dogrulandiKI")
+    public void kayitliViceDeanBilgisiDogrulandiKI() throws SQLException {
         resultSet.next();
         assertEquals(objectPojo.getBirthDay(),resultSet.getString("birth_day"));
         assertEquals(objectPojo.getBirthPlace(),resultSet.getString("birth_place"));
@@ -38,13 +37,12 @@ public class US06_StepDef {
         assertEquals(objectPojo.getPhoneNumber(),resultSet.getString("phone_number"));
         assertEquals(objectPojo.getSurname(),resultSet.getString("surname"));
         assertEquals(objectPojo.getUsername(),resultSet.getString("username"));
-
-
     }
 
-    @And("Baglanti kesilirKI")
-    public void baglantiKesilir() throws SQLException {
-        statement.close();
+
+    @And("Baglanti kesildiKI")
+    public void baglantiKesildiKI() throws SQLException {
         connection.close();
+        statement.close();
     }
 }
