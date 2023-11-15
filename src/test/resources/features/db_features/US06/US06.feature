@@ -1,4 +1,4 @@
-@DB6
+@DBKI06
   Feature: Vice Dean Bilgisi Dogrulama
     Scenario: Kayitli Vice Dean bilgisi dogrulanirKI
       Given Database baglantisi kurulurKI

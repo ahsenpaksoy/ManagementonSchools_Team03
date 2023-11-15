@@ -19,7 +19,7 @@ Feature: Vice Dean Controller
       And Vice Dean GetManagerById icin gelen Response body dogrulanirKI
 @ApiPutKI
   Scenario: Olusturulan Vice Dean hesap bilgisini guncelleme
-    Given "Dean" yetkisi ile giris yapildiKI
+    Given "Dean" yetkisi ile giris yapilirKI
     And Kayitli Vice Dean hesab bilgisinin ID nosu alinirKI
     And Vice Dean hesabini guncellemek icin URL duzenlenirKI
     And Vice Dean hesabi guncellemek icin payload duzenlenirKI
@@ -29,7 +29,7 @@ Feature: Vice Dean Controller
 
 @ApiDelKI
   Scenario: Olusturulan Vice Dean hesap bilgisini silme
-    Given "Dean" yetkisi ile giris yapildiKI
+    Given "Dean" yetkisi ile giris yapilirKI
     And Kayitli Vice Dean hesab bilgisinin ID nosu alinirKI
     Then Vice Dean delete icin URL duzenlenirKI
     When Vice Dean delete icin Request gonderilir ve Response alinirKI

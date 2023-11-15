@@ -24,8 +24,8 @@ public class US23_StepDef {
     Response response;
     ResponsePojo actualdata;
     int userIdKI;
-    ObjectPojo objectPojo;
-    ResponsePojo responsePojo;
+   public static ObjectPojo objectPojo;
+   public static ResponsePojo responsePojo;
     @Given("{string} yetkisi ile giris yapildiKI")
     public void yetkisiIleGirisYapilirKI(String authority) {
         setup(ConfigReader.getProperty("adminKenan"),ConfigReader.getProperty("kenanPas"));

@@ -1,4 +1,4 @@
-
+@APIKI07
   Feature: Dean, kullanicidan gelen mesajlari gorebilmelidir.
 
     Scenario Outline: Dean kullanicidan gelen mesaji dogrular
