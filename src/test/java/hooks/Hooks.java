@@ -21,13 +21,13 @@ public class Hooks {
      istedigimiz bir kod olursa @before notasyonuna parametre olarak scenario'ya verdigimiz tag'i yazariz.
      Dolayisiyla sadece tag' i balirttigimiz @Before methodu scenario'dan önce devreye girer.
      */
-    @Before
+    @Before("@ui")
     public void setUp() {
         System.out.println("Scenario'lar Çalismaya Başladı");
     }
 
 
-    @After
+    @After("@ui")
     public void tearDown(Scenario scenario) {
         if (scenario.isFailed()){
             TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();

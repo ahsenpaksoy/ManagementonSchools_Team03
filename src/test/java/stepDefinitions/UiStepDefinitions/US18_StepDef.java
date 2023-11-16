@@ -49,7 +49,7 @@ public class US18_StepDef {
     }
     @And("kulanici Edit butonuna tiklar_IO")
     public void kulaniciEditButonunaTiklar_IO() {
-        tPage.editButonuInfoList_IO.click();
+        ReusableMethods.click(tPage.editButonuInfoList_IO);
         ReusableMethods.bekle(2);
     }
     @And("kullanici Acilan pencerede Absentee kutusundan devamsizligi gunceller_IO")
@@ -98,5 +98,11 @@ public class US18_StepDef {
         tPage.deleteButonuInfoList_IO.click();
         ReusableMethods.visibleWait(tPage.studentInfoDeletedSuccessfullyYazisi_IO,3);
         assertTrue(tPage.studentInfoDeletedSuccessfullyYazisi_IO.isDisplayed());
+    }
+
+    @And("kullanici Delete simgesine tiklar")
+    public void kullaniciDeleteSimgesineTiklar() {
+       // tPage.deleteButonuInfoList_IO.click();
+
     }
 }
