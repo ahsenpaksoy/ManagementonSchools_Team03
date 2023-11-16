@@ -23,7 +23,7 @@ public class US23_StepDef {
     PostPojo payload;
     Response response;
     ResponsePojo actualdata;
-    int userIdKI;
+    int userIdKI23;
    public static ObjectPojo objectPojo;
    public static ResponsePojo responsePojo;
     @Given("{string} yetkisi ile giris yapildiKI")
@@ -38,8 +38,9 @@ public class US23_StepDef {
     }
     @And("Vice Dean hesabi olusturmak icin payload duzenlendiKI")
     public void viceDeanHesabiOlusturmakIcinPayloadDuzenlendiKI() {
-        payload=new PostPojo( "1996-02-05","Baku", "MALE", "Ahmet","Aa349712","524-965-2023",
-                "545-85-2023", "Agayev","AhmetGanja");
+        payload=new PostPojo( "1996-02-05","Baku", "MALE", "Ahmet","Aa349712",
+                "524-965-2027",
+                "545-85-2027", "Agayev","AhmetGan");
 
         /*
  {
@@ -88,22 +89,22 @@ public class US23_StepDef {
         spec.pathParams("first","vicedean","second","getAll");
         response= given(spec).when().get("{first}/{second}");
         JsonPath jsonPath=response.jsonPath();
-        List<Integer> userList=jsonPath.getList("findAll{it.username=='AhmetGanja'}.userId");
-        userIdKI= userList.get(0);
-        System.out.println("KKKKKKAKka "+ userIdKI);
+        List<Integer> userList=jsonPath.getList("findAll{it.username=='AhmetGan'}.userId");
+        userIdKI23= userList.get(0);
+       // System.out.println("KKKKKKAKka "+ userIdKI);
     }
 
     @And("Vice Dean GetManagerById icin URL duzenlendiKI")
     public void viceDeanGetManagerByIdIcinURLDuzenlendiKI() {
         //https://managementonschools.com/app/vicedean/getViceDeanById/1
-        spec.pathParams("first","vicedean","second","getViceDeanById","third",userIdKI);
+        spec.pathParams("first","vicedean","second","getViceDeanById","third",userIdKI23);
     }
 
     @And("Vice Dean GetManagerById icin beklenen veriler duzenlendiKI")
     public void viceDeanGetManagerByIdIcinBeklenenVerilerDuzenlendiKI() {
-      objectPojo=new ObjectPojo(userIdKI,"AhmetGanja","Ahmet", "Agayev","1996-02-05",
-                "545-85-2023", "Baku","524-965-2023","MALE" );
-      responsePojo=new ResponsePojo(objectPojo,"Vice dean successfully","CREATED");
+      objectPojo=new ObjectPojo(userIdKI23,"AhmetGan","Ahmet", "Agayev","1996-02-05",
+                "545-85-2027", "Baku","524-965-2027","MALE" );
+      responsePojo=new ResponsePojo(objectPojo,"Vice dean successfully found","OK");
 
                 /*
                 {
@@ -149,7 +150,7 @@ public class US23_StepDef {
     @Then("Vice Dean silme icin URL duzenlenirKI")
     public void viceDeanSilmeIcinURLDuzenlenirKI() {
         //https://managementonschools.com/app/vicedean/delete/1
-        spec.pathParams("first","vicedean","second","delete","third",userIdKI);
+        spec.pathParams("first","vicedean","second","delete","third",userIdKI23);
 
     }
 
