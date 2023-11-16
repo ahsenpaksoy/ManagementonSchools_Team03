@@ -1,19 +1,19 @@
-package pojos.lessonManagement;
+package pojos.lessonManagement.saveLessonPorg;
 
 import java.util.List;
 import java.io.Serializable;
 
-public class ResponsePojoYD implements Serializable {
+public class PostPojoYD implements Serializable {
 	private String day;
 	private int educationTermId;
 	private List<Integer> lessonIdList;
 	private String startTime;
 	private String stopTime;
 
-	public ResponsePojoYD() {
+	public PostPojoYD() {
 	}
 
-	public ResponsePojoYD(String day, int educationTermId, List<Integer> lessonIdList, String startTime, String stopTime) {
+	public PostPojoYD(String day, int educationTermId, List<Integer> lessonIdList, String startTime, String stopTime) {
 		this.day = day;
 		this.educationTermId = educationTermId;
 		this.lessonIdList = lessonIdList;
