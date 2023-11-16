@@ -24,7 +24,7 @@ public class US06_StepDef {
     @When("Kayitli Vice Dean almak icni Query gonderilirKI")
     public void kayitliViceDeanAlmakIcniQueryGonderilirKI() throws SQLException {
         statement=connection.createStatement();
-        resultSet=statement.executeQuery("select * from vice_dean where username='AhmetBakla'");
+        resultSet=statement.executeQuery("select * from vice_dean where username='AhmetBaka'");
     }
 
     @Then("Kayitli Vice Dean bilgisi dogrulanirKI")

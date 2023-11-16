@@ -13,8 +13,8 @@ Feature: US23
     And DeanBirthPlace kutusuna "Baku" girerKI
     And DeanGender "MALE" secenegini girerKI
     And DeanDateOfBirth kutusuna "05021996" girerKI
-    And DeanPhone kutusuna "524-965-8570" girerKI
-    And DeanSSN kutusuna "545-85-9670" girerKI
+    And DeanPhone kutusuna "524-965-2026" girerKI
+    And DeanSSN kutusuna "545-85-2026" girerKI
     And DeanUserName kutusuna "AhmetGanja" girerKI
     And DeanPassword kutusuna sifre girerKI
     * 1 saniye beklerKI

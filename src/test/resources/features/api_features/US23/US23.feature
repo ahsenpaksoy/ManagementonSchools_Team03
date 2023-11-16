@@ -8,7 +8,7 @@
       Then Status code un 200 oldugu dogrulandiKI
       And Vice Dean Save icin gelen Response body dogrulandiKI
 
-@ApiGetKI
+@ApiGetKI23
     Scenario:Admin kullanicisinin Vice Dean hesap bilgisini alma testi
       Given Kayitli Vice Dean hesap bilgisinin ID nosu alindiKI
       And Vice Dean GetManagerById icin URL duzenlendiKI
@@ -17,7 +17,7 @@
       Then Status code un 200 oldugu dogrulandiKI
       And Vice Dean GetManagerById icin gelen Response body dogrulandiKI
 
-@ApiDelKI
+@ApiDelKI23
 Scenario: Admin kullanici olusturulan Vice Dean silme
   Given "Admin" yetkisi ile giris yapildiKI
   And Kayitli Vice Dean hesap bilgisinin ID nosu alindiKI

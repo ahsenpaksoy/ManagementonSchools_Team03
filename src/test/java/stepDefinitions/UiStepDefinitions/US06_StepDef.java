@@ -194,7 +194,8 @@ public class US06_StepDef {
         Assert.assertTrue(ReusableMethods.invalidSA(required));
     }
     @And("{int} saniye beklerKI")
-    public void saniyeBeklerKI(int arg0) {
+    public void saniyeBeklerKI(int bekle) {
+
         ReusableMethods.bekle(2);
     }
 
@@ -221,7 +222,7 @@ public class US06_StepDef {
     }
 
     @And("DeanGender {string} secenegini girerKI")
-    public void deangenderSeceneginiGirer(String arg0) {
+    public void deangenderSeceneginiGirer(String gender) {
         deanPage.genderSecimKI.click();
     }
 

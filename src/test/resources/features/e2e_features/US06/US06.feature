@@ -10,9 +10,9 @@
       And DeanBirthPlace kutusuna "Baku" girerKI
       And DeanGender "MALE" secenegini girerKI
       And DeanDateOfBirth kutusuna "05021996" girerKI
-      And DeanPhone kutusuna "524-965-8570" girerKI
-      And DeanSSN kutusuna "545-85-9670" girerKI
-      And DeanUserName kutusuna "AhmetBakla" girerKI
+      And DeanPhone kutusuna "524-965-2004" girerKI
+      And DeanSSN kutusuna "545-85-2004" girerKI
+      And DeanUserName kutusuna "AhmetBaka" girerKI
       And DeanPassword kutusuna sifre girerKI
       * 1 saniye beklerKI
       Then Submit butonuna tiklanirKI
