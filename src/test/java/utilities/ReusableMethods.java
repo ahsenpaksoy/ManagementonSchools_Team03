@@ -12,10 +12,10 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
+import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -252,6 +252,86 @@ public class ReusableMethods {
         js.executeScript("arguments[0].value = '';", element);
     }
 
+    public static Connection connection;//Connection variable'ın başka methodlarda da kullanılabilmesi için 'class level'da belirtiliyor.
+    public static Statement statement;
+
+    public static ResultSet resultSet;
+
+    //Bu method database'e bağlanıp bir Connection data return edecek
+    public static Connection connectToDatabase() {
+
+        try {
+            connection = DriverManager.getConnection("jdbc:postgresql://managementonschools.com:5432/school_management", "select_user", "43w5ijfso");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return connection;
+    }
+
+    //Bu method connectToDatabase() methodu çağırarak statement dönüyor
+    public static Statement createStatement() {
+
+        try {
+            statement = connectToDatabase().createStatement();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return statement;
+
+    }
+
+//Bu method String bir SQL query'yi createStatement() methodu çağırarak çalıştırıp boolean dönüyor
+
+    //Bu method String bir SQL query'yi createStatement() methodu çağırarak çalıştırıp boolean dönüyor
+    public static boolean execute(String sql) {
+
+        try {
+            return createStatement().execute(sql);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    //Bu method String bir SQL query'yi createStatement() methodu çağırarak çalıştırıp ResultSet dönüyor
+    public static ResultSet executeQuery(String sql){
+
+        try {
+            return createStatement().executeQuery(sql);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    //Bu method paramterede belirtilen table ve column ismine göre bir query çalıştırıp ilgili sütun objelerini bir list olarak dönüyor
+    public static List<Object> getColumnList(String table, String column) throws SQLException {
+
+        List<Object> list = new ArrayList<>();
+        String query = "select " + column + " from " + table;
+
+        resultSet = executeQuery(query);
+        while (resultSet.next()) {
+            list.add(resultSet.getObject(column));
+        }
+
+        return list;
+    }
+
+    //Bu method bağlantıyı kapatır
+    public static void closeConnection(){
+
+        try {
+            connection.close();
+            statement.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
 
 
 
@@ -309,4 +389,3 @@ public class ReusableMethods {
 
 
 }
-

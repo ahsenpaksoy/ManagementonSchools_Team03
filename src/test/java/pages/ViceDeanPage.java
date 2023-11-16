@@ -6,9 +6,15 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
 public class ViceDeanPage {
+
+
+
+
     public ViceDeanPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
+
+
 
 
 
@@ -105,6 +111,21 @@ public class ViceDeanPage {
 
 
 //Mustafa
+
+    public static WebElement contactEmail;
+    public WebElement loginUserNameBox;
+    public WebElement loginButton;
+
+    public static WebElement contactName;
+    public static WebElement contactDate;
+
+    public static WebElement contactSubject;
+
+    public static WebElement contactMessage;
+    public static WebElement deleteButon;
+
+
+
 
     @FindBy(xpath = "//button[@id='controlled-tab-example-tab-lessonProgram']")
     public WebElement lessonProgram;

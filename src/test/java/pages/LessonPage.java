@@ -12,6 +12,9 @@ import java.util.List;
 
 public class LessonPage {
     public static ReusableMethods studentContact;
+    public WebElement editSubmitVerifyEp;
+    public WebElement Update;
+
     public LessonPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
@@ -216,7 +219,7 @@ public class LessonPage {
     @FindBy(id="educationTermId")
     public WebElement donem;
     @FindBy(id="day")
-    public WebElement gun;
+    public WebElement day;
     @FindBy(id="startTime")
     public WebElement start;
     @FindBy(id="stopTime")

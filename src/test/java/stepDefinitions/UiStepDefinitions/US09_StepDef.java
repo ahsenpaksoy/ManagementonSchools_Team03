@@ -13,13 +13,15 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.security.PublicKey;
 import java.util.List;
 
 public class US09_StepDef {
     HomePage homePage = new HomePage();
     LessonPage lessonPage = new LessonPage();
-    Faker faker;
-    String randomDers;
+   public static  Faker faker = new Faker();
+    public static String randomDers = faker.lorem().characters(15, true, true);
+    public static String randomDers2 = faker.lorem().characters(15, true, true);
 
     @Given("kullanici ManagementSchools sayfasina giderSo")
     public void kullaniciManagementSchoolsSayfasinaGider() {
@@ -84,8 +86,7 @@ public class US09_StepDef {
 
     @Then("kullanici ders listesinde ders eklerSo")
     public void kullaniciDersListesindeDersEklerSo() {
-        faker = new Faker();
-        randomDers = faker.lorem().characters(15, true, true);
+
         lessonPage.lessonName.sendKeys(randomDers);
     }
 

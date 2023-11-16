@@ -23,10 +23,12 @@ public class US04_StepDef {
     public static String surnameEsi = fakerEsi.name().lastName();
     public static String phoneNummerEsi = fakerEsi.number().numberBetween(100, 999) + "-" + fakerEsi.number().numberBetween(100, 999) + "-" + fakerEsi.number().numberBetween(1000, 9999);
     public static String ssnEsi = fakerEsi.number().numberBetween(100, 899) + "-" +fakerEsi.number().numberBetween(10,99)+"-" + fakerEsi.number().numberBetween(1000, 9999);
-   public static String birthPlaceEsi = fakerEsi.address().city();
+    public static String birthPlaceEsi = fakerEsi.address().city();
     public static Date dateEsi = fakerEsi.date().birthday(25, 60);
     static SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+    static SimpleDateFormat fortmat2=new SimpleDateFormat("yyyy-MM-dd");
     public static String dateOfBirthEsi = format.format(dateEsi);
+    public static String birthdayEsi=fortmat2.format(dateEsi);
     public static String userNameEsi = nameEsi + surnameEsi;
 
     public static String passwordEsi= fakerEsi.internet().password()+"Aa2";
