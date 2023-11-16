@@ -332,61 +332,8 @@ public class ReusableMethods {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public static Object waitForVisibility(WebElement element, int i) {
+        return null;
+    }
 }
 

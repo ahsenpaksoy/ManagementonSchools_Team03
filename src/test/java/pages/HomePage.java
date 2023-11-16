@@ -10,14 +10,14 @@ public class HomePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(xpath = "//*[@class='header_link ms-2']")
-    public WebElement loginButonu;
 
-    @FindBy (xpath = "//*[@id='username']")
-    public WebElement loginUsernameBox;
 
-    @FindBy (xpath = "//*[@class='fw-semibold text-white bg-primary navbar-toggler collapsed']")
-    public WebElement menu;
+
+
+
+
+
+
 
 
 
@@ -81,6 +81,110 @@ public class HomePage {
     public WebElement contactMessageCreated_SK;
     @FindBy(xpath = "//div[@class='Toastify__toast-body']")
     public WebElement pleaseEnterValidEmailYazisi_SK;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //mustafa
+
+    @FindBy(xpath = "//*[@class='header_link ms-2']")
+    public WebElement loginButonu;
+
+    @FindBy (xpath = "//*[@id='username']")
+    public WebElement loginUsernameBox;
+
+    @FindBy(id = "password")
+    private WebElement password;
+
+    @FindBy (xpath = "//*[@class='fw-semibold text-white bg-primary navbar-toggler collapsed']")
+    public WebElement menu;
+
+    @FindBy(xpath = "//a[.='Contact Get All']")
+    public WebElement contactGetAll;
+
+    @FindBy(id = "email")  //@FindBy(xpath = "//tbody/tr[1]/td[2]/span[1]")
+    public static WebElement contactEmail;
+
+
+    @FindBy(id = "name")//  @FindBy(xpath = "//tbody/tr[1]/td[1]/span[1]")
+    public static WebElement contactName;
+
+    @FindBy(xpath = "//tbody/tr[1]/td[3]/span[1]")
+    public static WebElement contactDate;
+
+    @FindBy(xpath = "//tbody/tr[1]/td[4]/span[1]")
+    public static WebElement contactSubject;
+
+    @FindBy(xpath = "//*[text()='Contact Message']")
+    public static WebElement contactMessage;
+
+    public static WebElement deleteButon;
+
+    public WebElement passwordBox;
+
 
 
 }
