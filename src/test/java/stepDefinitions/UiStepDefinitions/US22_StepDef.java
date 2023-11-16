@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import pages.AdminPage;
 import utilities.ConfigReader;
 import utilities.Driver;
@@ -13,7 +14,6 @@ import java.util.Random;
 import static org.junit.Assert.*;
 
 public class US22_StepDef {
-
     Faker faker = new Faker();
     AdminPage aPage = new AdminPage();
 
@@ -93,18 +93,14 @@ public class US22_StepDef {
 
     @And("kullanici Surname kutusunu bos birakir")
     public void kullaniciSurnameKutusunuBosBirakir() {
-        ReusableMethods.bekle(2);
-
     }
     @And("kullanici Surname kutusu Required uyarisi aldigini dogrular_IO")
     public void kullaniciSurnameKutusuRequiredUyarisiAldiginiDogrular_IO() {
-        ReusableMethods.visibleWait(aPage.surnameKutusuRequiredUyari_IO, 5);
         assertTrue(aPage.surnameKutusuRequiredUyari_IO.isDisplayed());
     }
 
     @And("kullanici Birth Place kutusunu bos birakir")
     public void kullaniciBirthPlaceKutusunuBosBirakir() {
-
     }
     @And("kullanici Birth Place kutusu Required uyarisi aldigini dogrular_IO")
     public void kullaniciBirthPlaceKutusuRequiredUyarisiAldiginiDogrular_IO() {
@@ -115,13 +111,13 @@ public class US22_StepDef {
     }
     @And("kullanici Submit butonuna tiklar ve admin eklenemedigini dogrular_IO")
     public void kullaniciSubmitButonunaTiklarVeAdminEklenemediginiDogrular_IO() {
+        //Gender bos birakilip Submit'e tiklandiginda herhangi bir hata mesaji alinmiyor.
+        ReusableMethods.click(aPage.submitButonuAdmin_IO);
 
 
     }
-
     @And("kullanici Date Of Birth kutusunu bos birakir")
     public void kullaniciDateOfBirthKutusunuBosBirakir() {
-
     }
     @And("kullanici Date Of Birth kutusu Required uyarisi aldigini dogrular_IO")
     public void kullaniciDateOfBirthKutusuRequiredUyarisiAldiginiDogrular_IO() {
@@ -129,7 +125,6 @@ public class US22_StepDef {
     }
     @And("kullanici Phone kutusunu bos birakir")
     public void kullaniciPhoneKutusunuBosBirakir() {
-        aPage.phoneNumberKutusu_IO.sendKeys("");
     }
     @And("kullanici Phone kutusu Required uyarisi aldigini dogrular_IO")
     public void kullaniciPhoneKutusuRequiredUyarisiAldiginiDogrular_IO() {
@@ -137,7 +132,6 @@ public class US22_StepDef {
     }
     @And("kullanici Ssn kutusunu bos birakir")
     public void kullaniciSsnKutusunuBosBirakir() {
-        aPage.ssnKutusu_IO.sendKeys("");
     }
     @And("kullanici Ssn kutusu Required uyarisi aldigini dogrular_IO")
     public void kullaniciSsnKutusuRequiredUyarisiAldiginiDogrular_IO() {
@@ -146,7 +140,6 @@ public class US22_StepDef {
 
     @And("kullanici User Name kutusunu bos birakir")
     public void kullaniciUserNameKutusunuBosBirakir() {
-        aPage.userNameKutusu_IO.sendKeys("");
     }
     @And("kullanici User Name kutusu Required uyarisi aldigini dogrular_IO")
     public void kullaniciUserNameKutusuRequiredUyarisiAldiginiDogrular_IO() {
@@ -155,7 +148,6 @@ public class US22_StepDef {
 
     @And("kullanici Password kutusunu bos birakir")
     public void kullaniciPasswordKutusunuBosBirakir() {
-        aPage.passwordKutusu_IO.sendKeys("");
     }
     @And("kullanici Enter Your Password uyarisi aldigini dogrular_IO")
     public void kullaniciEnterYourPasswordUyarisiAldiginiDogrular_IO() {
@@ -163,22 +155,27 @@ public class US22_StepDef {
     }
     @And("kullanici Ssn kutusuna gecersiz bir ssn no girer")
     public void kullaniciSsnKutusunaGecersizBirSsnNoGirer() {
-        aPage.ssnKutusu_IO.sendKeys(generateFakeSsn1());
+        aPage.ssnKutusu_IO.sendKeys(ConfigReader.getProperty("ssnNo1_IO"));
     }
     @And("kullanici Submit butonuna tiklar Please enter valid SSN number uyarisi aldigini dogrular_IO")
     public void kullaniciSubmitButonunaTiklarPleaseEnterValidSSNNumberUyarisiAldiginiDogrular_IO() {
         aPage.submitButonuAdmin_IO.click();
-        ReusableMethods.visibleWait(aPage.PleaseEnterValidSsnNumberUyariYazisi_IO,3);
-        assertTrue(aPage.PleaseEnterValidSsnNumberUyariYazisi_IO.isDisplayed());
+        ReusableMethods.visibleWait(aPage.pleaseEnterValidSsnNumberUyariYazisi_IO,5);
+        assertTrue(aPage.pleaseEnterValidSsnNumberUyariYazisi_IO.isDisplayed());
     }
     @And("kullanici Password kutusuna 7 karakterli bir password girer")
-    public void kullaniciPasswordKutusunaKarakterliBirPasswordGirer(String password) {
+    public void kullaniciPasswordKutusunaKarakterliBirPasswordGirer() {
         aPage.passwordKutusu_IO.sendKeys(ConfigReader.getProperty("password1_IO"));
     }
     @And("kullanici At least 8 characters uyarisi aldigini dogrular_IO")
-    public void kullaniciAtLeastCharactersUyarisiAldiginiDogrular_IO(String password) {
-        assertTrue(aPage.AtLeast8CharactersUyariYazisi_IO.isDisplayed());
+    public void kullaniciAtLeastCharactersUyarisiAldiginiDogrular_IO() {
+        assertTrue(aPage.atLeast8CharactersUyariYazisi_IO.isDisplayed());
     }
+    @And("kullanici sayfayi yeniler")
+    public void kullaniciSayfayiYeniler() {
+        Driver.getDriver().navigate().refresh();
+    }
+
 
     //FAKE phone number method
     public static String generateFakePhoneNumber() {
@@ -207,23 +204,4 @@ public class US22_StepDef {
         String ucuncuBolumFormati = ucuncuBolumFormat.format(ucuncuBolum);
         return ilkBolumFormati + "-" + ikinciBolumFormati + "-" + ucuncuBolumFormati;
     }
-    public static String generateFakeSsn1() {
-        Random random = new Random();
-        int ilkBolum = 100 + random.nextInt(900); // 100 ile 999 arasında rastgele bir sayı
-        int ikinciBolum = 100 + random.nextInt(900); // 100 ile 999 arasında rastgele bir sayı
-        int ucuncuBolum = 100 + random.nextInt(9000); // 100 ile 9999 arasında rastgele bir sayı
-        DecimalFormat decimalFormatIlkBolum = new DecimalFormat("000");
-        String ilkBolumFormati = decimalFormatIlkBolum.format(ilkBolum);
-        DecimalFormat decimalFormat = new DecimalFormat("000");
-        String ikinciBolumFormati = decimalFormat.format(ikinciBolum);
-        DecimalFormat ucuncuBolumFormat = new DecimalFormat("0000");
-        String ucuncuBolumFormati = ucuncuBolumFormat.format(ucuncuBolum);
-        return ilkBolumFormati + "-" + ikinciBolumFormati + "-" + ucuncuBolumFormati;
-    }
-    @And("kullanici sayfayi yeniler")
-    public void kullaniciSayfayiYeniler() {
-        Driver.getDriver().navigate().refresh();
-    }
-
-
 }
