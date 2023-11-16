@@ -385,4 +385,65 @@ public class US15_StepDef {
         viceDeanPage.loginUserNameBox_DB.sendKeys(username, Keys.TAB,password,Keys.TAB,Keys.ENTER);
         ReusableMethods.bekle(2);
     }
+
+    @Then("kullanici name alanina {string} girer_DB")
+    public void kullaniciNameAlaninaGirer_DB(String name) {
+            viceDeanPage.nameBox_DB.sendKeys(name);
+            ReusableMethods.bekle(1);
+    }
+    @And("kullanici surname alanina {string} girer_DB")
+    public void kullaniciSurnameAlaninaGirer_DB(String surname) {
+        viceDeanPage.sunameBox_DB.sendKeys(surname);
+        ReusableMethods.bekle(1);
+    }
+    @And("kullanici Birth Place alanina {string} girer_DB")
+    public void kullaniciBirthPlaceAlaninaGirer_DB(String bPlace) {
+        viceDeanPage.birthPlaceBox_DB.sendKeys(bPlace);
+        ReusableMethods.bekle(1);
+    }
+    @And("kullanci Email alanina {string} girer_DB")
+    public void kullanciEmailAlaninaGirer_DB(String eMail) {
+        viceDeanPage.emailBox_DB.sendKeys(eMail);
+        ReusableMethods.bekle(1);
+    }
+
+    @And("kullanici Phone Number alanina {string} girer_DB")
+    public void kullaniciPhoneNumberAlaninaGirer_DB(String Pnumber) {
+        viceDeanPage.phoneNumberBox_DB.sendKeys(Pnumber);
+        ReusableMethods.bekle(1);
+    }
+    @And("kullanici Birth Date alanina {string} girer_DB")
+    public void kullaniciBirthDateAlaninaGirer_DB(String Bdate) {
+        viceDeanPage.birthDayBox_DB.sendKeys(Bdate);
+        ReusableMethods.bekle(1);
+    }
+
+    @And("kullanici SSN alanina {string} girer_DB")
+    public void kullaniciSSNAlaninaGirer_DB(String ssn) {
+        viceDeanPage.ssnBox_DB.sendKeys(ssn);
+        ReusableMethods.bekle(1);
+    }
+    @And("kullanici User Name alanina {string} girer_DB")
+    public void kullaniciUserNameAlaninaGirer_DB(String userName) {
+        viceDeanPage.usernameBox_DB.sendKeys(userName);
+        ReusableMethods.bekle(1);
+    }
+
+    @And("kullanici Father Name alanina {string} girer_DB")
+    public void kullaniciFatherNameAlaninaGirer_DB(String Fname) {
+        viceDeanPage.fatherNameBox_DB.sendKeys(Fname);
+        ReusableMethods.bekle(1);
+    }
+
+    @And("kullanici Mother Name alanina {string} girer_DB")
+    public void kullaniciMotherNameAlaninaGirer_DB(String Mname) {
+        viceDeanPage.motherNameBox_DB.sendKeys(Mname);
+        ReusableMethods.bekle(1);
+    }
+    @And("kullanici Password alanina {string} girer_DB")
+    public void kullaniciPasswordAlaninaGirer_DB(String password) {
+        viceDeanPage.passwordBox_DB.sendKeys(password);
+        ReusableMethods.bekle(1);
+
+    }
 }

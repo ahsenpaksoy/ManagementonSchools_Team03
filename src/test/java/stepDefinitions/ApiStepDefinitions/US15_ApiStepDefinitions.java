@@ -1,16 +1,16 @@
 package stepDefinitions.ApiStepDefinitions;
 
-import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import pojos.studentInfoManagement.ObjectPojo;
-import pojos.studentInfoManagement.ResponsePojo;
-import pojos.studentInfoManagement.StudentPostPojo;
-import pojos.teacherManagement.TeacherUpdate.UpdateResponsePojo;
+import pojos.studentManagement.studentGetById.ResponseGetPojo;
+import pojos.studentManagement.studentPost.ObjectPojo;
+import pojos.studentManagement.studentPost.ResponsePojo;
+import pojos.studentManagement.studentPost.StudentPostPojo;
+import pojos.studentManagement.studentUpdate.ResponseStdUpdtPojo;
 import utilities.ConfigReader;
 
 import java.util.List;
@@ -18,15 +18,18 @@ import java.util.List;
 import static baseUrl.BaseUrl.setup;
 import static baseUrl.BaseUrl.spec;
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.when;
 import static org.junit.Assert.assertEquals;
 
 public class US15_ApiStepDefinitions {
+    StudentPostPojo payloadUpdt;
+    ResponseGetPojo  actualDataGetById;
+    ResponseGetPojo expectedData;
     public static StudentPostPojo payload;
-    ResponsePojo actualData;
-    Response response;
+    public static ResponsePojo actualData;
+    ResponseStdUpdtPojo actualDataUpdt;
+    public static Response response;
 
-    ObjectPojo object;
+    public  static ObjectPojo object;
     private static int studentId;
     @Given("Stdudent olusturmak icin URL duzenlenir_DR")
     public void stdudentOlusturmakIcinURLDuzenlenir_DR() {
@@ -41,7 +44,7 @@ public class US15_ApiStepDefinitions {
 
     @When("Stdudent olusturmak icin POST Request gonderili_DR")
     public void stdudentOlusturmakIcinPOSTRequestGonderili_DR() {
-    response =  given(spec).body(payload).when().post("{first}/{first}");
+    response =  given(spec).body(payload).when().post("{first}/{second}");
     actualData = response.as(ResponsePojo.class);
     }
     @Then("Status kodun {int} oldugu dogrulanir_DR")
@@ -82,35 +85,34 @@ public class US15_ApiStepDefinitions {
     }
     @And("Student getStudentById icin beklenen veriler duzenlenir_DB")
     public void studentGetStudentByIdIcinBeklenenVerilerDuzenlenir_DB() {
-        object = new ObjectPojo(studentId, "durdukaya","564-67-8967", "Durdu","Kaya","2002-09-09","Balkan","989-321-7654","FEMALE","Ayse","Ali",1452,2179, "Merle","Pacocha","linnea.rohan@yahoo.com","balkan@gmail.com", false);
+      expectedData = new ResponseGetPojo(false,"layten.vihaan@free2ducks.com",1339,"Jennet","Bahar","2002-09-09","Balkan","balkan@gmail.com","Ali","FEMALE","Ayse","Durdu","989-321-7654","564-67-8967",1542,"Kaya","durdukaya");
+
     }
 
     @When("Student getStudentById icin GET Request gonderilir ve Response alinir_DB")
     public void studentGetStudentByIdIcinGETRequestGonderilirVeResponseAlinir_DB() {
-        response = given(spec).when().get("{first}/{students}");
-        actualData = response.as(ResponsePojo.class);
+        response = given(spec).when().get("{first}/{second}");
+        actualDataGetById = response.as(ResponseGetPojo.class);
     }
 
     @Then("Student getStudentById icin gelen Response dogrulanir_DB")
     public void studentGetStudentByIdIcinGelenResponseDogrulanir_DB() {
-        assertEquals(object.getId(), actualData.getObject().getId());
-        assertEquals(object.getUsername(), actualData.getObject().getUsername());
-        assertEquals(object.getSsn(), actualData.getObject().getSsn());
-        assertEquals(object.getName(), actualData.getObject().getName());
-        assertEquals(object.getSurname(), actualData.getObject().getSurname());
-        assertEquals(object.getBirthDay(), actualData.getObject().getBirthDay());
-        assertEquals(object.getBirthPlace(), actualData.getObject().getBirthPlace());
-        assertEquals(object.getPhoneNumber(), actualData.getObject().getPhoneNumber());
-        assertEquals(object.getGender(), actualData.getObject().getGender());
-        assertEquals(object.getMotherName(), actualData.getObject().getMotherName());
-        assertEquals(object.getFatherName(), actualData.getObject().getFatherName());
-        assertEquals(object.getStudentNumber(), actualData.getObject().getStudentNumber());
-        assertEquals(object.getAdvisorTeacherId(), actualData.getObject().getAdvisorTeacherId());
-        assertEquals(object.getAdvisorTeacherName(), actualData.getObject().getAdvisorTeacherName());
-        assertEquals(object.getAdvisorTeacherSurname(), actualData.getObject().getAdvisorTeacherSurname());
-        assertEquals(object.getAdvisorTeacherEmail(), actualData.getObject().getAdvisorTeacherEmail());
-        assertEquals(object.getEmail(), actualData.getObject().getEmail());
-        assertEquals(object.isActive(), actualData.getObject().isActive());
+        assertEquals(expectedData.getUsername(), actualDataGetById.getUsername());
+        assertEquals(expectedData.getSsn(), actualDataGetById.getSsn());
+        assertEquals(expectedData.getName(), actualDataGetById.getName());
+        assertEquals(expectedData.getSurname(), actualDataGetById.getSurname());
+        assertEquals(expectedData.getBirthDay(), actualDataGetById.getBirthDay());
+        assertEquals(expectedData.getBirthPlace(), actualDataGetById.getBirthPlace());
+        assertEquals(expectedData.getPhoneNumber(), actualDataGetById.getPhoneNumber());
+        assertEquals(expectedData.getGender(), actualDataGetById.getGender());
+        assertEquals(expectedData.getMotherName(), actualDataGetById.getMotherName());
+        assertEquals(expectedData.getFatherName(), actualDataGetById.getFatherName());
+        assertEquals(expectedData.getAdvisorTeacherId(), actualDataGetById.getAdvisorTeacherId());
+        assertEquals(expectedData.getAdvisorTeacherName(), actualDataGetById.getAdvisorTeacherName());
+        assertEquals(expectedData.getAdvisorTeacherSurname(), actualDataGetById.getAdvisorTeacherSurname());
+        assertEquals(expectedData.getAdvisorTeacherEmail(), actualDataGetById.getAdvisorTeacherEmail());
+        assertEquals(expectedData.getEmail(), actualDataGetById.getEmail());
+        assertEquals(expectedData.isActive(), actualDataGetById.isActive());
 
 
     }
@@ -119,25 +121,38 @@ public class US15_ApiStepDefinitions {
     public void studentUpdateIcinURLDuzenlenir_DB() {
         //https://managementonschools.com/app/students/update/1
         setup(ConfigReader.getProperty("userName_DB"), ConfigReader.getProperty("password_DB"));
-        spec.pathParams("first","students", "second","students","third",studentId);
+        spec.pathParams("first","students", "second","update","third",studentId);
     }
 
     @And("Student update icin beklenen veriler duzenlenir_DB")
     public void studentUpdateIcinBeklenenVerilerDuzenlenir_DB() {
-        payload = new StudentPostPojo(1339, "2002-09-09", "Dubai","balkan@gmail.com", "Ali","FEMALE","Ayse","Durdu","Balkan@2002","989-321-7654", "564-67-8967","Kaya","durdukaya");
+        payloadUpdt = new StudentPostPojo(1339,"2002-09-09","Dubai","balkan@gmail.com","Ali","FEMALE", "Ayse","Durdu","Balkan@2002","989-321-7654", "564-67-8967","Kaya","durdukaya");
+
 
     }
 
     @When("Student update icin PUT Request gonderilir ve Response alinir_DB")
     public void studentUpdateIcinPUTRequestGonderilirVeResponseAlinir_DB() {
-        response=given(spec).body(payload).when().put("{first}/{second}/{third}");
+        response=given(spec).body(payloadUpdt).when().put("{first}/{second}/{third}");
         response.prettyPrint();
-        actualData =  response.as(ResponsePojo.class);
+        actualDataUpdt =  response.as(ResponseStdUpdtPojo.class);
 
     }
     @Then("Student uptadete icin gelen Response dogrulanir_DB")
     public void studentUptadeteIcinGelenResponseDogrulanir_DB() {
-
+        assertEquals(payloadUpdt.getAdvisorTeacherId(), actualDataUpdt.getObject().getAdvisorTeacherId());
+        assertEquals(payloadUpdt.getBirthDay(), actualDataUpdt.getObject().getBirthDay());
+        assertEquals(payloadUpdt.getBirthPlace(), actualDataUpdt.getObject().getBirthPlace());
+        assertEquals(payloadUpdt.getEmail(), actualDataUpdt.getObject().getEmail());
+        assertEquals(payloadUpdt.getGender(), actualDataUpdt.getObject().getGender());
+        assertEquals(payloadUpdt.getFatherName(), actualDataUpdt.getObject().getFatherName());
+        assertEquals(payloadUpdt.getMotherName(), actualDataUpdt.getObject().getMotherName());
+        assertEquals(payloadUpdt.getName(), actualDataUpdt.getObject().getName());
+        assertEquals(payloadUpdt.getPhoneNumber(), actualDataUpdt.getObject().getPhoneNumber());
+        assertEquals(payloadUpdt.getSsn(), actualDataUpdt.getObject().getSsn());
+        assertEquals(payloadUpdt.getUsername(), actualDataUpdt.getObject().getUsername());
+        assertEquals(payloadUpdt.getSurname(), actualDataUpdt.getObject().getSurname());
+        assertEquals("Student updated Successfully", actualDataUpdt.getMessage());
     }
 
 
@@ -148,9 +163,13 @@ public class US15_ApiStepDefinitions {
 
     @Given("Student Delete icin URL duzenlenir")
     public void studentDeleteIcinURLDuzenlenir() {
+        setup(ConfigReader.getProperty("userName_DB"), ConfigReader.getProperty("password_DB"));
+        spec.pathParams("first","students","second","delete","third",studentId);
     }
 
     @When("Student Delete icin DELETE Request gonderilir ve Response alinir")
     public void studentDeleteIcinDELETERequestGonderilirVeResponseAlinir() {
+        response=given(spec).when().delete("{first}/{second}/{third}");
+        response.prettyPrint();
     }
 }

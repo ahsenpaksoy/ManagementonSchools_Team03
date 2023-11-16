@@ -1,8 +1,8 @@
-package pojos.studentInfoManagement;
+package pojos.studentManagement.studentUpdate;
 
 import java.io.Serializable;
 
-public class ObjectPojo implements Serializable {
+public class ObjectStdtUpdtPojo implements Serializable {
 	private int id;
 	private String username;
 	private String ssn;
@@ -22,10 +22,10 @@ public class ObjectPojo implements Serializable {
 	private String email;
 	private boolean active;
 
-	public ObjectPojo() {
+	public ObjectStdtUpdtPojo() {
 	}
 
-	public ObjectPojo(int id, String username, String ssn, String name, String surname, String birthDay, String birthPlace, String phoneNumber, String gender, String motherName, String fatherName, int studentNumber, int advisorTeacherId, String advisorTeacherName, String advisorTeacherSurname, String advisorTeacherEmail, String email, boolean active) {
+	public ObjectStdtUpdtPojo(int id, String username, String ssn, String name, String surname, String birthDay, String birthPlace, String phoneNumber, String gender, String motherName, String fatherName, int studentNumber, int advisorTeacherId, String advisorTeacherName, String advisorTeacherSurname, String advisorTeacherEmail, String email, boolean active) {
 		this.id = id;
 		this.username = username;
 		this.ssn = ssn;
