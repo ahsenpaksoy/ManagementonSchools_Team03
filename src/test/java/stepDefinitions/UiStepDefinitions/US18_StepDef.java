@@ -11,18 +11,19 @@ import static org.junit.Assert.*;
 
 public class US18_StepDef {
 
-    Actions actions = new Actions(Driver.getDriver());
 
     TeacherPage tPage = new TeacherPage();
+    Actions actions = new Actions(Driver.getDriver());
+
     @And("kullanici Choose Lesson'dan ders secer_IO")
     public void kullaniciChooseLessonDanDersSecer_IO() {
-        ReusableMethods.ddmIndex(tPage.chooseLessonDDM_IO, 1);
+        ReusableMethods.ddmIndex(tPage.chooseLessonDDM_IO,1);
         ReusableMethods.bekle(2);
     }
 
     @And("kullanici Choose Student'den ogrenci secer_IO")
     public void kullaniciChooseStudentDenOgrenciSecer_IO() {
-        ReusableMethods.ddmIndex(tPage.chooseStudentDDM_IO, 19);
+        ReusableMethods.ddmIndex(tPage.chooseStudentDDM_IO, 25);
         ReusableMethods.bekle(2);
     }
 
@@ -48,7 +49,7 @@ public class US18_StepDef {
     }
     @And("kulanici Edit butonuna tiklar_IO")
     public void kulaniciEditButonunaTiklar_IO() {
-        tPage.editButonuInfoList_IO.click();
+        ReusableMethods.click(tPage.editButonuInfoList_IO);
         ReusableMethods.bekle(2);
     }
     @And("kullanici Acilan pencerede Absentee kutusundan devamsizligi gunceller_IO")
@@ -72,7 +73,6 @@ public class US18_StepDef {
         tPage.finalExamKutusuUpdate_IO.sendKeys(ConfigReader.getProperty("finalNotu1_IO"));
         ReusableMethods.bekle(2);
     }
-
     @And("kullanici Info Note kutusundan Bilgi notunu gunceller_IO")
     public void kullaniciInfoNoteKutusundanBilgiNotunuGunceller_IO() {
         ReusableMethods.click(tPage.infoNoteKutusuUpdate_IO);
@@ -92,16 +92,17 @@ public class US18_StepDef {
         ReusableMethods.visibleWait(tPage.studentInfoUpdatedSuccesfullyYazisi_IO, 3);
         assertTrue(tPage.studentInfoUpdatedSuccesfullyYazisi_IO.isDisplayed());
     }
-
     @And("kullanici Delete simgesine tiklar Ogrenci bilgilerinin silindigini dogrular_IO")
     public void kullaniciDeleteSimgesineTiklarOgrenciBilgilerininSilindiginiDogrular_IO() {
-       ReusableMethods.visibleWait(tPage.studentInfoDeletedSuccessfullyYazisi_IO,3);
-       assertTrue(tPage.studentInfoDeletedSuccessfullyYazisi_IO.isDisplayed());
-
+        Driver.getDriver().navigate().refresh();
+        tPage.deleteButonuInfoList_IO.click();
+        ReusableMethods.visibleWait(tPage.studentInfoDeletedSuccessfullyYazisi_IO,3);
+        assertTrue(tPage.studentInfoDeletedSuccessfullyYazisi_IO.isDisplayed());
     }
 
     @And("kullanici Delete simgesine tiklar")
     public void kullaniciDeleteSimgesineTiklar() {
-        ReusableMethods.click(tPage.deleteButonuInfoList_IO);
+       // tPage.deleteButonuInfoList_IO.click();
+
     }
 }

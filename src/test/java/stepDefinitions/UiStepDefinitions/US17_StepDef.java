@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
+import io.cucumber.java.en.When;
 import org.openqa.selenium.Keys;
 
 import pages.TeacherPage;
@@ -104,7 +105,7 @@ public class US17_StepDef {
     @And("kullanici Midterm Exam kutusuna Sifirdan kucuk not girilemedigini dogrular_IO")
     public void kullaniciMidtermExamKutusunaSifirdanKucukNotGirilemediginiDogrular_IO() {
         tPage.submitButonu_IO.click();
-        ReusableMethods.visibleWait(tPage.sifirdanBuyukVeEsitUyariYazisi_IO, 5);
+        ReusableMethods.visibleWait(tPage.sifirdanBuyukVeEsitUyariYazisi_IO, 3);
         assertTrue(tPage.sifirdanBuyukVeEsitUyariYazisi_IO.isDisplayed());
     }
     @And("kullanici Midterm Exam kutusuna Midterm notu girer_IO")
@@ -122,9 +123,12 @@ public class US17_StepDef {
     @And("kullanici Final Exam kutusuna Yuzden buyuk not girilemedigini dogrular_IO")
     public void kullaniciFinalExamKutusunaYuzdenBuyukNotGirilemediginiDogrular_IO() {
         tPage.submitButonu_IO.click();
-        ReusableMethods.visibleWait(tPage.yuzdenKucukVeEsitUyariYazisi_IO, 5);
+        ReusableMethods.visibleWait(tPage.yuzdenKucukVeEsitUyariYazisi_IO, 3);
         assertTrue(tPage.yuzdenKucukVeEsitUyariYazisi_IO.isDisplayed());
     }
+
+
+
 }
 
 

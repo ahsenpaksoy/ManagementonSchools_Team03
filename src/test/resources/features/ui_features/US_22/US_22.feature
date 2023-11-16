@@ -5,6 +5,7 @@ Feature: US_22 Admin Ekleme
     And kullanici acilan pencerede kayitli Admin "adminUserName_IO" ve "adminPassword_IO" bilgilerini girer_IO
     And kullanici login butonuna tiklar_IO
     And kullanici Admin Management sayfasina gecildigini dogrular_IO
+    And kullanici sayfayi yeniler
 
   Scenario: TC_01 Admin Ekleme
     And kullanici Add Admin bolumundeki Name kutusuna isim girer
@@ -17,7 +18,6 @@ Feature: US_22 Admin Ekleme
     And kullanici User Name kutusuna kullanici adi girer
     And kullanici Password kutusuna gecerli bir password girer
     And kullanici Submit butonuna tiklar ve Admin List'e admin eklendigini dogrular_IO
-    And kullanici sayfayi yeniler
 
   Scenario: TC_02 Name kutusu bos birakilarak Admin eklenememeli
     And kullanici Add Admin bolumundeki Name kutusunu bos birakir
@@ -42,7 +42,6 @@ Feature: US_22 Admin Ekleme
     And kullanici User Name kutusuna kullanici adi girer
     And kullanici Password kutusuna gecerli bir password girer
     And kullanici Surname kutusu Required uyarisi aldigini dogrular_IO
-
 
   Scenario: TC_04 Birth Place kutusu bos birakilarak Admin eklenememeli
     And kullanici Add Admin bolumundeki Name kutusuna isim girer
@@ -69,7 +68,6 @@ Feature: US_22 Admin Ekleme
     And kullanici Password kutusuna gecerli bir password girer
     And kullanici Submit butonuna tiklar ve admin eklenemedigini dogrular_IO
 
-
   Scenario: TC_06 Date Of Birth kutusu bos birakilarak Admin eklenememeli
     And kullanici Add Admin bolumundeki Name kutusuna isim girer
     And kullanici Surname kutusuna soyisim girer
@@ -81,7 +79,6 @@ Feature: US_22 Admin Ekleme
     And kullanici User Name kutusuna kullanici adi girer
     And kullanici Password kutusuna gecerli bir password girer
     And kullanici Date Of Birth kutusu Required uyarisi aldigini dogrular_IO
-
 
   Scenario: TC_07 Phone kutusu bos birakilarak Admin eklenememeli
     And kullanici Add Admin bolumundeki Name kutusuna isim girer
@@ -95,7 +92,6 @@ Feature: US_22 Admin Ekleme
     And kullanici Password kutusuna gecerli bir password girer
     And kullanici Phone kutusu Required uyarisi aldigini dogrular_IO
 
-
   Scenario: TC_08 Ssn kutusu bos birakilarak Admin eklenememeli
     And kullanici Add Admin bolumundeki Name kutusuna isim girer
     And kullanici Surname kutusuna soyisim girer
@@ -107,7 +103,6 @@ Feature: US_22 Admin Ekleme
     And kullanici User Name kutusuna kullanici adi girer
     And kullanici Password kutusuna gecerli bir password girer
     And kullanici Ssn kutusu Required uyarisi aldigini dogrular_IO
-    And kullanici sayfayi yeniler
 
   Scenario: TC_09 User Name kutusu bos birakilarak Admin eklenememeli
     And kullanici Add Admin bolumundeki Name kutusuna isim girer
@@ -121,7 +116,6 @@ Feature: US_22 Admin Ekleme
     And kullanici Password kutusuna gecerli bir password girer
     And kullanici User Name kutusu Required uyarisi aldigini dogrular_IO
 
-
   Scenario: TC_10 Password kutusu bos birakilarak Admin eklenememeli
     And kullanici Add Admin bolumundeki Name kutusuna isim girer
     And kullanici Surname kutusuna soyisim girer
@@ -134,7 +128,6 @@ Feature: US_22 Admin Ekleme
     And kullanici Password kutusunu bos birakir
     And kullanici Enter Your Password uyarisi aldigini dogrular_IO
 
-
   Scenario: TC_11 Ssn kutusuna patterne uygun olmayan bir numara girerek Admin eklenememeli
     And kullanici Add Admin bolumundeki Name kutusuna isim girer
     And kullanici Surname kutusuna soyisim girer
@@ -146,8 +139,6 @@ Feature: US_22 Admin Ekleme
     And kullanici User Name kutusuna kullanici adi girer
     And kullanici Password kutusuna gecerli bir password girer
     And kullanici Submit butonuna tiklar Please enter valid SSN number uyarisi aldigini dogrular_IO
-
-
 
   Scenario: TC_12 Password kutusuna 7 karakterli bir password girerek Admin eklenememeli
     And kullanici Add Admin bolumundeki Name kutusuna isim girer

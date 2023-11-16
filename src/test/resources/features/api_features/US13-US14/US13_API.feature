@@ -25,10 +25,7 @@ Feature: Teacher Management
     Then  Teacher uptadete icin gelen Response dogrulanir
 
 
-
-
-
-  Scenario:
+  Scenario: Olusturulan Teacher silme testi.
     Given Teacher Delete icin URL duzenlenir
     When  Teacher Delete icin DELETE Request gonderilir ve Response alinir
     Then  Status kodun 200 oldugu dogrulanirSA

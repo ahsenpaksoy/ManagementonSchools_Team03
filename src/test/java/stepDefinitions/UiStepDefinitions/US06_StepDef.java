@@ -194,7 +194,8 @@ public class US06_StepDef {
         Assert.assertTrue(ReusableMethods.invalidSA(required));
     }
     @And("{int} saniye beklerKI")
-    public void saniyeBeklerKI(int arg0) {
+    public void saniyeBeklerKI(int bekle) {
+
         ReusableMethods.bekle(2);
     }
 
@@ -202,5 +203,54 @@ public class US06_StepDef {
     public void sayfaKapanirKI() {
         Driver.closeDriver();
     }
+
+    @And("DeanName kutusuna {string} girerKI")
+    public void deannameKutusunaGirer(String name) {
+        deanPage.deanNameKI.sendKeys(name);
+
+    }
+
+    @And("DeanSurName kutusuna {string} girerKI")
+    public void deansurnameKutusunaGirer(String surname) {
+        deanPage.deanSurnameKI.sendKeys(surname);
+    }
+
+    @And("DeanBirthPlace kutusuna {string} girerKI")
+    public void deanbirthplaceKutusunaGirer(String birthplace) {
+        deanPage.deanBirthPlaceKI.sendKeys(birthplace);
+
+    }
+
+    @And("DeanGender {string} secenegini girerKI")
+    public void deangenderSeceneginiGirer(String gender) {
+        deanPage.genderSecimKI.click();
+    }
+
+    @And("DeanDateOfBirth kutusuna {string} girerKI")
+    public void deandateofbirthKutusunaGirer(String birth) {
+        deanPage.deanBirthDayKI.sendKeys(birth);
+    }
+
+    @And("DeanPhone kutusuna {string} girerKI")
+    public void deanphoneKutusunaGirer(String nummer) {
+        deanPage.deanPhoneNummerKI.sendKeys(nummer);
+    }
+    @And("DeanSSN kutusuna {string} girerKI")
+    public void deanssnKutusunaGirer(String ssn) {
+        deanPage.deanSSNKI.sendKeys(ssn);
+    }
+
+    @And("DeanUserName kutusuna {string} girerKI")
+    public void deanusernameKutusunaGirer(String username) {
+        deanPage.deanUserNameKI.sendKeys(username);
+
+    }
+
+    @And("DeanPassword kutusuna sifre girerKI")
+    public void deanpasswordKutusunaSifreGirer() {
+        deanPage.deanPassordKI.sendKeys("Aa349712");
+
+    }
+
 
 }

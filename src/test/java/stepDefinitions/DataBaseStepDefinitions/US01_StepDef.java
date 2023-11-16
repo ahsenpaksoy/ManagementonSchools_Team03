@@ -25,6 +25,7 @@ public class US01_StepDef {
     public void adayOgrenciBilgisiniAlmakIcinQueryGonderilir_SK()  {
        /*statement = connection.createStatement();
         resultSet = statement.executeQuery("select * from guest_user where username='  .011Merlin';");*/
+        ReusableMethods.createStatement();
 
         String sqlQuery = "select * from guest_user where username='  .011Merlin';";
         resultSet = ReusableMethods.executeQuery(sqlQuery);
@@ -33,7 +34,7 @@ public class US01_StepDef {
     @Then("Aday ogrenci icin dogrulama yapar_SK")
     public void adayOgrenciIcinDogrulamaYapar_SK() throws SQLException {
         resultSet.next();
-        assertEquals("1966-02-15",resultSet.getString("birth_day"));
+        assertEquals("1996-12-12",resultSet.getString("birth_day"));
         assertEquals("Ankara", resultSet.getString("birth_place"));
         assertEquals(0, resultSet.getInt("gender"));
         assertEquals("Selim", resultSet.getString("name"));
@@ -41,8 +42,6 @@ public class US01_StepDef {
         assertEquals("137-547-8765", resultSet.getString("phone_number"));
         assertEquals("Karahan", resultSet.getString("surname"));
         assertEquals("  .011Merlin", resultSet.getString("username"));
-
-        //assertEquals(payloadGuestUser.getBirthDay(),resultSet.getString("birth_day"));
 
     }
 

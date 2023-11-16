@@ -269,11 +269,11 @@ public WebElement deleteVerifyEp;
     public WebElement logonButonu_IO;
     @FindBy(xpath = "//h3[.='Student Info Management']")
     public WebElement studentInfoManagementYazisi_IO;
-    @FindBy(css = "#lessonId")
+    @FindBy(xpath = "(//select[@class='form-select'])[1]")
     public WebElement chooseLessonDDM_IO;
-    @FindBy(css = "#studentId")
+    @FindBy(xpath = "(//select[@class='form-select'])[2]")
     public WebElement chooseStudentDDM_IO;
-    @FindBy(css = "#educationTermId")
+    @FindBy(xpath = "(//select[@class='form-select'])[3]")
     public WebElement chooseEducationTermDDM_IO;
     @FindBy(css = "#absentee")
     public WebElement absenteeKutusu_IO;
@@ -310,9 +310,6 @@ public WebElement deleteVerifyEp;
     @FindBy(xpath = "(//*[.='Student Info deleted Successfully'])[5]")
     public WebElement studentInfoDeletedSuccessfullyYazisi_IO;
 
-    @FindBy(xpath = "(//tbody//td)[9]")
-    public WebElement editButonu_IO;
-
     @FindBy(xpath = "(//*[@id='absentee'])[2]")
     public WebElement absenteeKutusuUpdate_IO;
 
@@ -325,7 +322,7 @@ public WebElement deleteVerifyEp;
     @FindBy(xpath = "(//*[@id='infoNote'])[2]")
     public WebElement infoNoteKutusuUpdate_IO;
 
-    @FindBy(xpath = "(//table//td)[9]")
+    @FindBy(xpath = "//button[@class='text-dark btn btn-outline-info']")
     public WebElement editButonuInfoList_IO;
 
     @FindBy(xpath = "//i[@class='fa-solid fa-trash']")
