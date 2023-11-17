@@ -8,7 +8,11 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import utilities.ConfigReader;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import static baseUrl.BaseUrl.setup;
 import static baseUrl.BaseUrl.spec;
 import static io.restassured.RestAssured.given;
@@ -20,6 +24,8 @@ public class US02_StepDefinition {
     Response response;
     JsonPath json;
     protected static int id;
+    Map<String,String> expectedData_delete;
+    Map<String ,String> actualData_delete;
 
     @Given("{string} yetkisi ile giris yapilir_SK")
     public void yetkisiIleGirisYapilir_SK(String admin) {
@@ -74,6 +80,9 @@ public class US02_StepDefinition {
         //https://managementonschools.com/app/guestUser/delete/id
 
         spec.pathParams("first", "guestUser", "second", "delete","third", id);
+        expectedData_delete = new HashMap<>();
+        expectedData_delete.put("httpStatus","OK");
+        expectedData_delete.put("message"," Guest User deleted Successful");
 
     }
     @When("Guest User kaydi silme islemi icin DELETE Request gonderilir ve Response alinir")
@@ -81,9 +90,12 @@ public class US02_StepDefinition {
 
         response = given(spec).when().delete("{first}/{second}/{third}");
         response.prettyPrint();
+
+        actualData_delete = response.as(HashMap.class);
     }
     @Then("DELETE icin Status kodun {int} oldugu dogrulanir_SK")
     public void deleteIcinStatusKodunOlduguDogrulanir_SK(int statusCode) {
         assertEquals(statusCode, response.statusCode());
+        assertEquals(expectedData_delete,actualData_delete);
     }
 }
