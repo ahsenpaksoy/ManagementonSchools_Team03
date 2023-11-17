@@ -1,8 +1,8 @@
-package pojos.US17_US18_Pojo.getStudentInfo;
+package pojos.studentInfoManagement.US17_US18_Pojo.putStudentInfo;
 
 import java.io.Serializable;
 
-public class ResponseStudentInfoGetPojo implements Serializable {
+public class ObjectPutPojo implements Serializable {
 	private int id;
 	private Object midtermExam;
 	private Object finalExam;
@@ -17,10 +17,10 @@ public class ResponseStudentInfoGetPojo implements Serializable {
 	private boolean compulsory;
 	private String note;
 
-	public ResponseStudentInfoGetPojo() {
+	public ObjectPutPojo() {
 	}
 
-	public ResponseStudentInfoGetPojo(int id, Object midtermExam, Object finalExam, int absentee, String infoNote, String lessonName, int lessonId, int creditScore, int educationTermId, Object average, StudentResponsePojo studentResponse, boolean compulsory, String note) {
+	public ObjectPutPojo(int id, Object midtermExam, Object finalExam, int absentee, String infoNote, String lessonName, int lessonId, int creditScore, int educationTermId, Object average, StudentResponsePojo studentResponse, boolean compulsory, String note) {
 		this.id = id;
 		this.midtermExam = midtermExam;
 		this.finalExam = finalExam;
@@ -43,6 +43,7 @@ public class ResponseStudentInfoGetPojo implements Serializable {
 	public int getId(){
 		return id;
 	}
+
 
 	public void setMidtermExam(Object midtermExam){
 		this.midtermExam = midtermExam;
@@ -143,7 +144,7 @@ public class ResponseStudentInfoGetPojo implements Serializable {
 	@Override
  	public String toString(){
 		return 
-			"ResponseStudentInfoGetPojo{" + 
+			"ObjectPojo{" + 
 			"id = '" + id + '\'' + 
 			",midtermExam = '" + midtermExam + '\'' + 
 			",finalExam = '" + finalExam + '\'' + 

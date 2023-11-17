@@ -1,4 +1,4 @@
-package pojos.US22_Pojo;
+package pojos.adminManagement.US22_Pojo;
 
 import java.io.Serializable;
 
