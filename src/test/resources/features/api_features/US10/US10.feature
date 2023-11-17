@@ -1,7 +1,7 @@
 Feature: US10 Lesson Program Controller
 
   #Vıce Dean ile olusturulan  kayit listesi doğrulanır
-  Scenario: Vıce Dean teacher a ders atandıgını doğrular
+  Scenario: Vıce Dean ders programi olusturabildigini doğrular
     Given "Vıce Dean" ile giris yapilir YD
     And Kayitli Vıce Dean icin URL duzenlenir YD
     Then Kayitli Vice Dean icin payload duzenlenir
