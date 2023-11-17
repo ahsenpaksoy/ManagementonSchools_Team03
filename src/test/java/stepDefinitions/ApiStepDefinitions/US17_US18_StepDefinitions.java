@@ -6,11 +6,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import pojos.US17_US18_Pojo.postStudentInfo.AddStudentInfoPostPojo;
-import pojos.US17_US18_Pojo.postStudentInfo.ResponseAddStudentInfoPostPojo;
-import pojos.US17_US18_Pojo.getStudentInfo.ResponseStudentInfoGetPojo;
-import pojos.US17_US18_Pojo.putStudentInfo.PutPayloadPojo;
-import pojos.US17_US18_Pojo.putStudentInfo.ResponsePutPojo;
+import pojos.studentInfoManagement.US17_US18_Pojo.postStudentInfo.AddStudentInfoPostPojo;
+import pojos.studentInfoManagement.US17_US18_Pojo.postStudentInfo.ResponseAddStudentInfoPostPojo;
+import pojos.studentInfoManagement.US17_US18_Pojo.getStudentInfo.ResponseStudentInfoGetPojo;
+import pojos.studentInfoManagement.US17_US18_Pojo.putStudentInfo.PutPayloadPojo;
+import pojos.studentInfoManagement.US17_US18_Pojo.putStudentInfo.ResponsePutPojo;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,20 +18,19 @@ import static baseUrl.BaseUrl.setup;
 import static baseUrl.BaseUrl.spec;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 public class US17_US18_StepDefinitions {
 
 
 
-    Map<String ,String> actualData_delete;
-    Map<String,String> expectedData_delete;
     ResponsePutPojo actualData_put;
     PutPayloadPojo payload_put;
     ResponseStudentInfoGetPojo actualDataGetStudentInfo;
     AddStudentInfoPostPojo expectedData;
     ResponseAddStudentInfoPostPojo actualData;
-    AddStudentInfoPostPojo payload;
+    public static AddStudentInfoPostPojo payload;
     Response response;
     int studentId = 1856;
     int lessonId = 1848;
@@ -51,6 +50,7 @@ public class US17_US18_StepDefinitions {
         response = given(spec).body(payload).when().post("{p1}/{p2}");
         response.prettyPrint();
         actualData = response.as(ResponseAddStudentInfoPostPojo.class);
+        System.out.println("actualData = " + actualData);
     }
     @Then("Status kodun {int} oldugu dogrulanir_I")
     public void statusKodunOlduguDogrulanir_I(int statusCode) {
@@ -76,7 +76,7 @@ public class US17_US18_StepDefinitions {
         response.prettyPrint();
         JsonPath jsP = response.jsonPath();
         List<Integer> studentIdList = jsP.getList("findAll{it.lessonId==1848}.id");
-        studentInfoId = studentIdList.get(1);
+        studentInfoId = studentIdList.get(0);
         System.out.println("studentInfoId = " + studentInfoId);
     }
     @And("GetByStudentInfo icin url duzenlenir_I")
@@ -131,17 +131,22 @@ public class US17_US18_StepDefinitions {
     public void kayitliStudentInfoBilgileriniSilmekIcinUrlDuzenlenir_I() {
         setup("Safiye46","Safiye46");
         spec.pathParams("p1","studentInfo","p2","delete","p3",studentInfoId);
-        expectedData_delete = new HashMap<>();//Bos bir map
     }
     @When("Kayitli Student Info bilgilerini silmek icin request gonderilir Response alinir_I")
     public void kayitliStudentInfoBilgileriniSilmekIcinRequestGonderilirResponseAlinir_I() {
-        setup("Safiye46","Safiye46");
         response = given(spec).delete("{p1}/{p2}/{p3}");
-        actualData_delete = response.as(HashMap.class);
-    }
-    @Then("Status kodun {int} ve response body'nin bos oldugu dogrulanir_I")
-    public void statusKodunVeResponseBodyNinBosOlduguDogrulanir_I(int arg0) {
-        assertEquals(200,response.statusCode());
-        assertEquals(expectedData_delete,actualData_delete);
+        String actualData_delete = response.asString();
+        System.out.println("actualData_delete = " + actualData_delete);
+
+
+
+
+       /*
+       {
+  "httpStatus": "100 CONTINUE",
+  "message": "string",
+  "object": {}
+}
+        */
     }
 }

@@ -1,4 +1,4 @@
-package pojos.US17_US18_Pojo.putStudentInfo;
+package pojos.studentInfoManagement.US17_US18_Pojo.putStudentInfo;
 
 import java.io.Serializable;
 

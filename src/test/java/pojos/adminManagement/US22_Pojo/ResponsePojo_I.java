@@ -1,26 +1,29 @@
-package pojos.US17_US18_Pojo.postStudentInfo;
+package pojos.adminManagement.US22_Pojo;
+
+import io.cucumber.core.internal.com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.io.Serializable;
 
-public class ResponseAddStudentInfoPostPojo implements Serializable {
-	private ObjectPojo object;
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class ResponsePojo_I implements Serializable {
+	private ObjectPojo_I object;
 	private String message;
 	private String httpStatus;
 
-	public ResponseAddStudentInfoPostPojo() {
+	public ResponsePojo_I() {
 	}
 
-	public ResponseAddStudentInfoPostPojo(ObjectPojo object, String message, String httpStatus) {
+	public ResponsePojo_I(ObjectPojo_I object, String message, String httpStatus) {
 		this.object = object;
 		this.message = message;
 		this.httpStatus = httpStatus;
 	}
 
-	public void setObject(ObjectPojo object){
+	public void setObject(ObjectPojo_I object){
 		this.object = object;
 	}
 
-	public ObjectPojo getObject(){
+	public ObjectPojo_I getObject(){
 		return object;
 	}
 
@@ -43,7 +46,7 @@ public class ResponseAddStudentInfoPostPojo implements Serializable {
 	@Override
  	public String toString(){
 		return 
-			"ResponseAddStudentInfoPostPojo{" + 
+			"ResponsePojo{" + 
 			"object = '" + object + '\'' + 
 			",message = '" + message + '\'' + 
 			",httpStatus = '" + httpStatus + '\'' + 

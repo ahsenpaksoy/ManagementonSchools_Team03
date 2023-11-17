@@ -5,15 +5,15 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
-import pojos.US22_Pojo.AdminPayloadPojo_I;
-import pojos.US22_Pojo.ResponsePojo_I;
+import pojos.adminManagement.US22_Pojo.AdminPayloadPojo_I;
+import pojos.adminManagement.US22_Pojo.ResponsePojo_I;
 import static baseUrl.BaseUrl.setup;
 import static baseUrl.BaseUrl.spec;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 
-public class US22_StepDefinition {
+public class US22_StepDefinitions {
 
 
 
