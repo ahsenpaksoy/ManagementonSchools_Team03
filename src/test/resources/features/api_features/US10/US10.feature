@@ -1,4 +1,4 @@
-Feature: US10 Lesson Program Controller
+Feature: US10 Lesson Programs Controller
 
   #Vıce Dean ile olusturulan  kayit listesi doğrulanır
   Scenario: Vıce Dean ders programi olusturabildigini doğrular

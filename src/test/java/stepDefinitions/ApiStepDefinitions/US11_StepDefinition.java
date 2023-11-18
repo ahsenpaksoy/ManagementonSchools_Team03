@@ -23,7 +23,7 @@ public class US11_StepDefinition {
 
     @Given("vice dean sends getAll request for lesson program")
     public void viceDeanSendsGetAllRequestForLessonProgram() {
-        Hooks.spec.pathParams("first", "lessonPrograms","second","getAll");
+        //Hooks.spec.pathParams("first", "lessonPrograms","second","getAll");
         //response = given(Hooks.spec).when().get("/{first}/{second}");
         //response.prettyPrint();
 
