@@ -20,6 +20,7 @@ public class US10_StepDefinition {
     PostPojoYD payload;
     Response response;
     ResponseYDPojo actualdata;
+    public static Integer lessonProgramId;
     @Given("{string} ile giris yapilir YD")
     public void ile_giris_yapilir_yd(String string) {
       setup("Bella", "Batch171");
@@ -49,6 +50,8 @@ public class US10_StepDefinition {
         response = given(spec).body(payload).when().post("{first}/{second}");
         response.prettyPrint();
         actualdata = response.as(ResponseYDPojo.class);
+        lessonProgramId = actualdata.getObject().getLessonProgramId();
+        System.out.println(lessonProgramId);
     }
     @Then("Kayitli Vice Dean icin gelen response dogrulanir YD")
     public void kayitliViceDeanIcinGelenResponseDogrulanirYD() {
